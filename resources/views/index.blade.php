@@ -156,7 +156,7 @@
         </div>
     </section>
 
-    <section class="testimonial-section">
+    {{-- <section class="testimonial-section">
         <div class="container">
             <h2 class="section-title">What our Client say!</h2>
             <div class="testimonial-carousel">
@@ -197,7 +197,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <section class="faq-section">
         <div class="container">
@@ -284,12 +284,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        document.querySelectorAll('.faq-question').forEach(item => {
-            item.addEventListener('click', function() {
-                const faqItem = this.parentNode;
-                faqItem.classList.toggle('active');
-            });
-        });
+
     </script>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>

@@ -43,3 +43,10 @@ window.addEventListener('scroll', function() {
         header.classList.remove('scrolled');
     }
 });
+
+document.querySelectorAll('.faq-question').forEach(item => {
+    item.addEventListener('click', function() {
+        const faqItem = this.parentNode;
+        faqItem.classList.toggle('active');
+    });
+});

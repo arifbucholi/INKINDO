@@ -20,6 +20,10 @@ Route::get('/detail-berita', function () {
     return view('detail-berita');
 });
 
+Route::get('/anggota', function () {
+    return view('anggota');
+});
+
 Route::get('/alur', function () {
     return view('alur');
 });
@@ -42,6 +46,22 @@ Route::get('/kode-etik', function () {
 
 Route::get('/struktur-organisasi', function () {
     return view('struktur-organisasi');
+});
+
+Route::get('/produk', function () {
+    return view('produk');
+});
+
+Route::get('/learning-center', function () {
+    return view('learning-center');
+});
+
+Route::get('/konstruksi', function () {
+    return view('konstruksi');
+});
+
+Route::get('/non-konstruksi', function () {
+    return view('non-konstruksi');
 });
 
 Route::get('/indexasli', function () {
@@ -75,7 +95,17 @@ Route::get('/admin2', function () {
 //     return view('welcome');
 // });
 
-// ----------------------------------------------------ADMIN-------------------------------------------------------------- //
+// -----------------------------------------------GUEST------------------------------------------------------------ //
+Route::get('/anggota', [MemberController::class, 'indexUser'])->name('anggota.indexUser');
+Route::get('/anggota/print', [MemberController::class, 'printMembers'])->name('anggota.print');
+Route::get('/anggota/download-template', [MemberController::class, 'downloadTemplate'])->name('anggota.downloadTemplate');
+Route::get('/anggota/download-pdf', [MemberController::class, 'downloadPDF'])->name('anggota.downloadPDF');
+Route::get('/anggota/copy', [MemberController::class, 'copyMembers'])->name('anggota.copy');
+
+
+
+
+// -----------------------------------------------ADMIN------------------------------------------------------------ //
 
 //Route halaman
 Route::get('admin/dashboard', [AdminController::class, 'index'])->name('admin.index');
@@ -87,7 +117,6 @@ Route::get('/anggota/store', [MemberController::class, 'store'])->name('admin.an
 Route::get('/anggota/{id}', [MemberController::class, 'update'])->name('admin.anggota.update');
 Route::delete('/anggota/{id}', [MemberController::class, 'destroy'])->name('admin.anggota.destroy');
 Route::post('/anggota/import', [MemberController::class, 'import'])->name('anggota.import');
-Route::get('/anggota/download-template', [MemberController::class, 'downloadTemplate'])->name('anggota.downloadTemplate');
 
 //Testimoni
 Route::get('admin/messages', [MessagesController::class, 'index'])->name('admin.messages.index');

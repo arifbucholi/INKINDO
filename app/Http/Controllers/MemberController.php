@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Log;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
+use Dompdf\Dompdf;
+use Dompdf\Options;
+
 class MemberController extends Controller
 {
     public function index()
@@ -23,6 +26,17 @@ class MemberController extends Controller
         });
 
         return view('admin.anggota', compact('members'));
+    }
+
+    public function indexUser()
+    {
+        $members = Member::all()->map(function ($member) {
+            $member->diangkat = \Carbon\Carbon::parse($member->diangkat)->format('d-m-Y');
+            $member->tahun_berlaku = \Carbon\Carbon::parse($member->tahun_berlaku)->format('d-m-Y');
+            return $member;
+        });
+
+        return view('anggota', compact('members'));
     }
 
     public function create()
@@ -173,44 +187,123 @@ class MemberController extends Controller
     }
 
     public function downloadTemplate()
-{
-    // Membuat spreadsheet baru
-    $spreadsheet = new Spreadsheet();
-    $sheet = $spreadsheet->getActiveSheet();
+    {
+        // Ambil data member dengan logika yang sama
+        $members = Member::all()->map(function ($member) {
+            $member->diangkat = \Carbon\Carbon::parse($member->diangkat)->format('d-m-Y');
+            $member->tahun_berlaku = \Carbon\Carbon::parse($member->tahun_berlaku)->format('d-m-Y');
+            return $member;
+        });
 
-    // Menetapkan header kolom
-    $headers = [
-        'no',
-        'badan_hukum',
-        'contact_id',
-        'diangkat',
-        'jtm',
-        'nomor_anggota',
-        'status',
-        'tahun_berlaku',
-        'kualifikasi',
-        'name',
-        'address',
-        'city',
-        'postal_code',
-        'director',
-        'work_phone',
-        'mobile_phone',
-        'fax_phone',
-        'email',
-        'kode_etik',
-        'no_sertifikat_kode_etik',
-    ];
+        // Membuat spreadsheet baru
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
 
-    // Mengatur header kolom di spreadsheet
-    $sheet->fromArray($headers, NULL, 'A1');
+        // Menetapkan header kolom
+        $headers = [
+            'No',
+            'Nama Badan Usaha',
+            'Nomor KTA',
+            'Kualifikasi',
+            'Kota',
+            'Direktur',
+        ];
 
-    // Menyimpan spreadsheet sebagai file .xlsx
-    $writer = new Xlsx($spreadsheet);
-    $filePath = public_path('template/member_template.xlsx');
-    $writer->save($filePath);
+        // Mengatur header kolom di spreadsheet
+        $sheet->fromArray($headers, NULL, 'A1');
 
-    // Mengunduh file yang telah dibuat
-    return response()->download($filePath)->deleteFileAfterSend(true);
-}
+        // Menambahkan data member ke spreadsheet
+        $row = 2;
+        foreach ($members as $index => $member) {
+            $sheet->setCellValue('A' . $row, $index + 1);
+            $sheet->setCellValue('B' . $row, $member->badan_hukum . '. ' . $member->name);
+            $sheet->setCellValue('C' . $row, $member->nomor_anggota . '/P/' . $member->jtm . '.JTM');
+            $sheet->setCellValue('D' . $row, $member->kualifikasi);
+            $sheet->setCellValue('E' . $row, $member->city);
+            $sheet->setCellValue('F' . $row, $member->director);
+            $row++;
+        }
+
+        // Pastikan folder template ada
+        $folderPath = public_path('template');
+        if (!file_exists($folderPath)) {
+            mkdir($folderPath, 0755, true);
+        }
+
+        // Menyimpan spreadsheet sebagai file .xlsx
+        $filePath = $folderPath . '/member_template.xlsx';
+        $writer = new Xlsx($spreadsheet);
+        $writer->save($filePath);
+
+        // Mengunduh file yang telah dibuat
+        return response()->download($filePath)->deleteFileAfterSend(true);
+    }
+
+    public function printMembers()
+    {
+        $members = Member::all()->map(function ($member) {
+            $member->diangkat = \Carbon\Carbon::parse($member->diangkat)->format('d-m-Y');
+            $member->tahun_berlaku = \Carbon\Carbon::parse($member->tahun_berlaku)->format('d-m-Y');
+            return $member;
+        });
+
+        return view('members.print', compact('members'));
+    }
+
+    public function downloadPDF()
+    {
+        // Ambil data anggota dari database
+        $members = Member::all()->map(function ($member) {
+            $member->diangkat = \Carbon\Carbon::parse($member->diangkat)->format('d-m-Y');
+            $member->tahun_berlaku = \Carbon\Carbon::parse($member->tahun_berlaku)->format('d-m-Y');
+            return $member;
+        });
+
+        // Render view sebagai HTML
+        $html = view('pdf.member_template', compact('members'))->render();
+        $html = view('pdf.member_template', compact('members'))->render();
+dd($html); // Outputkan HTML untuk debug
+
+
+        // Konfigurasi Dompdf
+        $options = new Options();
+        $options->set('defaultFont', 'Arial'); // Set font default
+        $options->set('isHtml5ParserEnabled', true);
+        $dompdf = new Dompdf($options);
+
+        // Load HTML ke Dompdf
+        $dompdf->loadHtml($html);
+
+        // Set ukuran dan orientasi kertas
+        $dompdf->setPaper('A4', 'portrait'); // Portrait atau landscape
+
+        // Render PDF
+        $dompdf->render();
+
+        // Kirim file PDF ke browser untuk diunduh
+        return response($dompdf->output(), 200)
+            ->header('Content-Type', 'application/pdf')
+            ->header('Content-Disposition', 'attachment; filename="member_data.pdf"');
+    }
+
+    public function copyMembers()
+    {
+        $members = Member::all()->map(function ($member) {
+            $member->diangkat = \Carbon\Carbon::parse($member->diangkat)->format('d-m-Y');
+            $member->tahun_berlaku = \Carbon\Carbon::parse($member->tahun_berlaku)->format('d-m-Y');
+            return $member;
+        });
+
+        $data = '';
+        foreach ($members as $index => $member) {
+            $data .= ($index + 1) . ". " .
+                $member->badan_hukum . '. ' . $member->name . ' - ' .
+                $member->nomor_anggota . '/P/' . $member->jtm . '.JTM, ' .
+                $member->kualifikasi . ', ' .
+                $member->city . ', ' .
+                $member->director . "\n";
+        }
+
+        return response($data)->header('Content-Type', 'text/plain');
+    }
 }

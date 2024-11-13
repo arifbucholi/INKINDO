@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil</title>
+    <title>Sejarah</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="shortcut icon" type="image/png" href="../admin/images/logos/inkindo-kotak.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -135,170 +135,70 @@
 
     <div id="content-container">
         <!-- Konten untuk Pendaftaran Anggota -->
-        <div id="profil-perusahaan" class="content-section active">
-            <section class="steps-section">
-                <p>Sejarah</p>
-            </section>
-        </div>
+        <section class="sejarah-section">
+            <div class="sejarah-image">
+                <img src="../img/galeri/sejarah.png" alt="INKINDO Jawa Timur">
+            </div>
+            <div class="sejarah-content">
+                <h2>Awal Mula Berdirinya dan Tujuan Inkindo Jawa Timur</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur. Turpis laoreet sed id dictum suscipit in risus in egestas.
+                    Et nec sit bibendum orci at sit. Malesuada faucibus cursus et varius. Consequat lectus eget id elit
+                    arcu ut etiam. Et malesuada ipsum eu fusce volutpat scelerisque placerat congue congue. Volutpat id
+                    dignissim semper tempus vitae. Dignissim vitae et convallis nascetur enim.
+                </p>
+                <ul>
+                    <li>Lorem ipsum dolor sit amet consectetur. Turpis laoreet sed id dictum suscipit in risus in
+                        egestas.</li>
+                    <li>Et nec sit bibendum orci at sit. Malesuada faucibus cursus et varius. Consequat lectus eget id
+                        elit arcu ut etiam.</li>
+                    <li>Et malesuada ipsum eu fusce volutpat scelerisque placerat congue congue. Volutpat id dignissim
+                        semper tempus vitae.</li>
+                </ul>
+            </div>
+        </section>
 
-        <!-- Konten untuk Perpanjangan Anggota -->
-        <div id="sejarah-perusahaan" class="content-section">
-            <section class="steps-section">
-                <!-- Konten untuk Perpanjangan Anggota bisa berbeda sesuai kebutuhan -->
-                <div class="step">
-                    <div class="image">
-                        <img src="../img/illustration/login.png" alt="Login">
-                    </div>
-                    <div class="text">
-                        <h2>1. Login</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                </div>
-                <div class="step-reverse">
-                    <div class="text">
-                        <h2>2. Status Anggota</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                    <div class="image">
-                        <img src="../img/illustration/statusAnggota.png" alt="Status Anggota">
+        <section class="timeline-section">
+            <h2 class="timeline-title">Sejarah Kepemimpinan Inkindo Jawa Timur</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-year">1982</div>
+                    <div class="timeline-content">
+                        <img src="../img/galeri/imam.png" alt="Imam Soedrajad" class="timeline-photo">
+                        <div class="timeline-info">
+                            <h2>Masa Bhakti 1982 - 1987</h2>
+                            <p>Imam Soedrajad</p>
+                        </div>
                     </div>
                 </div>
-                <div class="step">
-                    <div class="image">
-                        <img src="../img/illustration/perpanjangan.png" alt="Perpanjangan">
-                    </div>
-                    <div class="text">
-                        <h2>3. Perpanjangan</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                </div>
-                <div class="step-reverse">
-                    <div class="text">
-                        <h2>4. Notifikasi</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                    <div class="image">
-                        <img src="../img/illustration/notifikasi.png" alt="Notifikasi">
+                <div class="timeline-item">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-year">1987</div>
+                    <div class="timeline-content">
+                        <img src="../img/galeri/imam.png" alt="Ir. H Muchayat" class="timeline-photo">
+                        <div class="timeline-info">
+                            <h2>Masa Bhakti 1987 - 1990</h2>
+                            <p>Ir. H Muchayat</p>
+                        </div>
                     </div>
                 </div>
-                <div class="step">
-                    <div class="image">
-                        <img src="../img/illustration/pembayaran.png" alt="Pembayaran">
-                    </div>
-                    <div class="text">
-                        <h2>5. Pembayaran</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                </div>
-                <div class="step-reverse">
-                    <div class="text">
-                        <h2>6. Cetak</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                    <div class="image">
-                        <img src="../img/illustration/cetak.png" alt="Cetak">
+                <div class="timeline-item">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-year">1990</div>
+                    <div class="timeline-content">
+                        <img src="../img/galeri/imam.png" alt="Ir. H Hariwardono S." class="timeline-photo">
+                        <div class="timeline-info">
+                            <h2>Masa Bhakti 1990 - 1997</h2>
+                            <p>Ir. H Hariwardono S.</p>
+                        </div>
                     </div>
                 </div>
-                <!-- Tambahkan konten lainnya di sini jika diperlukan -->
-            </section>
-        </div>
+            </div>
+        </section>
 
-        <!-- Konten untuk Pendaftaran SBU -->
-        <div id="pendaftaran-sbu" class="content-section" style="display: none;">
-            <section class="steps-section">
-                <!-- Konten untuk Pendaftaran SBU bisa berbeda sesuai kebutuhan -->
-                <div class="step">
-                    <div class="image">
-                        <img src="../img/illustration/anggotaInkindo.png" alt="Anggota INKINDO">
-                    </div>
-                    <div class="text">
-                        <h2>1. Anggota INKINDO</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                </div>
-                <div class="step-reverse">
-                    <div class="text">
-                        <h2>2. Berkas Permohonan</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                    <div class="image">
-                        <img src="../img/illustration/berkasPermohonan.png" alt="Berkas Permohonan">
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="image">
-                        <img src="../img/illustration/inputDataOss.png" alt="Input Data di OSS">
-                    </div>
-                    <div class="text">
-                        <h2>3. Input Data di OSS</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                </div>
-                <div class="step-reverse">
-                    <div class="text">
-                        <h2>4. Verifikasi Data</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                    <div class="image">
-                        <img src="../img/illustration/verifikasiData.png" alt="Verifikasi Data">
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="image">
-                        <img src="../img/illustration/pembayaran.png" alt="Pembayaran">
-                    </div>
-                    <div class="text">
-                        <h2>5. Pembayaran</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                </div>
-                <div class="step-reverse">
-                    <div class="text">
-                        <h2>6. Penilaian Asesor</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                    <div class="image">
-                        <img src="../img/illustration/penilaianAsesor.png" alt="Penilaian Asesor">
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="image">
-                        <img src="../img/illustration/cetak.png" alt="Cetak">
-                    </div>
-                    <div class="text">
-                        <h2>7. Cetak</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                </div>
-                <!-- Tambahkan konten lainnya di sini jika diperlukan -->
-            </section>
-        </div>
+
+
     </div>
 
 
@@ -343,6 +243,26 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        window.addEventListener("scroll", function() {
+            const timelineItems = document.querySelectorAll(".timeline-item");
+
+            timelineItems.forEach((item) => {
+                const line = item.querySelector(".timeline-line");
+
+                // Periksa apakah elemen sudah diberi kelas "animated"
+                if (!line.classList.contains("animated")) {
+                    const rect = item.getBoundingClientRect();
+                    const isVisible = rect.top < window.innerHeight * 0.75 && rect.bottom > 0;
+
+                    // Tambahkan animasi hanya jika elemen terlihat
+                    if (isVisible) {
+                        line.classList.add("active", "animated"); // "animated" untuk penanda
+                    }
+                }
+            });
+        });
+    </script>
 
 </body>
 

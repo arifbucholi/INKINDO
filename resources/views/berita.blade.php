@@ -60,7 +60,7 @@
             <div class="news-grid">
                 <!-- Example of a news card -->
                 <div class="news-card">
-                    <img src="../img/berita/berita1.png" alt="News Image">
+                    <img src="../img/aplikasi/simmap.png" alt="News Image">
                     <div class="news-content">
                         <h3>INKINDO Jawa Timur Dukung UINSA Gelar ARCHIFEST 2024: “Seminar Arsitektur”</h3>
                         <p class="news-date">
