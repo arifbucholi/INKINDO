@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
     <title>Admin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         {{-- integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMm7rQx5Fd7b4ikx9gB8V4m3M3GlnA7Hhn0Vbx"  --}} crossorigin="anonymous">
@@ -11,14 +12,6 @@
     <link rel="shortcut icon" type="image/png" href="../admin/images/logos/inkindo-kotak.png" />
     <link rel="stylesheet" href="../admin/css/styles.min.css" />
 
-    {{-- map --}}
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <style>
-        #map {
-            height: 400px;
-            width: 100%;
-        }
-    </style>
 </head>
 
 <body>
@@ -68,7 +61,8 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link danger-hover-bg" href="/abc" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link danger-hover-bg"
+                                href="{{ route('admin.layanan') }}" aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-danger rounded-3">
                                     <i class="ti ti-article fs-7 text-danger"></i>
                                 </span>
@@ -76,8 +70,8 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link success-hover-bg" href="./ui-card.html"
-                                aria-expanded="false">
+                            <a class="sidebar-link sidebar-link success-hover-bg"
+                                href="{{ route('admin.anggota.index') }}" aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-success rounded-3">
                                     <i class="ti ti-users fs-7 text-success"></i>
                                 </span>
@@ -94,7 +88,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link indigo-hover-bg" href="./ui-typography.html"
+                            <a class="sidebar-link sidebar-link indigo-hover-bg" href="{{ route('admin.seo.index') }}"
                                 aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-indigo rounded-3">
                                     <i class="ti ti-seo fs-7 text-indigo"></i>
@@ -102,8 +96,9 @@
                                 <span class="hide-menu ms-2 ps-1">SEO</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link warning-hover-bg" href="/abc" aria-expanded="false">
+                        {{-- <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link warning-hover-bg"
+                                href="{{ route('admin.messages.index') }}" aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-warning rounded-3">
                                     <i class="ti ti-phone fs-7 text-warning"></i>
                                 </span>
@@ -111,14 +106,15 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link danger-hover-bg" href="/abc" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link danger-hover-bg"
+                                href="{{ route('admin.messages.index') }}" aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-danger rounded-3">
                                     <i class="ti ti-info-circle fs-7 text-danger"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">About Us</span>
                             </a>
-                        </li>
-                        <li class="nav-small-cap">
+                        </li> --}}
+                        {{-- <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-5"></i>
                             <span class="hide-menu">UI Componenst</span>
                         </li>
@@ -210,9 +206,9 @@
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Sample Page</span>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
-                    <div class="pb-3 options text-nowrap">
+                    {{-- <div class="pb-3 options text-nowrap">
                         <div class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-5"></i>
                             <span class="hide-menu">More options</span>
@@ -240,27 +236,9 @@
                                 <span class="hide-menu ms-2">Widgets</span>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
 
-                    <div class="mt-5 blocks-card sidebar-ad">
-                        <div class="card bg-light-primary">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="../admin/images/backgrounds/education-blocks.png" width="136"
-                                        height="136" class="mt-n9" alt="" />
 
-                                    <h5>Are you<br /> satisfied ?</h5>
-
-                                    <div class="mt-4">
-                                        <a href="" target="_blank"
-                                            class="btn btn-primary buynow-link w-100 px-2">
-                                            Buy Now
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
@@ -288,12 +266,12 @@
                     </ul>
                     <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-                            <span>Halo Pakde...</span>
+                            <span>Halo, {{ Auth::user()->username }}...</span>
                             <li class="nav-item dropdown">
                                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{-- <img src="../admin/images/profile/user1.jpg" alt="" width="35"
-                                        height="35" class="rounded-circle"> --}}
+                                    <img src="../img/testimoni/orang.png" alt="" width="35"
+                                        height="35" class="rounded-circle">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
                                     aria-labelledby="drop2">

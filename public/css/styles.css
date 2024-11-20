@@ -202,14 +202,19 @@ nav ul li a:hover {
     margin-top: 0px;
 }
 
+.text-align {
+    text-align: left;
+}
+
 .text-content {
     width: 50%;
     color: white;
 }
 
 .text-content h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     line-height: 1.2;
+    font-weight: bold;
 }
 
 .text-content p {
@@ -260,9 +265,17 @@ nav ul li a:hover {
     margin-right: 20px;
 }
 
-.btn:hover {
-    opacity: 0.9;
+.btn.yellow:hover {
+    background-color: #ffc700; /* Slightly darker yellow */
 }
+
+.btn.red:hover {
+    background-color: #ff3030; /* Slightly darker red */
+}
+
+/* .btn:hover {
+    opacity: 0.9;
+} */
 
 .illustration img {
     max-height: 400px;
@@ -314,7 +327,7 @@ section.slider {
     padding: 50px 0;
     text-align: center;
     color: white;
-    height: 100vh; /* Tinggi elemen akan menjadi 100% dari tinggi layar */
+    height: 110vh; /* Tinggi elemen akan menjadi 100% dari tinggi layar */
     background-position: center -90px;
 }
 
@@ -375,7 +388,7 @@ section.slider {
 /* Special Styling for Center Item */
 .center-item {
     position: relative;
-    top: 180px; /* Lower the center icon */
+    top: 100px; /* Lower the center icon */
     z-index: 2; /* Bring it to front */
 }
 
@@ -405,7 +418,7 @@ section.slider {
     align-items: center;
     /* padding: 50px; */
     height: 100%;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .get-content {
@@ -470,33 +483,206 @@ section.slider {
 #map {
     height: 400px;
     width: 100%;
-    z-index: 1;
+    z-index: 0;
 }
 /* -------------------------------------------CAROUSEL TESTIMONI--------------------------------------------------- */
 
+.client-testimonials {
+    padding: 50px 15px; /* Tambahkan padding untuk kenyamanan */
+    background-color: #f9f9f9;
+}
+
+.client-testimonials .container {
+    max-width: 1140px; /* Batas maksimal sesuai standar content body */
+    margin: 0 auto; /* Pusatkan kontainer */
+    text-align: center;
+}
+
+.client-testimonials .testimonial-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.client-testimonials .quote-icon img {
+    width: 100px;
+    height: auto;
+}
+
+.client-testimonials .testimonial-header h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #30318b;
+}
+
+.client-testimonials .testimonial-header hr {
+    width: 60px;
+    height: 3px;
+    background-color: #30318b;
+    border: none;
+    margin-top: 5px;
+}
+
+.swiper {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.swiper-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+}
+
+.testimonial-card {
+    max-width: 300px;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.testimonial-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: block;
+}
+
+.testimonial-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.testimonial-position {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0 15px;
+}
+
+.testimonial-quote {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.quote-start,
+.quote-end {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ccc;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #30318b;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
 .testimonial-section {
+    z-index: 5;
+}
+
+.testimonial-section h1 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Section Styling */
+.card-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff; /* Sesuaikan dengan warna latar */
+}
+
+/* Container Styling */
+.card-container {
+    display: flex;
+    gap: 20px; /* Jarak antar-card */
+    justify-content: center;
+    flex-wrap: wrap; /* Membuat layout responsif */
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* Individual Card Styling */
+.card-item {
+    background: linear-gradient(to bottom, #1e88e5, #81d4fa); /* Gradien biru ke cyan */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek 3D */
+    width: 150px; /* Lebar card */
+    height: 150px; /* Tinggi card */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff; /* Warna teks */
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    z-index: 2;
+    transition: transform 0.3s ease; /* Efek hover */
+}
+
+/* Hover Effect */
+.card-item:hover {
+    transform: scale(1.1); /* Membesar sedikit saat hover */
+}
+
+@media (max-width: 480px) {
+    .card-item {
+        width: 80px;
+        height: 80px;
+        padding: 5px;
+    }
+
+    .card-item h3 {
+        font-size: .6em;
+    }
+
+}
+
+
+/* .testimonial-section {
     padding: 60px 0;
     background-color: #fff;
 }
 
 .section-title {
     text-align: center;
-    font-size: 2rem;
+    font-size: 32px;
     margin-bottom: 40px;
     font-weight: bold;
     color: #333;
 }
 
-/* Container for the carousel */
 .testimonial-carousel {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px; /* Gap between testimonials */
+    gap: 30px;
     position: relative;
 }
 
-/* Styling individual testimonials */
 .testimonial-item {
     background-color: #f9f9f9;
     border-radius: 10px;
@@ -507,7 +693,6 @@ section.slider {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Larger center item */
 .testimonial-item.center {
     transform: scale(1.2);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -541,22 +726,22 @@ section.slider {
 .testimonial-text {
     font-size: 1rem;
     color: #555;
-}
+} */
 
 /* ---------------------------------------------------FAQ------------------------------------------------------ */
 
 .faq-section {
     width: 85%;
     background-color: #fff;
-    padding: 60px 0;
+    padding: 0;
     border-radius: 8px;
     /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
-    margin: 100px 100px;
+    margin: 50px 100px;
 }
 
 .faq-title {
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 3em;
     font-weight: bold;
     margin-bottom: 20px;
 }
@@ -585,7 +770,7 @@ section.slider {
     max-height: 0;
     overflow: hidden;
     padding: 0 15px;
-    transition: max-height 0.6s ease;
+    transition: max-height 1s ease;
 }
 
 .faq-answer p {
@@ -598,7 +783,7 @@ section.slider {
 }
 
 .faq-item.active .faq-answer {
-    max-height: 200px;
+    max-height: 1200px;
 }
 
 .faq-item.active .plus-icon {
@@ -716,6 +901,10 @@ footer {
     transition: box-shadow 0.3s ease;
 }
 
+.news-card a {
+    text-decoration: none;
+}
+
 .news-card:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
@@ -800,7 +989,7 @@ footer {
     /* background-size: contain; */
     background-position: top center;
     overflow: hidden;
-    height: 50vh;
+    height: 14vh;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -874,7 +1063,7 @@ footer {
 
 .text-content-2 {
     text-align: center;
-    width: 90%;
+    width: 100%;
     color: white;
 }
 
@@ -946,6 +1135,10 @@ footer {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.news-sidebar a {
+    text-decoration: none;
 }
 
 .news-sidebar h3 {
@@ -1043,8 +1236,8 @@ footer {
     align-items: center;
     gap: 20px;
     padding: 20px;
-    margin-top: -90px;
-    background-color: #f9f9f9; /* Warna background di belakang kotak */
+    margin-top: -70px;
+    background-color: transparent;
 }
 
 /* Style untuk setiap kotak */
@@ -1101,6 +1294,10 @@ footer {
 /* Menyembunyikan konten yang tidak aktif */
 .content-section {
     display: none;
+}
+
+.content-section h2 {
+    font-weight: bold;
 }
 
 /* Menampilkan konten yang aktif */
@@ -1172,6 +1369,7 @@ footer {
     padding: 20px; /* Padding */
     /* border: 1px solid #ccc; */
     border-radius: 5px; /* Sudut membulat */
+    font-size: 24px;
 }
 
 .list-item {
@@ -1340,6 +1538,14 @@ footer {
 
 /* -----------------------------------------------Sejarah----------------------------------------------------- */
 
+.list-container-sejarah {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
 .sejarah-section {
     padding: 20px;
     background-color: #f9f9f9;
@@ -1364,7 +1570,7 @@ footer {
 }
 
 .sejarah-content p {
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.6;
     margin-bottom: 20px;
 }
@@ -1449,9 +1655,6 @@ footer {
     height: 100%; /* Animasi ke seluruh tinggi */
 }
 
-
-
-
 .timeline-content {
     display: flex;
     align-items: center;
@@ -1484,31 +1687,103 @@ footer {
     color: #333;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    .timeline-item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+.map-container {
+    position: relative;
+    width: 100%;
+    /* Lebar kontainer */
+    background-color: #fff;
+    /* Warna latar belakang kontainer */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    /* Bayangan untuk efek kedalaman */
+    border-radius: 8px;
+    /* Sudut yang membulat */
+    overflow: hidden;
+    /* Menghindari overflow */
+}
 
-    .timeline-year {
-        top: -25px;
-        left: 20px;
-        font-size: 18px;
-    }
+.map-title {
+    text-align: center;
+    /* Mengatur teks di tengah */
+    padding: 20px;
+    /* Jarak di sekitar teks */
+    background: linear-gradient(to bottom right, #5CB9C8, #1A6AB5);
+    color: white;
+    /* Warna teks */
+    margin: 0;
+    /* Menghilangkan margin default */
+    font-size: 24px;
+    /* Ukuran font */
+}
 
-    .timeline-line {
-        left: 30px;
-    }
+.map-wrapper {
+    position: relative;
+    padding-top: 50%;
+    /* Rasio 2:1 */
+}
 
-    .timeline-content {
-        margin-left: 60px;
-    }
+.map-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    /* Menghilangkan border */
+}
 
-    .timeline-photo {
-        width: 70px;
-        height: 70px;
-    }
+.dpp-map {
+    margin: 50px 70px;
+}
+
+/* Container utama */
+.dpp-profile-section {
+    background-color: #f9f9f9;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    margin: 50px 70px;
+}
+
+.dpp-profile-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* Gambar profil */
+.dpp-profile-image img {
+    width: 400px;
+    height: 450px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Konten teks */
+.dpp-profile-content {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.dpp-profile-title {
+    font-size: 2em;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.dpp-profile-description {
+    font-size: 20px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.dpp-profile-name {
+    font-size: 24px;
+    color: #555;
 }
 
 /* ---------------------------------------Produk Konstruksi dan Non-Konstruksi-------------------------------------------- */
@@ -1516,86 +1791,241 @@ footer {
 .layanan-section {
     width: 85%;
     background-color: #fff;
-    padding: 60px 0;
+    padding: 30px 0;
     border-radius: 8px;
     /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
-    margin: 0px 100px;
+    margin: auto;
 }
 
+.custom-card-button a {
+    text-decoration: none;
+    color: black;
+}
 
-/* Responsive Design */
-/* @media (max-width: 768px) {
-    .hero-content {
-        flex-direction: column;
-        text-align: center;
-    }
+.custom-card-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 50px 100px;
+}
 
-    .text-content,
-    .illustration {
-        width: 100%;
-    }
+.custom-card {
+    background-color: white;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: box-shadow 0.3s ease;
+    text-align: left;
+}
 
-    .illustration img {
-        height: 200px;
-    }
+.custom-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 
-    .text-content h1 {
-        font-size: 2em;
-    }
+.custom-card-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
 
-    .text-content p {
-        font-size: 1em;
-    }
+.custom-card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+}
 
-    .benefits-section h2 {
-        font-size: 2em;
-    }
+.custom-card-subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+}
 
-    .benefit-item h3 {
-        font-size: 1em;
-    }
+.custom-card-description {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 15px;
+}
 
-    .benefits-grid {
-        flex-direction: column;
-        align-items: center;
-    }
+.custom-card-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
 
-    .benefit-item {
-        max-width: 100%;
-        margin-bottom: 20px;
-    }
+.custom-card-button {
+    background-color: #E0E0E0;
+    color: #333;
+    border: none;
+    border-radius: 24px;
+    padding: 12px 22px;
+    width: 50%;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
 
-    .center-item {
-        top: 0;
-    }
+.custom-card-button img {
+    margin-right: 5px;
+    height: 16px;
+}
 
+.custom-card-button:hover {
+    background-color: #ccc;
+}
 
+/* --------------------------------------------------------------------------------------- */
 
+.lc-learning-center {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
 
+.lc-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+}
 
+.lc-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
 
+.lc-logo {
+    width: 270px;
+    height: auto;
+    border-radius: 8px;
+}
 
-    .get-started .container {
-        flex-direction: column;
-      }
+.lc-info h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
 
-      .text-container {
-        text-align: center;
-        margin-top: 20px;
-      }
+.lc-category {
+    color: #888;
+    font-size: 18px;
+}
 
-      .testimonial-carousel {
-        flex-direction: column;
-      }
+.lc-description {
+    color: #555;
+    margin: 10px 0;
+}
 
-      .testimonial-item {
-        flex: none;
-        width: 90%;
-        margin: 10px 0;
-      }
-} */
+.lc-rating {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.lc-stars {
+    color: #FFD700;
+    font-size: 20px;
+}
+
+.lc-rating-count {
+    font-size: 14px;
+    color: #888;
+    margin-left: 8px;
+}
+
+.lc-btn-more {
+    background-color: #E0E0E0;
+    color: #000000;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold
+}
+
+.lc-btn-more:hover {
+    background-color: #ccc;
+}
+
+.lc-card-body h3 {
+    font-size: 20px;
+    margin: 20px 0 10px;
+    font-weight: bold;
+}
+
+.lc-card-body p {
+    color: #555;
+}
+
+.lc-card-body h4 {
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.lc-features {
+    display: flex;
+    flex-direction: column;
+    /* Mengatur arah kolom untuk seluruh fitur */
+    gap: 20px;
+    /* Jarak antar fitur */
+    margin-top: 10px;
+}
+
+.lc-feature-item {
+    display: flex;
+    flex-direction: row;
+    /* Mengatur arah elemen dalam fitur */
+    align-items: center;
+    /* Memastikan gambar dan teks disejajarkan di tengah secara vertikal */
+    text-align: left;
+    /* Menyelaraskan teks ke kiri */
+}
+
+.lc-feature-item img {
+    width: 30px;
+    height: auto;
+    margin-right: 10px;
+    /* Jarak antara gambar dan teks */
+}
+
+.lc-feature-item p {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+}
 
 @media (max-width: 768px) {
+    header {
+        padding: 5px 10%;
+    }
+
+    .hero-bg {
+        background-size: cover;
+        height: 100vh;
+    }
+
+    .hero-content > div:nth-child(2) {
+        display: none;
+    }
+
+    .card-container {
+        gap: 15px;
+    }
+    .card-item {
+        width: 90px;
+        height: 100px;
+    }
+
     nav {
         display: none; /* Hide nav links initially */
         width: 90%; /* Optional: Full width for dropdown */
@@ -1623,7 +2053,7 @@ footer {
         display: flex; /* Tetap gunakan flex untuk tampilan */
         flex-direction: column;
         position: absolute;
-        top: 75px; /* Sesuaikan dengan tinggi navbar */
+        top: 80px; /* Sesuaikan dengan tinggi navbar */
         left: 0;
         right: 0;
         z-index: 1;
@@ -1644,9 +2074,76 @@ footer {
         flex-direction: column;
         align-items: center;
     }
+
+    .text-content {
+        width: 87%;
+    }
+
     .benefits-grid {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .benefits-section {
+        height: 85vh;
+    }
+
+    .benefit-item {
+        padding: 10px 10px;
+    }
+
+    .center-item {
+        position: relative;
+        top: 120px;
+        z-index: 2;
+    }
+
+    .illustration img {
+        max-height: 240px;
+        max-width: 240px;
+    }
+
+    .dpp-profile-container {
         flex-direction: column;
         align-items: center;
+        text-align: center;
+    }
+
+    .dpp-profile-image img {
+        margin-bottom: 20px;
+    }
+
+    .swiper {
+        padding: 10px 0;
+    }
+
+    .testimonial-card {
+        max-width: 82%; /* Agar card menyesuaikan dengan ukuran layar */
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .timeline-year {
+        top: -65px;
+        left: 20px;
+        font-size: 32px;
+    }
+
+    .timeline-line {
+        left: 30px;
+    }
+
+    .timeline-content {
+        margin-left: 60px;
+    }
+
+    .timeline-photo {
+        width: 70px;
+        height: 70px;
     }
 
     nav ul {
@@ -1670,6 +2167,7 @@ footer {
         justify-content: space-between;
         align-items: flex-start;
         flex-wrap: wrap;
+        gap: 20px;
     }
 
     /* anggota */
@@ -1717,6 +2215,66 @@ footer {
         width: 50%;
         color: #333;
     }
+
+    .testimonial-card {
+        max-width: 90%;
+    }
+
+    .get-started {
+        margin: 50px 30px;
+        padding: 20px 0px;
+        height: 70vh;
+    }
+
+    .get-started .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+
+    .illustration-get img {
+        max-height: 250px;
+        max-width: 300px;
+    }
+
+    .cafein-google-play-button {
+        max-width: 100%;
+    }
+
+    .faq-section {
+        margin: auto;
+    }
+
+    .step {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .step-reverse {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .steps-section {
+        padding: 40px;
+    }
+
+    #content-container-visi-misi {
+        padding: 0;
+    }
+
+    #content-container-kode-etik {
+        padding: 0;
+    }
+
+    .content-section h2 {
+        margin: 0 40px;
+    }
+
+    .hero-bg-berita-detail {
+        height: 10vh;
+    }
 }
 
 @media (max-width: 568px) {
@@ -1748,7 +2306,12 @@ footer {
     }
 
     .text-content h1 {
-        font-size: 28px;
+        font-size: 2em;
+        /* text-align: center; */
+    }
+
+    .text-align {
+        text-align: center;
     }
 
     .text-content p {
@@ -1802,7 +2365,11 @@ footer {
     }
 
     .benefits-section {
-        height: 100vh;
+        height: 200vh;
+    }
+
+    .benefits-section h1 {
+        font-size: 32px;
     }
 
     .benefits-section h2 {
@@ -1817,35 +2384,65 @@ footer {
     }
 
     .circle {
-        width: 90px;
-        height: 90px;
-        background-color: white;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto 20px; /* Center the circle and add space below it */
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        width: 160px;
+        height: 160px;
     }
 
-    /* Icon inside the Circle */
     .benefit-item img.benefit-icon {
         width: 80px;
         height: 80px;
     }
 
-    /* Text Below the Circle */
     .benefit-item h3 {
         font-size: 20px;
         /* font-weight: bold; */
         margin-top: 10px;
     }
 
-    /* Special Styling for Center Item */
     .center-item {
         position: relative;
         top: 0px;
-        z-index: 2; /* Bring it to front */
+        z-index: 2;
+    }
+
+    .pelatihan-content {
+        margin-top: 0;
+        flex-direction: column-reverse;
+    }
+
+    .illustration img {
+        max-height: 300px;
+        max-width: 300px;
+    }
+
+    .get-started {
+        margin: 50px 30px;
+        padding: 20px 0px;
+        height: 100vh;
+    }
+
+    .get-started .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+
+    .illustration-get img {
+        max-height: 250px;
+        max-width: 300px;
+    }
+
+    .cafein-google-play-button {
+        max-width: 100%;
+    }
+
+    .testimonial-card {
+        max-width: 88%;
+    }
+
+    .faq-section {
+        margin: auto;
     }
 
     footer {
@@ -1853,6 +2450,73 @@ footer {
         gap: 20px;
         flex-direction: column;
     }
+
+    .hero-bg-polos {
+        height: 0%;
+        background-size: cover;
+    }
+
+    .text-content-2 {
+        width: 90%;
+    }
+
+    .card {
+        width: 90px;
+        padding: 10px;
+    }
+
+    .card .icon img {
+        width: 16px;
+        height: 20px;
+    }
+
+    .card h3 {
+        font-size: 12px;
+    }
+
+    .dpp-profile-section {
+        padding: 25px;
+        margin: 20px;
+    }
+
+    .dpp-profile-image img {
+        width: 300px;
+        height: 450px;
+    }
+
+    .org-btn {
+        padding: 3px 12px;
+    }
+
+    .news-main-content {
+        width: 100%;
+    }
+
+    .news-detail-container {
+        flex-direction: column;
+    }
+
+    .news-sidebar {
+        width: 100%;
+    }
+
+    .custom-card-section {
+        padding: 30px;
+    }
+
+    .hero-content-2 {
+        min-height: 350px;
+    }
+
+    .lc-card-header {
+        flex-direction: column;
+    }
+
+    .hero-bg-anggota {
+        height: 0%;
+        background-size: cover;
+    }
+
 }
 
 @media (max-width: 480px) {
@@ -1869,7 +2533,7 @@ footer {
     }
 
     .benefits-section {
-        height: 130vh;
+        height: 170vh;
     }
 
     .benefit-item {
@@ -1908,6 +2572,14 @@ footer {
         max-width: 100%;
     }
 
+    .testimonial-card {
+        max-width: 86%;
+    }
+
+    .client-testimonials .testimonial-header h1 {
+        font-size: 2em;
+    }
+
     .faq-section {
         margin: auto;
     }
@@ -1920,7 +2592,12 @@ footer {
 
     .hero-bg-berita {
         background-size: cover;
+        height: 40vh;
     }
+
+    /* .text-content h1 {
+        text-align: center;
+    } */
 
     .text-content-2 h1 {
         font-size: 28px;
@@ -1928,7 +2605,7 @@ footer {
     }
 
     .text-content-2 p {
-        font-size: 16px;
+        font-size: 12px;
         margin: 20px 0;
     }
 
@@ -1943,7 +2620,7 @@ footer {
     }
 
     .hero-bg {
-        height: 110vh;
+        height: 100vh;
     }
 
     .logo-nav {
@@ -1991,8 +2668,48 @@ footer {
         padding: 10px 10px;
     }
 
+    .circle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .testimonial-section h1 {
+        font-size: 2em;
+    }
+
+    .testimonial-card {
+        max-width: 78%;
+    }
+
+    #map{
+        width: 85%;
+        margin: auto;
+    }
+
+    .card-item {
+        width: 65px;
+        height: 65px;
+        padding: 5px;
+    }
+
+    .card-item h3 {
+        font-size: .6em;
+    }
+
     .faq-section {
-        margin: 100px 25px;
+        margin: 0 25px;
+    }
+
+    .client-testimonials .quote-icon img {
+        width: 40px;
+    }
+
+    .client-testimonials .testimonial-header h2 {
+        font-size: 1.2em;
+    }
+
+    .faq-title {
+        font-size: 2em;
     }
 
     footer {

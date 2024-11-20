@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Barcodes;
 use App\Models\Messages;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Auth\Events\Validated;
+use Illuminate\Support\Facades\Storage;
 
 class MessagesController extends Controller
 {
@@ -15,17 +18,65 @@ class MessagesController extends Controller
     }
 
     // Menyimpan data message
+    // public function store(Request $request)
+    // {
+    //     $validated = $request->validate([
+    //         'guest_name' => 'required|string|max:255',
+    //         'message' => 'required|string',
+    //         'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+    //     ]);
+
+    //     // dd($validated);
+
+    //     $photoPath = null;
+    //     if ($request->hasFile('photo')) {
+    //         // Menyimpan file ke lokasi permanen
+    //         $photoPath = $request->file('photo')->store('uploads/messages', 'public');
+    //         // dd($photoPath);
+    //     }
+
+    //     // Menyimpan data ke database
+    //     $validated['photo'] = $photoPath;
+
+    //     Messages::create($validated); // Menyimpan data ke database
+
+    //     return redirect()->route('admin.messages.index')->with('success', 'Message added successfully!');
+    // }
+
     public function store(Request $request)
     {
+        // Validasi inputan
+
+        if ($request->hasFile('photo')) {
+            dd($request->file('photo'));
+        }
         $validated = $request->validate([
             'guest_name' => 'required|string|max:255',
             'message' => 'required|string',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:10240',
         ]);
 
-        Messages::create($validated); // Menyimpan data ke database
+        // dd($validated);
+
+        // Inisialisasi photoPath sebagai null
+        $photoPath = null;
+
+        // Handle photo upload jika ada
+        if ($request->hasFile('photo')) {
+            // Menyimpan file gambar ke lokasi permanen
+            // Ini akan menyimpan gambar di folder public/uploads/messages
+            $photoPath = $request->file('photo')->store('uploads/messages', 'public');
+        }
+
+        // Menambahkan photoPath ke data yang divalidasi
+        $validated['photo'] = $photoPath;
+
+        // Menyimpan data baru ke database
+        Messages::create($validated);
 
         return redirect()->route('admin.messages.index')->with('success', 'Message added successfully!');
     }
+
 
     public function index()
     {
@@ -53,6 +104,12 @@ class MessagesController extends Controller
         $message = Messages::findOrFail($id);
         $message->guest_name = $request->guest_name;
         $message->message = $request->message;
+        if ($request->hasFile('photo')) {
+            if ($message->photo) {
+                Storage::disk('public')->delete($message->photo);
+            }
+            $message->photo = $request->file('photo')->store('uploads/messages', 'public');
+        }
         $message->save();
 
         return redirect()->route('admin.messages.index')->with('success', 'Testimoni berhasil diperbarui');

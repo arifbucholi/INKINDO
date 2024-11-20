@@ -9,6 +9,21 @@
     <link rel="shortcut icon" type="image/png" href="../admin/images/logos/inkindo-kotak.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VJSGM32TZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-3VJSGM32TZ');
+    </script>
+
 </head>
 
 <body>
@@ -16,17 +31,20 @@
         <header>
             <div class="container">
                 <div class="logo-nav">
-                    <img src="../img/logo/inkindo2.png" alt="INKINDO Jawa Timur Logo" class="logo">
+                    <a href="/">
+                        <img src="../img/logo/inkindo2.png" alt="INKINDO Jawa Timur Logo" class="logo">
+                    </a>
 
                 </div>
                 <nav id="nav-menu">
                     <ul>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Alur</a></li>
-                        <li><a href="#">Layanan</a></li>
-                        <li><a href="#">Berita</a></li>
-                        <li><a href="#">Info Lelang</a></li>
-                        <li><a href="#">Anggota</a></li>
+                        <li><a href="/profil">Profil</a></li>
+                        <li><a href="/alur">Alur</a></li>
+                        <li><a href="/produk">Layanan</a></li>
+                        <li><a href="/berita">Berita</a></li>
+                        <li><a href="https://lpse.lkpp.go.id/eproc4/lelang" target="_blank"
+                                rel="noopener noreferrer">Info Lelang</a></li>
+                        <li><a href="/anggota">Anggota</a></li>
                     </ul>
                 </nav>
                 <button class="hamburger" id="hamburger-menu">
@@ -48,7 +66,7 @@
                 <p>Gabung dengan INKINDO untuk akses ke jaringan konsultan profesional yang terpercaya. Daftar mudah,
                     solusi tepat untuk kesuksesan proyek Anda!</p>
                 <div class="buttons">
-                    <a href="#" class="btn yellow">Selengkapnya</a>
+                    <a href="/profil" class="btn yellow">Selengkapnya</a>
                     <a href="#" class="btn red">Daftar Sekarang!</a>
                 </div>
             </div>
@@ -80,7 +98,8 @@
 
     <section class="benefits-section">
         <div class="container">
-            <h2>Benefit Menjadi Bagian <br>INKINDO</h2>
+            <h1>Benefit Menjadi Bagian <br>INKINDO</h1>
+            <br>
             <div class="benefits-grid">
                 <!-- Benefit Item 1 (Left) -->
                 <div class="benefit-item">
@@ -117,12 +136,12 @@
 
     <section>
         <div class="pelatihan-content container">
-            <div class="text-content text-black">
-                <h1>Pelatihan</h1>
+            <div class="text-content text-black text-align">
+                <h1>LEARNING CENTER</h1>
                 <p>INKINDO hadir dengan pelatihan terbaru! Tingkatkan kompetensi Anda bersama pelatihan INKINDO. Jangan
                     lewatkan kesempatan mengikuti pelatihan menarik dari INKINDO.</p>
                 <div class="buttons">
-                    <a href="#" class="btn yellow">Selengkapnya</a>
+                    <a href="/learning-center" class="btn yellow">Selengkapnya</a>
                 </div>
             </div>
             <div class="illustration">
@@ -138,8 +157,9 @@
             </div>
             <div class="text-content text-white">
                 <h1>Get ready to Start</h1>
-                <p>Lorem ipsum dolor sit amet consectetur. Orci tincidunt non sed tincidunt nunc condimentum ut. Euismod
-                    ipsum commodo diam et odio leo orci id mollis. (CafeIN)</p>
+                <p>Aplikasi Android yang dikembangkan oleh Inkindo Jawa Timur ini berfungsi sebagai sarana pelayanan,
+                    peningkatan kapasitas, dan ruang interaksi bagi anggota serta stakeholder terkait pembangunan
+                    berkelanjutan dan pengembangan sumber daya manusia dan organisasi.</p>
                 <a href="#" class="cafein-google-play-button">
                     <img src="img/icon/google-play.png" alt="Google Play">
                     <span>Google Play</span>
@@ -148,13 +168,123 @@
         </div>
     </section>
 
-    <section class="testimonial-section">
+    {{-- <section class="testimonial-section">
         <div class="container">
-            <h2 class="section-title">Persebaran perusahaan INKINDO Jawa Timur</h2>
+            <h1 class="section-title">Persebaran Perusahaan
+                <br>
+                INKINDO Jawa Timur
+            </h1>
 
             <div id="map"></div>
         </div>
+    </section> --}}
+
+    {{-- <section class="card-section">
+        <div class="card-container">
+
+            <div class="card-item">
+                <h3>Kecil</h3>
+                <p>{{ $kualifikasiCount['K'] ?? 0 }}</p>
+            </div>
+            <div class="card-item">
+                <h3>Menengah</h3>
+                <p>{{ $kualifikasiCount['M'] ?? 0 }}</p>
+            </div>
+            <div class="card-item">
+                <h3>Besar</h3>
+                <p>{{ $kualifikasiCount['B'] ?? 0 }}</p>
+            </div>
+        </div>
+    </section> --}}
+
+    <section class="client-testimonials">
+        <div class="container">
+            <!-- Header Section -->
+            <div class="testimonial-header">
+                <div class="quote-icon">
+                    <img src="../img/testimoni/quotes.png" alt="Quote Icon" />
+                </div>
+                <h1>What our Client say!</h1>
+                {{-- <hr /> --}}
+            </div>
+
+            <!-- Testimonial Carousel -->
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    @foreach ($messages as $message)
+                        <div class="swiper-slide">
+                            <div class="testimonial-card">
+                                <img src="{{ asset('storage/' . $message->photo) }}" alt="Foto" class="testimonial-img" />
+                                <h3 class="testimonial-name">{{ $message->guest_name }}</h3>
+                                {{-- <p class="testimonial-position">{{ $message->position }}</p> --}}
+                                <p class="testimonial-quote">
+                                    <span class="quote-start">“</span>
+                                    {{ $message->message }}
+                                    <span class="quote-end">”</span>
+                                </p>
+                            </div>
+                        </div>
+                    @endforeach
+                    {{-- <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <img src="../img/testimoni/orang.png" alt="Foto" class="testimonial-img" />
+                            <h3 class="testimonial-name">Nama Orang</h3>
+                            <p class="testimonial-position">PT. 2</p>
+                            <p class="testimonial-quote">
+                                <span class="quote-start">“</span>
+                                Lorem ipsum dolor sit amet consectetur. Pharetra purus in nisi tellus fringilla quam.
+                                <span class="quote-end">”</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <img src="../img/testimoni/orang.png" alt="Foto" class="testimonial-img" />
+                            <h3 class="testimonial-name">Nama Orang</h3>
+                            <p class="testimonial-position">PT. 3</p>
+                            <p class="testimonial-quote">
+                                <span class="quote-start">“</span>
+                                Lorem ipsum dolor sit amet consectetur. Pharetra purus in nisi tellus fringilla quam.
+                                <span class="quote-end">”</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <img src="../img/testimoni/orang.png" alt="Foto" class="testimonial-img" />
+                            <h3 class="testimonial-name">Nama Orang</h3>
+                            <p class="testimonial-position">PT. 4</p>
+                            <p class="testimonial-quote">
+                                <span class="quote-start">“</span>
+                                Lorem ipsum dolor sit amet consectetur. Pharetra purus in nisi tellus fringilla quam.
+                                <span class="quote-end">”</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <img src="../img/testimoni/orang.png" alt="Foto" class="testimonial-img" />
+                            <h3 class="testimonial-name">Nama Orang</h3>
+                            <p class="testimonial-position">PT. 5</p>
+                            <p class="testimonial-quote">
+                                <span class="quote-start">“</span>
+                                Lorem ipsum dolor sit amet consectetur. Pharetra purus in nisi tellus fringilla quam.
+                                <span class="quote-end">”</span>
+                            </p>
+                        </div>
+                    </div> --}}
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+        </div>
     </section>
+
+
 
     {{-- <section class="testimonial-section">
         <div class="container">
@@ -204,18 +334,20 @@
 
             <h2 class="faq-title">Frequently Ask Question?</h2>
 
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>Pertanyaan 1</span>
-                    <span class="plus-icon">+</span>
+            @foreach ($faqs as $faq)
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>{{ $faq->question }}</span>
+                        <span class="plus-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>{{ $faq->answer }}</p>
+                    </div>
                 </div>
-                <div class="faq-answer">
-                    <p>Lorem ipsum dolor sit amet consectetur. Vehicula scelerisque quis ipsum scelerisque tellus lectus
-                        amet sagittis. Egestas ante aenean aliquam molestie urna quis odio dictum eu.</p>
-                </div>
-            </div>
+            @endforeach
 
-            <div class="faq-item">
+
+            {{-- <div class="faq-item">
                 <div class="faq-question">
                     <span>Pertanyaan 2</span>
                     <span class="plus-icon">+</span>
@@ -237,7 +369,7 @@
                         nec
                         tortor. Curabitur ut erat quis augue euismod feugiat.</p>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
 
@@ -271,6 +403,11 @@
         </div>
 
         <div class="footer-copyright">
+            {{-- <ul>
+                @foreach ($cityData as $city => $count)
+                    <li>{{ $city }}: {{ $count }} perusahaan</li>
+                @endforeach
+            </ul> --}}
             <p>@Lorem ipsum dolor sit amet consectetur.</p>
             <p>Lorem ipsum dolor sit amet consectetur.</p>
         </div>
@@ -283,12 +420,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-    </script>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
+    {{-- <script>
         var initialZoom = 8; // Simpan tingkat zoom asal
         var map = L.map('map', {
             zoom: initialZoom,
@@ -305,11 +441,30 @@
         }).addTo(map);
 
         // Data perusahaan per provinsi
-        var perusahaanData = [
-            { lat: -7.25, lng: 112.75, name: "Jawa Timur", jumlah: 600 },
-            { lat: -8.58, lng: 114.14, name: "Banyuwangi", jumlah: 150 },
-            { lat: -7.57, lng: 112.67, name: "Surabaya", jumlah: 1200 },
-            { lat: -7.56, lng: 112.46, name: "Malang", jumlah: 300 }
+        var perusahaanData = [{
+                lat: -7.25,
+                lng: 112.75,
+                name: "Jawa Timur",
+                jumlah: 600
+            },
+            {
+                lat: -8.58,
+                lng: 114.14,
+                name: "Banyuwangi",
+                jumlah: 150
+            },
+            {
+                lat: -7.57,
+                lng: 112.67,
+                name: "Surabaya",
+                jumlah: 1200
+            },
+            {
+                lat: -7.56,
+                lng: 112.46,
+                name: "Malang",
+                jumlah: 300
+            }
             // Tambahkan data provinsi lainnya jika diperlukan
         ];
 
@@ -317,13 +472,39 @@
         perusahaanData.forEach(function(provinsi) {
             var marker = L.marker([provinsi.lat, provinsi.lng]).addTo(map);
             marker.on('mouseover', function() {
-                this.bindPopup('<strong>' + provinsi.name + '</strong><br>Jumlah Perusahaan: ' + provinsi.jumlah).openPopup();
+                this.bindPopup('<strong>' + provinsi.name + '</strong><br>Jumlah Perusahaan: ' + provinsi
+                    .jumlah).openPopup();
             });
 
             // Menghapus popup saat mouse keluar
             marker.on('mouseout', function() {
                 this.closePopup();
             });
+        });
+    </script> --}}
+
+    <script>
+        const swiper = new Swiper('.swiper', {
+            speed: 500, // Kecepatan transisi (dalam milidetik)
+            slidesPerView: 1, // Jumlah slide yang terlihat
+            spaceBetween: 20, // Jarak antar-slide
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            autoplay: {
+                delay: 3000, // Interval otomatis antar-slide
+                disableOnInteraction: false, // Autoplay tetap aktif meskipun ada interaksi
+            },
+            effect: 'slide', // Efek transisi (bisa diubah ke 'fade', 'cube', dsb.)
+            breakpoints: {
+                768: {
+                    slidesPerView: 2, // 2 slide untuk layar tablet
+                },
+                1024: {
+                    slidesPerView: 3, // 3 slide untuk layar desktop
+                },
+            },
         });
     </script>
 

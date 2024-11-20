@@ -4,11 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Berita</title>
+    <title>Alur</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="shortcut icon" type="image/png" href="../admin/images/logos/inkindo-kotak.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VJSGM32TZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-3VJSGM32TZ');
+    </script>
 </head>
 
 <body>
@@ -16,17 +28,20 @@
         <header>
             <div class="container">
                 <div class="logo-nav">
-                    <img src="../img/logo/inkindo2.png" alt="INKINDO Jawa Timur Logo" class="logo">
+                    <a href="/">
+                        <img src="../img/logo/inkindo2.png" alt="INKINDO Jawa Timur Logo" class="logo">
+                    </a>
 
                 </div>
                 <nav id="nav-menu">
                     <ul>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Alur</a></li>
-                        <li><a href="#">Layanan</a></li>
-                        <li><a href="#">Berita</a></li>
-                        <li><a href="#">Info Lelang</a></li>
-                        <li><a href="#">Anggota</a></li>
+                        <li><a href="/profil">Profil</a></li>
+                        <li><a href="/alur">Alur</a></li>
+                        <li><a href="/produk">Layanan</a></li>
+                        <li><a href="/berita">Berita</a></li>
+                        <li><a href="https://lpse.lkpp.go.id/eproc4/lelang" target="_blank"
+                                rel="noopener noreferrer">Info Lelang</a></li>
+                        <li><a href="/anggota">Anggota</a></li>
                     </ul>
                 </nav>
                 <button class="hamburger" id="hamburger-menu">
@@ -85,17 +100,13 @@
                     </div>
                     <div class="text">
                         <h2>1. Registrasi</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
+                        <p>Buat akun baru dengan mengisi formulir pendaftaran.</p>
                     </div>
                 </div>
                 <div class="step-reverse">
                     <div class="text">
                         <h2>2. Input Data</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
+                        <p>Lengkapi data diri Anda secara lengkap dan benar.</p>
                     </div>
                     <div class="image">
                         <img src="../img/illustration/inputData.png" alt="Input Data">
@@ -107,30 +118,25 @@
                     </div>
                     <div class="text">
                         <h2>3. Notifikasi</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
+                        <p>Kami akan mengirimkan email konfirmasi ke alamat email Anda.</p>
                     </div>
                 </div>
                 <div class="step-reverse">
                     <div class="text">
                         <h2>4. Pembayaran</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
+                        <p>Lakukan pembayaran iuran keanggotaan melalui metode yang tersedia.</p>
                     </div>
                     <div class="image">
                         <img src="../img/illustration/pembayaran.png" alt="Pembayaran">
                     </div>
-                </div><div class="step">
+                </div>
+                <div class="step">
                     <div class="image">
                         <img src="../img/illustration/cetak.png" alt="Cetak">
                     </div>
                     <div class="text">
                         <h2>5. Cetak</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
+                        <p>Setelah pembayaran terkonfirmasi, Anda bisa mencetak kartu anggota secara mandiri.</p>
                     </div>
                 </div>
             </section>
@@ -146,17 +152,13 @@
                     </div>
                     <div class="text">
                         <h2>1. Login</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
+                        <p>Masuk ke akun Anda menggunakan email dan kata sandi.</p>
                     </div>
                 </div>
                 <div class="step-reverse">
                     <div class="text">
                         <h2>2. Status Anggota</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
+                        <p>Periksa status keanggotaan Anda untuk memastikan waktu perpanjangan.</p>
                     </div>
                     <div class="image">
                         <img src="../img/illustration/statusAnggota.png" alt="Status Anggota">
@@ -168,17 +170,13 @@
                     </div>
                     <div class="text">
                         <h2>3. Perpanjangan</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
+                        <p>Pilih opsi perpanjangan keanggotaan dan lengkapi formulir.</p>
                     </div>
                 </div>
                 <div class="step-reverse">
                     <div class="text">
                         <h2>4. Notifikasi</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
+                        <p>Anda akan menerima email konfirmasi mengenai permohonan perpanjangan.</p>
                     </div>
                     <div class="image">
                         <img src="../img/illustration/notifikasi.png" alt="Notifikasi">
@@ -190,17 +188,13 @@
                     </div>
                     <div class="text">
                         <h2>5. Pembayaran</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
+                        <p>Lakukan pembayaran iuran tahunan melalui metode yang tersedia.</p>
                     </div>
                 </div>
                 <div class="step-reverse">
                     <div class="text">
                         <h2>6. Cetak</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
+                        <p>Setelah pembayaran terkonfirmasi, Anda bisa mencetak kartu anggota yang baru.</p>
                     </div>
                     <div class="image">
                         <img src="../img/illustration/cetak.png" alt="Cetak">
@@ -220,17 +214,14 @@
                     </div>
                     <div class="text">
                         <h2>1. Anggota INKINDO</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
+                        <p>Untuk mengajukan Sertifikasi Badan Usaha, harus terlebih dahulu menjadi anggota INKINDO.</p>
                     </div>
                 </div>
                 <div class="step-reverse">
                     <div class="text">
                         <h2>2. Berkas Permohonan</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
+                        <p>Isi berkas melalui situs web OSS sebagai langkah awal dan memilih kategori usaha kecil atau
+                            usaha besar.</p>
                     </div>
                     <div class="image">
                         <img src="../img/illustration/berkasPermohonan.png" alt="Berkas Permohonan">
@@ -242,17 +233,14 @@
                     </div>
                     <div class="text">
                         <h2>3. Input Data di OSS</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
+                        <p>Selanjutnya anda dapat melengkapi dokumen sesuai petunjuk dari situs website OSS.</p>
                     </div>
                 </div>
                 <div class="step-reverse">
                     <div class="text">
                         <h2>4. Verifikasi Data</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
+                        <p>Tahap berikutnya adalah menunggu verifikasi dari pihak OSS terkait dokumen yang telah
+                            diajukan.</p>
                     </div>
                     <div class="image">
                         <img src="../img/illustration/verifikasiData.png" alt="Verifikasi Data">
@@ -264,17 +252,15 @@
                     </div>
                     <div class="text">
                         <h2>5. Pembayaran</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
+                        <p>Setelah diverifikasi, Anda bisa melanjutkan ke tahap pembayaran mellaui metode yang tersedia.
+                        </p>
                     </div>
                 </div>
                 <div class="step-reverse">
                     <div class="text">
                         <h2>6. Penilaian Asesor</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
+                        <p>Penilaian oleh asesor, memiliki 2 hasil berhasil atau gagal, jika berhasil anda dapat
+                            melanjutkan ke tahap cetak kartu namun jika gagal maka harus mengulang dari tahap awal.</p>
                     </div>
                     <div class="image">
                         <img src="../img/illustration/penilaianAsesor.png" alt="Penilaian Asesor">
@@ -286,9 +272,8 @@
                     </div>
                     <div class="text">
                         <h2>7. Cetak</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
+                        <p>Jika disetujui, sertifikat bisa langsung dicetak, jika ditolak, harus mengulang dari awal.
+                        </p>
                     </div>
                 </div>
                 <!-- Tambahkan konten lainnya di sini jika diperlukan -->

@@ -9,6 +9,18 @@
     <link rel="shortcut icon" type="image/png" href="../admin/images/logos/inkindo-kotak.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VJSGM32TZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-3VJSGM32TZ');
+    </script>
 </head>
 
 <body>
@@ -16,17 +28,20 @@
         <header>
             <div class="container">
                 <div class="logo-nav">
-                    <img src="../img/logo/inkindo2.png" alt="INKINDO Jawa Timur Logo" class="logo">
+                    <a href="/">
+                        <img src="../img/logo/inkindo2.png" alt="INKINDO Jawa Timur Logo" class="logo">
+                    </a>
 
                 </div>
                 <nav id="nav-menu">
                     <ul>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Alur</a></li>
-                        <li><a href="#">Layanan</a></li>
-                        <li><a href="#">Berita</a></li>
-                        <li><a href="#">Info Lelang</a></li>
-                        <li><a href="#">Anggota</a></li>
+                        <li><a href="/profil">Profil</a></li>
+                        <li><a href="/alur">Alur</a></li>
+                        <li><a href="/produk">Layanan</a></li>
+                        <li><a href="/berita">Berita</a></li>
+                        <li><a href="https://lpse.lkpp.go.id/eproc4/lelang" target="_blank"
+                                rel="noopener noreferrer">Info Lelang</a></li>
+                        <li><a href="/anggota">Anggota</a></li>
                     </ul>
                 </nav>
                 <button class="hamburger" id="hamburger-menu">
@@ -45,33 +60,54 @@
         <div class="hero-content container">
             <div class="text-content-2">
                 <h1>Berita</h1>
-                <p>Selamat datang di halaman berita INKINDO Jawa Timur! Kami menyajikan berita terbaru dan teraktual seputar dunia konstruksi, teknik, dan jasa konsultasi di wilayah Jawa Timur. Dapatkan wawasan mendalam, tips, serta informasi penting yang mendukung pertumbuhan bisnis Anda di sektor jasa konstruksi dan konsultansi teknik.</p>
+                <p>Selamat datang di halaman berita INKINDO Jawa Timur! Kami menyajikan berita terbaru dan teraktual
+                    seputar dunia konstruksi, teknik, dan jasa konsultasi di wilayah Jawa Timur. Dapatkan wawasan
+                    mendalam, tips, serta informasi penting yang mendukung pertumbuhan bisnis Anda di sektor jasa
+                    konstruksi dan konsultansi teknik.</p>
             </div>
         </div>
     </section>
 
     <section class="news-section">
-        <div class="search-container">
-            <i class="search-icon"><img src="../img/icon/search.png" alt="" width="20px"></i> <!-- Search icon on the left -->
-            <input type="text" placeholder="Cari berita">
-        </div>
+        {{-- <div class="search-container">
+            <i class="search-icon"><img src="../img/icon/search.png" alt="" width="20px"></i>
+            <form action="{{ route('news.search') }}" method="GET">
+                <input type="text" name="query" placeholder="Cari berita" required>
+            </form>
+        </div> --}}
 
         <div class="container">
             <div class="news-grid">
                 <!-- Example of a news card -->
-                <div class="news-card">
-                    <img src="../img/aplikasi/simmap.png" alt="News Image">
-                    <div class="news-content">
-                        <h3>INKINDO Jawa Timur Dukung UINSA Gelar ARCHIFEST 2024: “Seminar Arsitektur”</h3>
-                        <p class="news-date">
-                            <i class="fa fa-calendar"></i> 12-09-2024
-                        </p>
-                        <p class="news-description">
-                            Surabaya, ARCHIFEST 2024 telah sukses digelar di Kampus UINSA Gunung...
-                        </p>
+                @php
+                    use Carbon\Carbon;
+                @endphp
+
+                @php
+                    Carbon::setLocale('id');
+                @endphp
+                @foreach ($news as $berita)
+                    <div class="news-card">
+                        <a href="{{ route('berita.detail', $berita->id) }}">
+                            <img src="{{ asset('storage/' . $berita->image) }}" alt="News Image">
+                            <div class="news-content">
+                                <h3>{{ $berita->title }}</h3>
+                                <p class="news-date">
+
+
+                                    <i class="fa fa-calendar"></i>
+
+                                    {{ Carbon::parse($berita->created_at)->translatedFormat('l, d F Y') }}
+                                </p>
+                                <p class="news-description">
+                                    {{ Str::limit($berita->content, 150, '...') }}
+                                </p>
+                            </div>
+                        </a>
                     </div>
-                </div>
-                <div class="news-card">
+                @endforeach
+
+                {{-- <div class="news-card">
                     <img src="../img/berita/berita2.png" alt="News Image">
                     <div class="news-content">
                         <h3>INKINDO Jawa Timur Dukung UINSA Gelar ARCHIFEST 2024: “Seminar Arsitektur”</h3>
@@ -106,19 +142,32 @@
                             Surabaya, ARCHIFEST 2024 telah sukses digelar di Kampus UINSA Gunung...
                         </p>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Add more news cards as needed -->
             </div>
 
             <!-- Pagination -->
             <div class="pagination">
-                <button class="page-btn active">1</button>
-                <button class="page-btn">2</button>
-                <button class="page-btn">3</button>
-                <button class="page-btn">4</button>
-                <button class="page-btn">5</button>
-                <button class="page-btn next">&gt;</button>
+                {{-- @if ($news->onFirstPage())
+                    <button class="page-btn disabled">Previous</button>
+                @else
+                    <a href="{{ $news->previousPageUrl() }}" class="page-btn">Previous</a>
+                @endif --}}
+
+                @for ($i = 1; $i <= $news->lastPage(); $i++)
+                    @if ($i == $news->currentPage())
+                        <button class="page-btn active">{{ $i }}</button>
+                    @else
+                        <a href="{{ $news->url($i) }}" class="page-btn">{{ $i }}</a>
+                    @endif
+                @endfor
+
+                {{-- @if ($news->hasMorePages())
+                    <a href="{{ $news->nextPageUrl() }}" class="page-btn next">Next</a>
+                @else
+                    <button class="page-btn disabled">Next</button>
+                @endif --}}
             </div>
         </div>
     </section>

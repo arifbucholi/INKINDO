@@ -9,6 +9,19 @@
     <link rel="shortcut icon" type="image/png" href="../admin/images/logos/inkindo-kotak.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VJSGM32TZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-3VJSGM32TZ');
+    </script>
 </head>
 
 <body>
@@ -16,17 +29,19 @@
         <header>
             <div class="container">
                 <div class="logo-nav">
-                    <img src="../img/logo/inkindo2.png" alt="INKINDO Jawa Timur Logo" class="logo">
-
+                    <a href="/">
+                        <img src="../img/logo/inkindo2.png" alt="INKINDO Jawa Timur Logo" class="logo">
+                    </a>
                 </div>
                 <nav id="nav-menu">
                     <ul>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Alur</a></li>
-                        <li><a href="#">Layanan</a></li>
-                        <li><a href="#">Berita</a></li>
-                        <li><a href="#">Info Lelang</a></li>
-                        <li><a href="#">Anggota</a></li>
+                        <li><a href="/profil">Profil</a></li>
+                        <li><a href="/alur">Alur</a></li>
+                        <li><a href="/produk">Layanan</a></li>
+                        <li><a href="/berita">Berita</a></li>
+                        <li><a href="https://lpse.lkpp.go.id/eproc4/lelang" target="_blank"
+                                rel="noopener noreferrer">Info Lelang</a></li>
+                        <li><a href="/anggota">Anggota</a></li>
                     </ul>
                 </nav>
                 <button class="hamburger" id="hamburger-menu">
@@ -37,9 +52,6 @@
 
             </div>
         </header>
-
-
-
 
         <!-- Main Hero Content -->
         <!-- Main Hero Content -->
@@ -101,59 +113,57 @@
     <div id="content-container-kode-etik">
         <!-- Konten untuk Pendaftaran Anggota -->
         <div class="content-section active">
-            <section class="container-2">
+            <div>
                 <h2>Dengan menjunjung tinggi Etika Ikatan Nasional Konsultan Indonesia sebagai dasar yang dinamis untuk
                     melayani sesama manusia, maka tiap anggota Ikatan Nasional Konsultan Indonesia :</h2>
-            </section>
+            </div>
         </div>
 
-        <div>
-                <div class="list-container">
-                    <div class="list-item">
-                        <div class="number">1.</div>
-                        <div class="text">Menjunjung tinggi kehormatan, kemuliaan dan nama baik profesi konsultan
-                            dalam hubungan kerja dengan pemberi tugas, sesama rekan konsultan dan masyarakat.</div>
-                    </div>
-                    <div class="list-item">
-                        <div class="number">2.</div>
-                        <div class="text">Bertindak jujur dan tidak memihak serta dengan penuh dedikasi melayani
-                            pemberi tugas dan masyarakat.</div>
-                    </div>
-                    <div class="list-item">
-                        <div class="number">3.</div>
-                        <div class="text">Tukar menukar pengetahuan bidang keahliannya secara wajar dengan rekan
-                            konsultan dan kelompok profesi, meningkatkan pengertian masyarakat terhadap profesi
-                            konsultan, sehingga dapat lebih menghayati karya konsultan.</div>
-                    </div>
-                    <div class="list-item">
-                        <div class="number">4.</div>
-                        <div class="text">Menghormati prinsip pemberian imbalan jasa yang layak dan memadai bagi
-                            konsultan, sehingga diyakini dapat dipertanggungjawabkan secara profesional dan moral yang
-                            menjamin dapat dilaksanakannya tugas yang dipercayakan dengan memenuhi semua persyaratan
-                            yang terkait dengan keahlian, kompetensi dan integritas yang tinggi.</div>
-                    </div>
-                    <div class="list-item">
-                        <div class="number">5.</div>
-                        <div class="text">Menghargai dan menghormati reputasi profesional rekan konsultan serta setiap
-                            perjanjian kerja yang berhubungan dengan profesinya.</div>
-                    </div>
-                    <div class="list-item">
-                        <div class="number">6.</div>
-                        <div class="text">Mendapatkan tugas terutama berdasarkan standar keahlian profesional tanpa
-                            melalui cara-cara persaingan yang tidak sehat.</div>
-                    </div>
-                    <div class="list-item">
-                        <div class="number">7.</div>
-                        <div class="text">Bekerjasama sebagai konsultan hanya dengan rekan konsultan atau tenaga ahli
-                            lain yang memiliki integritas yang tinggi.</div>
-                    </div>
-                    <div class="list-item">
-                        <div class="number">8.</div>
-                        <div class="text">Menjalankan azas pembangunan berkelanjutan dalam semua aspek pelayanan jasa
-                            konsultan sebagai bagian integral dari tanggung jawabnya terhadap sesama, terhadap
-                            lingkungan kehidupan yang luas dan terhadap generasi yang akan datang.</div>
-                    </div>
-                </div>
+        <div class="list-container">
+            <div class="list-item">
+                <div class="number">1.</div>
+                <div class="text">Menjunjung tinggi kehormatan, kemuliaan dan nama baik profesi konsultan
+                    dalam hubungan kerja dengan pemberi tugas, sesama rekan konsultan dan masyarakat.</div>
+            </div>
+            <div class="list-item">
+                <div class="number">2.</div>
+                <div class="text">Bertindak jujur dan tidak memihak serta dengan penuh dedikasi melayani
+                    pemberi tugas dan masyarakat.</div>
+            </div>
+            <div class="list-item">
+                <div class="number">3.</div>
+                <div class="text">Tukar menukar pengetahuan bidang keahliannya secara wajar dengan rekan
+                    konsultan dan kelompok profesi, meningkatkan pengertian masyarakat terhadap profesi
+                    konsultan, sehingga dapat lebih menghayati karya konsultan.</div>
+            </div>
+            <div class="list-item">
+                <div class="number">4.</div>
+                <div class="text">Menghormati prinsip pemberian imbalan jasa yang layak dan memadai bagi
+                    konsultan, sehingga diyakini dapat dipertanggungjawabkan secara profesional dan moral yang
+                    menjamin dapat dilaksanakannya tugas yang dipercayakan dengan memenuhi semua persyaratan
+                    yang terkait dengan keahlian, kompetensi dan integritas yang tinggi.</div>
+            </div>
+            <div class="list-item">
+                <div class="number">5.</div>
+                <div class="text">Menghargai dan menghormati reputasi profesional rekan konsultan serta setiap
+                    perjanjian kerja yang berhubungan dengan profesinya.</div>
+            </div>
+            <div class="list-item">
+                <div class="number">6.</div>
+                <div class="text">Mendapatkan tugas terutama berdasarkan standar keahlian profesional tanpa
+                    melalui cara-cara persaingan yang tidak sehat.</div>
+            </div>
+            <div class="list-item">
+                <div class="number">7.</div>
+                <div class="text">Bekerjasama sebagai konsultan hanya dengan rekan konsultan atau tenaga ahli
+                    lain yang memiliki integritas yang tinggi.</div>
+            </div>
+            <div class="list-item">
+                <div class="number">8.</div>
+                <div class="text">Menjalankan azas pembangunan berkelanjutan dalam semua aspek pelayanan jasa
+                    konsultan sebagai bagian integral dari tanggung jawabnya terhadap sesama, terhadap
+                    lingkungan kehidupan yang luas dan terhadap generasi yang akan datang.</div>
+            </div>
         </div>
     </div>
 

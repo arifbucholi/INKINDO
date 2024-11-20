@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
     <title>Dashboard</title>
     <link rel="shortcut icon" type="image/png" href="../admin/images/logos/inkindo-kotak.png" />
 
@@ -48,8 +49,8 @@
                             <span class="hide-menu">Pengelolaan</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link warning-hover-bg"
-                                href="{{ route('admin.messages.index') }}" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link warning-hover-bg" href="{{ route('admin.news.index') }}"
+                                aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-warning rounded-3">
                                     <i class="ti ti-news fs-7 text-warning"></i>
                                 </span>
@@ -58,7 +59,7 @@
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link sidebar-link danger-hover-bg"
-                                href="{{ route('admin.messages.index') }}" aria-expanded="false">
+                                href="{{ route('admin.layanan') }}" aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-danger rounded-3">
                                     <i class="ti ti-article fs-7 text-danger"></i>
                                 </span>
@@ -66,8 +67,8 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link success-hover-bg" href="./ui-card.html"
-                                aria-expanded="false">
+                            <a class="sidebar-link sidebar-link success-hover-bg"
+                                href="{{ route('admin.anggota.index') }}" aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-success rounded-3">
                                     <i class="ti ti-users fs-7 text-success"></i>
                                 </span>
@@ -84,7 +85,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link indigo-hover-bg" href="./ui-typography.html"
+                            <a class="sidebar-link sidebar-link indigo-hover-bg" href="{{ route('admin.seo.index') }}"
                                 aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-indigo rounded-3">
                                     <i class="ti ti-seo fs-7 text-indigo"></i>
@@ -92,7 +93,7 @@
                                 <span class="hide-menu ms-2 ps-1">SEO</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
+                        {{-- <li class="sidebar-item">
                             <a class="sidebar-link sidebar-link warning-hover-bg"
                                 href="{{ route('admin.messages.index') }}" aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-warning rounded-3">
@@ -109,8 +110,8 @@
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">About Us</span>
                             </a>
-                        </li>
-                        <li class="nav-small-cap">
+                        </li> --}}
+                        {{-- <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-5"></i>
                             <span class="hide-menu">UI Componenst</span>
                         </li>
@@ -202,9 +203,9 @@
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Sample Page</span>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
-                    <div class="pb-3 options text-nowrap">
+                    {{-- <div class="pb-3 options text-nowrap">
                         <div class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-5"></i>
                             <span class="hide-menu">More options</span>
@@ -232,27 +233,9 @@
                                 <span class="hide-menu ms-2">Widgets</span>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
 
-                    <div class="mt-5 blocks-card sidebar-ad">
-                        <div class="card bg-light-primary">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="../admin/images/backgrounds/education-blocks.png" width="136"
-                                        height="136" class="mt-n9" alt="" />
 
-                                    <h5>Are you<br /> satisfied ?</h5>
-
-                                    <div class="mt-4">
-                                        <a href="" target="_blank"
-                                            class="btn btn-primary buynow-link w-100 px-2">
-                                            Buy Now
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
@@ -280,10 +263,12 @@
                     </ul>
                     <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-                            <span>Halo Pakde...</span>
+                            <span>Halo, {{ Auth::user()->username }}...</span>
                             <li class="nav-item dropdown">
                                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
                                     data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="../img/testimoni/orang.png" alt="" width="35"
+                                        height="35" class="rounded-circle">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
                                     aria-labelledby="drop2">
@@ -303,8 +288,14 @@
                                             <i class="ti ti-list-check fs-6"></i>
                                             <p class="mb-0 fs-3">My Task</p>
                                         </a>
-                                        <a href="./authentication-login.html"
-                                            class="btn btn-outline-primary mx-3 mt-2 d-block shadow-none">Logout</a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-inline">
+                                            @csrf
+                                            <button type="submit"
+                                                class="btn btn-outline-primary mx-3 mt-2 d-block shadow-none">
+                                                Logout
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                             </li>

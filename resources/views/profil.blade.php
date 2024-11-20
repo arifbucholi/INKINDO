@@ -9,6 +9,18 @@
     <link rel="shortcut icon" type="image/png" href="../admin/images/logos/inkindo-kotak.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VJSGM32TZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-3VJSGM32TZ');
+    </script>
 </head>
 
 <body>
@@ -21,12 +33,13 @@
                 </div>
                 <nav id="nav-menu">
                     <ul>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Alur</a></li>
-                        <li><a href="#">Layanan</a></li>
-                        <li><a href="#">Berita</a></li>
-                        <li><a href="#">Info Lelang</a></li>
-                        <li><a href="#">Anggota</a></li>
+                        <li><a href="/profil">Profil</a></li>
+                        <li><a href="/alur">Alur</a></li>
+                        <li><a href="/produk">Layanan</a></li>
+                        <li><a href="/berita">Berita</a></li>
+                        <li><a href="https://lpse.lkpp.go.id/eproc4/lelang" target="_blank"
+                                rel="noopener noreferrer">Info Lelang</a></li>
+                        <li><a href="/anggota">Anggota</a></li>
                     </ul>
                 </nav>
                 <button class="hamburger" id="hamburger-menu">
@@ -50,42 +63,6 @@
                     konsultan di Indonesia.</p>
             </div>
         </div>
-
-        {{-- <div id="sejarah-perusahaan" class="hero-content" style="display: none;">
-            <div class="text-content-2">
-                <h1>Sejarah Perusahaan</h1>
-                <p>Sejarah INKINDO yang berdedikasi dalam meningkatkan kualitas konsultan di Indonesia.</p>
-            </div>
-        </div>
-
-        <div id="visi-misi" class="hero-content" style="display: none;">
-            <div class="text-content-2">
-                <h1>Visi dan Misi</h1>
-                <p>Visi dan misi INKINDO dalam dunia konsultansi Indonesia.</p>
-            </div>
-        </div>
-
-        <div id="kode-etik" class="hero-content" style="display: none;">
-            <div class="text-content-2">
-                <h1>Kode Etik</h1>
-                <p>Kode etik dan pedoman profesional untuk anggota INKINDO.</p>
-            </div>
-        </div>
-
-        <div id="struktur-organisasi" class="hero-content" style="display: none;">
-            <div class="text-content-2">
-                <h1>Struktur Organisasi</h1>
-                <div class="org-structure">
-                    <button class="org-btn active">DPP</button>
-                    <button class="org-btn">DKP</button>
-                    <button class="org-btn">DPOP</button>
-                    <button class="org-btn">BBP</button>
-                    <button class="org-btn">KD</button>
-                </div>
-            </div>
-        </div> --}}
-
-
 
     </section>
 
@@ -132,174 +109,67 @@
         </a>
     </div>
 
-    <div id="content-container">
-        <!-- Konten untuk Pendaftaran Anggota -->
-        <div id="profil-perusahaan" class="content-section active">
-            <section class="steps-section">
-                <p>Profil</p>
-            </section>
+    <br><br>
+    <section>
+        <div class="pelatihan-content container">
+            <div class="text-content text-black">
+                <h1>Tentang Inkindo Jawa Timur</h1>
+                <p>INKINDO Jawa Timur adalah organisasi profesi yang mewadahi para konsultan di bidang teknik,
+                    konstruksi, dan perencanaan di wilayah Jawa Timur. Organisasi ini merupakan bagian dari INKINDO
+                    Nasional dan didirikan untuk meningkatkan profesionalisme, melindungi kepentingan, serta
+                    memfasilitasi kerja sama antaranggota dalam mendukung pembangunan daerah.</p>
+            </div>
+            <div class="illustration">
+                <img src="img/illustration/rumah.png" width="400" alt="Illustration">
+            </div>
         </div>
+    </section>
 
-        <!-- Konten untuk Perpanjangan Anggota -->
-        <div id="sejarah-perusahaan" class="content-section">
-            <section class="steps-section">
-                <!-- Konten untuk Perpanjangan Anggota bisa berbeda sesuai kebutuhan -->
-                <div class="step">
-                    <div class="image">
-                        <img src="../img/illustration/login.png" alt="Login">
-                    </div>
-                    <div class="text">
-                        <h2>1. Login</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                </div>
-                <div class="step-reverse">
-                    <div class="text">
-                        <h2>2. Status Anggota</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                    <div class="image">
-                        <img src="../img/illustration/statusAnggota.png" alt="Status Anggota">
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="image">
-                        <img src="../img/illustration/perpanjangan.png" alt="Perpanjangan">
-                    </div>
-                    <div class="text">
-                        <h2>3. Perpanjangan</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                </div>
-                <div class="step-reverse">
-                    <div class="text">
-                        <h2>4. Notifikasi</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                    <div class="image">
-                        <img src="../img/illustration/notifikasi.png" alt="Notifikasi">
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="image">
-                        <img src="../img/illustration/pembayaran.png" alt="Pembayaran">
-                    </div>
-                    <div class="text">
-                        <h2>5. Pembayaran</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                </div>
-                <div class="step-reverse">
-                    <div class="text">
-                        <h2>6. Cetak</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                    <div class="image">
-                        <img src="../img/illustration/cetak.png" alt="Cetak">
-                    </div>
-                </div>
-                <!-- Tambahkan konten lainnya di sini jika diperlukan -->
-            </section>
+    <section class="dpp-profile-section">
+        <div class="dpp-profile-container">
+            <div class="dpp-profile-image">
+                <img src="../img/galeri/ketua.png" alt="Ketua DPP Jawa Timur" />
+            </div>
+            <div class="dpp-profile-content">
+                <h3 class="dpp-profile-title">KETUA DPP JAWA TIMUR 2022–2026</h3>
+                <p class="dpp-profile-description">
+                    Selamat datang di website INKINDO Jawa Timur. Website yang memberikan gambaran informasi dan
+                    dinamika kegiatan Inkindo Jawa Timur. INKINDO (Ikatan Nasional Konsultan Indonesia) Jawa Timur
+                    adalah asosiasi badan usaha (perusahaan) Jasa Konsultan yang berada di Provinsi Jawa Timur sebagai
+                    reprentasi INKINDO yang ada di Nasional. Inkindo Jawa Timur berdiri sejak 1982 dan pada saat ini
+                    tercatat lebih dari 1000 anggota. Anggota INKINDO Jawa Timur tersebar di 37 kabupaten dan kota di
+                    Provinsi Jawa Timur baik sebagai konsultan konstruksi maupun konsultan non-konstrusi.
+                    <br><br>
+                    INKINDO Jawa Timur adalah bagian dari stakeholder pembangunan di Propinsi Jawa Timur dan Nasional
+                    baik sektor konstruksi maupun nonkontruksi. Sebagai Asosiasi dengan anggota para pelaku jasa
+                    konsultan, INKINDO mempunyai peran yang sangat strategis dalam pembangunan. INKINDO terlibat dalam
+                    aspek perencanaan, pelaksanaan, pengawasan, monitong-evaluasi serta pelatihan pengembangan kapasitas
+                    SDM dan kelembagaaan dalam pembangunan baik di tingkat daerah maupun nasional.
+                    <br><br>
+                    "Dalam negara yang kuat, ada konsultan yang hebat - Peter Frans". INKINDO Jatim menyadari, SDM
+                    adalah aset utama bagi perusahaan dan bangsa. INKINDO Jatim mendorong agar SDM di Propinsi Jawa
+                    Timur mampu memberikan kontribusi bagi ketahanan dan kemandirian Bangsa Indonesia yang
+                    berkelanjutan. Kami bisa, Kami Lebih Baik, Salam INKINDO Jawa Timur, Jaya, Jaya, Jaya.
+
+                </p>
+                <p class="dpp-profile-name">
+                    <strong>Ir. Irwan Susilo, ST., MT., IPM.</strong><br />
+                    Ketua Umum DPN INKINDO 2022–2026
+                </p>
+            </div>
         </div>
+    </section>
 
-        <!-- Konten untuk Pendaftaran SBU -->
-        <div id="pendaftaran-sbu" class="content-section" style="display: none;">
-            <section class="steps-section">
-                <!-- Konten untuk Pendaftaran SBU bisa berbeda sesuai kebutuhan -->
-                <div class="step">
-                    <div class="image">
-                        <img src="../img/illustration/anggotaInkindo.png" alt="Anggota INKINDO">
-                    </div>
-                    <div class="text">
-                        <h2>1. Anggota INKINDO</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                </div>
-                <div class="step-reverse">
-                    <div class="text">
-                        <h2>2. Berkas Permohonan</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                    <div class="image">
-                        <img src="../img/illustration/berkasPermohonan.png" alt="Berkas Permohonan">
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="image">
-                        <img src="../img/illustration/inputDataOss.png" alt="Input Data di OSS">
-                    </div>
-                    <div class="text">
-                        <h2>3. Input Data di OSS</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                </div>
-                <div class="step-reverse">
-                    <div class="text">
-                        <h2>4. Verifikasi Data</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                    <div class="image">
-                        <img src="../img/illustration/verifikasiData.png" alt="Verifikasi Data">
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="image">
-                        <img src="../img/illustration/pembayaran.png" alt="Pembayaran">
-                    </div>
-                    <div class="text">
-                        <h2>5. Pembayaran</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                </div>
-                <div class="step-reverse">
-                    <div class="text">
-                        <h2>6. Penilaian Asesor</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                    <div class="image">
-                        <img src="../img/illustration/penilaianAsesor.png" alt="Penilaian Asesor">
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="image">
-                        <img src="../img/illustration/cetak.png" alt="Cetak">
-                    </div>
-                    <div class="text">
-                        <h2>7. Cetak</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur. Id donec tellus facilisi ut. Molestie ornare ut non
-                            scelerisque. Non in lacus proin scelerisque ultricies risus egestas. Mi proin nunc massa
-                            risus.</p>
-                    </div>
-                </div>
-                <!-- Tambahkan konten lainnya di sini jika diperlukan -->
-            </section>
+    <section class="dpp-map">
+        <div class="map-container">
+            <h1 class="map-title">Alamat Sekretariat Provinsi</h1>
+            <div class="map-wrapper">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.2666367867246!2d112.77019417387508!3d-7.32391867202156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fae7ef0883ab%3A0xf0fa3894b216e50d!2sINKINDO%20Jawa%20Timur!5e0!3m2!1sen!2sid!4v1731467992675!5m2!1sen!2sid"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </div>
-    </div>
-
+    </section>
 
     <footer>
         <div class="footer-logo">

@@ -9,6 +9,18 @@
     <link rel="shortcut icon" type="image/png" href="../admin/images/logos/inkindo-kotak.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VJSGM32TZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-3VJSGM32TZ');
+    </script>
 </head>
 
 <body>
@@ -16,17 +28,20 @@
         <header>
             <div class="container">
                 <div class="logo-nav">
-                    <img src="../img/logo/inkindo2.png" alt="INKINDO Jawa Timur Logo" class="logo">
+                    <a href="/">
+                        <img src="../img/logo/inkindo2.png" alt="INKINDO Jawa Timur Logo" class="logo">
+                    </a>
 
                 </div>
                 <nav id="nav-menu">
                     <ul>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Alur</a></li>
-                        <li><a href="#">Layanan</a></li>
-                        <li><a href="#">Berita</a></li>
-                        <li><a href="https://lpse.lkpp.go.id/eproc4">Info Lelang</a></li>
-                        <li><a href="#">Anggota</a></li>
+                        <li><a href="/profil">Profil</a></li>
+                        <li><a href="/alur">Alur</a></li>
+                        <li><a href="/produk">Layanan</a></li>
+                        <li><a href="/berita">Berita</a></li>
+                        <li><a href="https://lpse.lkpp.go.id/eproc4/lelang" target="_blank"
+                                rel="noopener noreferrer">Info Lelang</a></li>
+                        <li><a href="/anggota">Anggota</a></li>
                     </ul>
                 </nav>
                 <button class="hamburger" id="hamburger-menu">
@@ -135,23 +150,22 @@
 
     <div id="content-container-visi-misi">
         <div class="content-section active">
-            <section class="container-2">
+            <div>
                 <h2>Visi</h2>
-            </section>
-        </div>
-        <div>
-            <div class="list-container">
-                <div class="list-item">
-                    <div class="text">Menjunjung tinggi kehormatan, kemuliaan dan nama baik profesi konsultan
-                        dalam hubungan kerja dengan pemberi tugas, sesama rekan konsultan dan masyarakat.</div>
-                </div>
             </div>
         </div>
+        <div class="list-container">
+            <div class="list-item">
+                <div class="text">Menjunjung tinggi kehormatan, kemuliaan dan nama baik profesi konsultan
+                    dalam hubungan kerja dengan pemberi tugas, sesama rekan konsultan dan masyarakat.</div>
+            </div>
+        </div>
+
         <br>
         <div class="content-section active">
-            <section class="container-2">
+            <div>
                 <h2>Misi</h2>
-            </section>
+            </div>
         </div>
         <div>
             <div class="list-container">

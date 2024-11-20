@@ -9,6 +9,18 @@
     <link rel="shortcut icon" type="image/png" href="../admin/images/logos/inkindo-kotak.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VJSGM32TZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-3VJSGM32TZ');
+    </script>
 </head>
 
 <body>
@@ -17,16 +29,16 @@
             <div class="container">
                 <div class="logo-nav">
                     <img src="../img/logo/inkindo2.png" alt="INKINDO Jawa Timur Logo" class="logo">
-
                 </div>
                 <nav id="nav-menu">
                     <ul>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Alur</a></li>
-                        <li><a href="#">Layanan</a></li>
-                        <li><a href="#">Berita</a></li>
-                        <li><a href="#">Info Lelang</a></li>
-                        <li><a href="#">Anggota</a></li>
+                        <li><a href="/profil">Profil</a></li>
+                        <li><a href="/alur">Alur</a></li>
+                        <li><a href="/produk">Layanan</a></li>
+                        <li><a href="/berita">Berita</a></li>
+                        <li><a href="https://lpse.lkpp.go.id/eproc4/lelang" target="_blank"
+                                rel="noopener noreferrer">Info Lelang</a></li>
+                        <li><a href="/anggota">Anggota</a></li>
                     </ul>
                 </nav>
                 <button class="hamburger" id="hamburger-menu">
@@ -50,43 +62,6 @@
                     konsultan di Indonesia.</p>
             </div>
         </div>
-
-        {{-- <div id="sejarah-perusahaan" class="hero-content" style="display: none;">
-            <div class="text-content-2">
-                <h1>Sejarah Perusahaan</h1>
-                <p>Sejarah INKINDO yang berdedikasi dalam meningkatkan kualitas konsultan di Indonesia.</p>
-            </div>
-        </div>
-
-        <div id="visi-misi" class="hero-content" style="display: none;">
-            <div class="text-content-2">
-                <h1>Visi dan Misi</h1>
-                <p>Visi dan misi INKINDO dalam dunia konsultansi Indonesia.</p>
-            </div>
-        </div>
-
-        <div id="kode-etik" class="hero-content" style="display: none;">
-            <div class="text-content-2">
-                <h1>Kode Etik</h1>
-                <p>Kode etik dan pedoman profesional untuk anggota INKINDO.</p>
-            </div>
-        </div>
-
-        <div id="struktur-organisasi" class="hero-content" style="display: none;">
-            <div class="text-content-2">
-                <h1>Struktur Organisasi</h1>
-                <div class="org-structure">
-                    <button class="org-btn active">DPP</button>
-                    <button class="org-btn">DKP</button>
-                    <button class="org-btn">DPOP</button>
-                    <button class="org-btn">BBP</button>
-                    <button class="org-btn">KD</button>
-                </div>
-            </div>
-        </div> --}}
-
-
-
     </section>
 
     <div class="card-container">
@@ -142,19 +117,60 @@
             <div class="sejarah-content">
                 <h2>Awal Mula Berdirinya dan Tujuan Inkindo Jawa Timur</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur. Turpis laoreet sed id dictum suscipit in risus in egestas.
-                    Et nec sit bibendum orci at sit. Malesuada faucibus cursus et varius. Consequat lectus eget id elit
-                    arcu ut etiam. Et malesuada ipsum eu fusce volutpat scelerisque placerat congue congue. Volutpat id
-                    dignissim semper tempus vitae. Dignissim vitae et convallis nascetur enim.
+                    Pada 1980-an, beberapa konsultan teknik di Surabaya, seperti Suharto Hadiwinoto dan Muchayat, mulai
+                    berkumpul dan akhirnya mendirikan Asosiasi Konsultan (Askon) Jawa Timur. Askon dilantik di Grahadi,
+                    Surabaya, dengan sekitar 30 anggota dan berpusat di Jl. Diponegoro 37. Askon aktif mengadakan
+                    seminar, workshop, dan pengembangan profesi yang meningkatkan visibilitas konsultan teknik di Jawa
+                    Timur.
+                    Sebelum Askon berdiri, sebenarnya sudah ada organisasi nasional, yaitu INKINDO, yang dibentuk pada
+                    20 Juni 1979 sebagai hasil fusi Ikindo dan PKTPI. Pada 22 November 1982, Askon memutuskan bergabung
+                    dengan INKINDO, menjadikannya Dewan Pengurus Provinsi (DPP) INKINDO Jawa Timur dengan Imam
+                    Soedradjat sebagai ketua. DPP INKINDO Jatim termasuk yang pertama bergabung dengan INKINDO Nasional
+                    dan berkontribusi besar pada perkembangan organisasi ini. Beberapa pengurusnya bahkan mengisi posisi
+                    penting di tingkat nasional, termasuk Muchayat yang pernah menjabat sebagai Ketua Umum INKINDO.
                 </p>
-                <ul>
-                    <li>Lorem ipsum dolor sit amet consectetur. Turpis laoreet sed id dictum suscipit in risus in
-                        egestas.</li>
-                    <li>Et nec sit bibendum orci at sit. Malesuada faucibus cursus et varius. Consequat lectus eget id
-                        elit arcu ut etiam.</li>
-                    <li>Et malesuada ipsum eu fusce volutpat scelerisque placerat congue congue. Volutpat id dignissim
-                        semper tempus vitae.</li>
-                </ul>
+                <div>
+                    <div class="list-container-sejarah">
+                        <p>Berikut tujuan di dirikannya Inkindo Jawa Timur:</p>
+                        <div class="list-item">
+                            <div class="number">1.</div>
+                            <div class="text">Inkindo Jatim sebagai learning organisation yang dinamis dan adaptif terhadap
+                                perubahan peradaban.</div>
+                        </div>
+                        <div class="list-item">
+                            <div class="number">2.</div>
+                            <div class="text">Inkindo Jatim sebgai wadah komunikasi anggota dan salah satu pusat environment
+                                jasa konstruksi khususnya di Jawa Timur.</div>
+                        </div>
+                        <div class="list-item">
+                            <div class="number">3.</div>
+                            <div class="text">Penegakan norma, etika dan aturan organisasi.</div>
+                        </div>
+                        <div class="list-item">
+                            <div class="number">4.</div>
+                            <div class="text">Menjunjung dan menjaga marwah organisasi.</div>
+                        </div>
+                        <div class="list-item">
+                            <div class="number">5.</div>
+                            <div class="text">Mendorong dan menjaga iklim usaha jasa konsultan yang kondusif.</div>
+                        </div>
+                        <div class="list-item">
+                            <div class="number">6.</div>
+                            <div class="text">Mendorong inovasi yang bermanfaat bagi masyarakat, berwawasan lingkungan serta
+                                berkelanjutan.</div>
+                        </div>
+                        <div class="list-item">
+                            <div class="number">7.</div>
+                            <div class="text">Mendorong anggota dalam adaptasi terhadap perubahan peradaban melalui
+                                transformasi digital.</div>
+                        </div>
+                        <div class="list-item">
+                            <div class="number">8.</div>
+                            <div class="text">Mitra strategis bagi pemerintah, dunia usaha atau mitra kerja, dunia akademik
+                                serta masyarakat.</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -165,9 +181,9 @@
                     <div class="timeline-line"></div>
                     <div class="timeline-year">1982</div>
                     <div class="timeline-content">
-                        <img src="../img/galeri/imam.png" alt="Imam Soedrajad" class="timeline-photo">
+                        <img src="../img/sejarah/imam.png" alt="Imam Soedrajad" class="timeline-photo">
                         <div class="timeline-info">
-                            <h2>Masa Bhakti 1982 - 1987</h2>
+                            <h2>Masa Bakti 1982 - 1987</h2>
                             <p>Imam Soedrajad</p>
                         </div>
                     </div>
@@ -176,9 +192,9 @@
                     <div class="timeline-line"></div>
                     <div class="timeline-year">1987</div>
                     <div class="timeline-content">
-                        <img src="../img/galeri/imam.png" alt="Ir. H Muchayat" class="timeline-photo">
+                        <img src="../img/sejarah/muchayat.png" alt="Ir. H Muchayat" class="timeline-photo">
                         <div class="timeline-info">
-                            <h2>Masa Bhakti 1987 - 1990</h2>
+                            <h2>Masa Bakti 1987 - 1990</h2>
                             <p>Ir. H Muchayat</p>
                         </div>
                     </div>
@@ -187,10 +203,76 @@
                     <div class="timeline-line"></div>
                     <div class="timeline-year">1990</div>
                     <div class="timeline-content">
-                        <img src="../img/galeri/imam.png" alt="Ir. H Hariwardono S." class="timeline-photo">
+                        <img src="../img/sejarah/muchayat.png" alt="Ir. H Hariwardono S." class="timeline-photo">
                         <div class="timeline-info">
-                            <h2>Masa Bhakti 1990 - 1997</h2>
+                            <h2>Masa Bakti 1990 - 1997</h2>
                             <p>Ir. H Hariwardono S.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-year">1997</div>
+                    <div class="timeline-content">
+                        <img src="../img/sejarah/irawan.png" alt="Ir H Irawan Sidharta" class="timeline-photo">
+                        <div class="timeline-info">
+                            <h2>Masa Bakti 1997 - 2002</h2>
+                            <p>Ir H Irawan Sidharta</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-year">2002</div>
+                    <div class="timeline-content">
+                        <img src="../img/sejarah/djoko.png" alt="Ir.H. Djoko S.,MT.,MHUM" class="timeline-photo">
+                        <div class="timeline-info">
+                            <h2>Masa Bakti 2002 - 2010</h2>
+                            <p>Ir.H. Djoko S.,MT.,MHUM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-year">2010</div>
+                    <div class="timeline-content">
+                        <img src="../img/sejarah/irviandi.png" alt="Ir. Irviandi Basuki" class="timeline-photo">
+                        <div class="timeline-info">
+                            <h2>Masa Bakti 2010 - 2014</h2>
+                            <p>Ir. Irviandi Basuki</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-year">2014</div>
+                    <div class="timeline-content">
+                        <img src="../img/sejarah/darmadjaja.png" alt="Ir. H Darmadjaja, MM" class="timeline-photo">
+                        <div class="timeline-info">
+                            <h2>Masa Bakti 2014 - 2018</h2>
+                            <p>Ir. H Darmadjaja, MM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-year">2018</div>
+                    <div class="timeline-content">
+                        <img src="../img/sejarah/adi.png" alt="Dr. Ir Adi Prawito, MM., MT." class="timeline-photo">
+                        <div class="timeline-info">
+                            <h2>Masa Bakti 2018 - 2022</h2>
+                            <p>Dr. Ir Adi Prawito, MM., MT.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-content">
+                        <img src="../img/sejarah/irwan.png" alt="Ir. Irwan Susilo, ST., Mt., IPM." class="timeline-photo">
+                        <div class="timeline-info">
+                            <h2>Masa Bakti 2022 - 2026</h2>
+                            <p>Ir. Irwan Susilo, ST., Mt., IPM.</p>
                         </div>
                     </div>
                 </div>

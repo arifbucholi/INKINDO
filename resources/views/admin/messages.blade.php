@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
     <title>Admin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         {{-- integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMm7rQx5Fd7b4ikx9gB8V4m3M3GlnA7Hhn0Vbx"  --}}
@@ -11,15 +12,6 @@
 
     <link rel="shortcut icon" type="image/png" href="../admin/images/logos/inkindo-kotak.png" />
     <link rel="stylesheet" href="../admin/css/styles.min.css" />
-
-    {{-- map --}}
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <style>
-        #map {
-            height: 400px;
-            width: 100%;
-        }
-    </style>
 </head>
 
 <body>
@@ -69,7 +61,8 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link danger-hover-bg" href="/abc" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link danger-hover-bg"
+                                href="{{ route('admin.layanan') }}" aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-danger rounded-3">
                                     <i class="ti ti-article fs-7 text-danger"></i>
                                 </span>
@@ -77,8 +70,8 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link success-hover-bg" href="./ui-card.html"
-                                aria-expanded="false">
+                            <a class="sidebar-link sidebar-link success-hover-bg"
+                                href="{{ route('admin.anggota.index') }}" aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-success rounded-3">
                                     <i class="ti ti-users fs-7 text-success"></i>
                                 </span>
@@ -95,7 +88,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link indigo-hover-bg" href="/admin/seo"
+                            <a class="sidebar-link sidebar-link indigo-hover-bg" href="{{ route('admin.seo.index') }}"
                                 aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-indigo rounded-3">
                                     <i class="ti ti-seo fs-7 text-indigo"></i>
@@ -103,8 +96,9 @@
                                 <span class="hide-menu ms-2 ps-1">SEO</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link warning-hover-bg" href="/abc" aria-expanded="false">
+                        {{-- <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link warning-hover-bg"
+                                href="{{ route('admin.messages.index') }}" aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-warning rounded-3">
                                     <i class="ti ti-phone fs-7 text-warning"></i>
                                 </span>
@@ -112,14 +106,15 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link danger-hover-bg" href="/abc" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link danger-hover-bg"
+                                href="{{ route('admin.messages.index') }}" aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-danger rounded-3">
                                     <i class="ti ti-info-circle fs-7 text-danger"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">About Us</span>
                             </a>
-                        </li>
-                        <li class="nav-small-cap">
+                        </li> --}}
+                        {{-- <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-5"></i>
                             <span class="hide-menu">UI Componenst</span>
                         </li>
@@ -211,9 +206,9 @@
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Sample Page</span>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
-                    <div class="pb-3 options text-nowrap">
+                    {{-- <div class="pb-3 options text-nowrap">
                         <div class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-5"></i>
                             <span class="hide-menu">More options</span>
@@ -241,27 +236,9 @@
                                 <span class="hide-menu ms-2">Widgets</span>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
 
-                    <div class="mt-5 blocks-card sidebar-ad">
-                        <div class="card bg-light-primary">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="../admin/images/backgrounds/education-blocks.png" width="136"
-                                        height="136" class="mt-n9" alt="" />
 
-                                    <h5>Are you<br /> satisfied ?</h5>
-
-                                    <div class="mt-4">
-                                        <a href="" target="_blank"
-                                            class="btn btn-primary buynow-link w-100 px-2">
-                                            Buy Now
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
@@ -289,12 +266,12 @@
                     </ul>
                     <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-                            <span>Halo Pakde...</span>
+                            <span>Halo, {{ Auth::user()->username }}...</span>
                             <li class="nav-item dropdown">
                                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{-- <img src="../admin/images/profile/user1.jpg" alt="" width="35"
-                                        height="35" class="rounded-circle"> --}}
+                                    <img src="../img/testimoni/orang.png" alt="" width="35"
+                                        height="35" class="rounded-circle">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
                                     aria-labelledby="drop2">
@@ -352,7 +329,7 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="POST" action="{{ route('admin.messages.store') }}">
+                                        <form method="POST" action="{{ route('admin.messages.store') }}" enctype="multipart/form-data">
                                             @csrf
                                             <div class="mb-3">
                                                 <label for="guest_name" class="form-label">Nama</label>
@@ -362,6 +339,10 @@
                                             <div class="mb-3">
                                                 <label for="message" class="form-label">Pesan</label>
                                                 <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="photo" class="form-label">Foto (opsional)</label>
+                                                <input type="file" class="form-control" id="photo" name="photo" accept="image/*">
                                             </div>
                                             <button type="submit" class="btn btn-primary">Simpan</button>
                                         </form>
@@ -462,7 +443,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="POST" action="{{ route('admin.messages.update', $message->id) }}">
+                                    <form method="POST" action="{{ route('admin.messages.update', $message->id) }}" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <div class="mb-3">
@@ -473,6 +454,13 @@
                                         <div class="mb-3">
                                             <label for="message" class="form-label">Pesan</label>
                                             <textarea class="form-control" id="message" name="message" rows="3" required>{{ $message->message }}</textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="photo" class="form-label">Foto (opsional)</label>
+                                            @if($message->photo)
+                                                <img src="{{ asset('storage/' . $message->photo) }}" alt="Testimoni Photo" class="img-thumbnail mb-2" style="max-width: 200px;">
+                                            @endif
+                                            <input type="file" class="form-control" id="photo" name="photo" accept="image/*">
                                         </div>
                                         <button type="submit" class="btn btn-primary">Simpan</button>
                                     </form>
@@ -510,8 +498,6 @@
                     </div>
                 @endforeach
 
-                {{-- map --}}
-                <div id="map"></div>
             </div>
 
 
@@ -548,48 +534,6 @@
             }
         }
     </script>
-
-    {{-- map  --}}
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
-        var initialZoom = 8; // Simpan tingkat zoom asal
-        var map = L.map('map', {
-            zoom: initialZoom,
-            center: [-7.6740, 112.7631], // Koordinat pusat di Jawa Timur
-            maxZoom: 18,
-            minZoom: 3,
-            noWrap: true // menonaktifkan wrapping untuk menghindari garis
-        });
-
-        // Tambahkan layer peta OpenStreetMap
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-        }).addTo(map);
-
-        // Data perusahaan per provinsi
-        var perusahaanData = [
-            { lat: -7.25, lng: 112.75, name: "Jawa Timur", jumlah: 600 },
-            { lat: -8.58, lng: 114.14, name: "Banyuwangi", jumlah: 150 },
-            { lat: -7.57, lng: 112.67, name: "Surabaya", jumlah: 1200 },
-            { lat: -7.56, lng: 112.46, name: "Malang", jumlah: 300 }
-            // Tambahkan data provinsi lainnya jika diperlukan
-        ];
-
-        // Menambahkan marker dan interaksi hover
-        perusahaanData.forEach(function(provinsi) {
-            var marker = L.marker([provinsi.lat, provinsi.lng]).addTo(map);
-            marker.on('mouseover', function() {
-                this.bindPopup('<strong>' + provinsi.name + '</strong><br>Jumlah Perusahaan: ' + provinsi.jumlah).openPopup();
-            });
-
-            // Menghapus popup saat mouse keluar
-            marker.on('mouseout', function() {
-                this.closePopup();
-            });
-        });
-    </script>
-
 
     {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>

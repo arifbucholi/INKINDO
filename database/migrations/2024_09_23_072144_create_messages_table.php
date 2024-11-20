@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('guest_name');
             $table->text('message');
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }

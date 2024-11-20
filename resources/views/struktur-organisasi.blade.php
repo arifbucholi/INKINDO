@@ -9,6 +9,18 @@
     <link rel="shortcut icon" type="image/png" href="../admin/images/logos/inkindo-kotak.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VJSGM32TZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-3VJSGM32TZ');
+    </script>
 </head>
 
 <body>
@@ -21,12 +33,13 @@
                 </div>
                 <nav id="nav-menu">
                     <ul>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Alur</a></li>
-                        <li><a href="#">Layanan</a></li>
-                        <li><a href="#">Berita</a></li>
-                        <li><a href="#">Info Lelang</a></li>
-                        <li><a href="#">Anggota</a></li>
+                        <li><a href="/profil">Profil</a></li>
+                        <li><a href="/alur">Alur</a></li>
+                        <li><a href="/produk">Layanan</a></li>
+                        <li><a href="/berita">Berita</a></li>
+                        <li><a href="https://lpse.lkpp.go.id/eproc4/lelang" target="_blank"
+                                rel="noopener noreferrer">Info Lelang</a></li>
+                        <li><a href="/anggota">Anggota</a></li>
                     </ul>
                 </nav>
                 <button class="hamburger" id="hamburger-menu">
@@ -137,25 +150,28 @@
         <div class="image-content">
             <div id="image-dpp-inkindo" class="image-section" style="display: block;">
                 <div class="content-section active">
-                    <section class="container-2">
+                    {{-- <section class="container-2"> --}}
                         <h2>Dewan Pengurus Provinsi (DPP)</h2>
-                    </section><br>
+                    {{-- </section> --}}
+                    <br>
                 </div>
                 <img src="../img/struktur/dpp.png" alt="DPP Structure">
             </div>
             <div id="image-dkp-inkindo" class="image-section" style="display: none;">
                 <div class="content-section active">
-                    <section class="container-2">
+                    {{-- <section class="container-2"> --}}
                         <h2>Dewan Kehormatan Provinsi (DKP)</h2>
-                    </section><br>
+                    {{-- </section> --}}
+                    <br>
                 </div>
                 <img src="../img/struktur/dkp.png" alt="DKP Structure">
             </div>
             <div id="image-dpop-inkindo" class="image-section" style="display: none;">
                 <div class="content-section active">
-                    <section class="container-2">
+                    {{-- <section class="container-2"> --}}
                         <h2>Dewan Pertimbangan Organisasi Provinsi (DPOP)</h2>
-                    </section><br>
+                    {{-- </section> --}}
+                    <br>
                 </div>
                 <img src="../img/struktur/dpop.png" alt="DPOP Structure">
             </div>

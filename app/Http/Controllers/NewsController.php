@@ -22,32 +22,61 @@ class NewsController extends Controller
     }
 
     // Store a newly created news article
+    // public function store(Request $request)
+    // {
+    //     // Validasi inputan
+    //     $validated = $request->validate([
+    //         'title' => 'required|string|max:255',
+    //         'content' => 'required|string',
+    //         'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+    //     ]);
+
+    //     // dd($validated);
+
+    //     $imagePath = null;
+    //     if ($request->hasFile('image')) {
+    //         // Menyimpan gambar ke lokasi permanen
+    //         $imagePath = $request->file('image')->store('uploads/images', 'public');
+    //     }
+
+    //     // Menyimpan data ke database
+    //     $validated['image'] = $imagePath;
+
+    //     // Membuat dan menyimpan data ke dalam tabel News
+    //     News::create($validated);
+
+    //     return redirect()->route('admin.news.index')->with('success', 'News created successfully.');
+    // }
+
     public function store(Request $request)
     {
-        $request->validate([
+        // Validasi inputan
+        $validated = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'seo_title' => 'nullable|string|max:255',
-            'meta_description' => 'nullable|string|max:255',
-            'keywords' => 'nullable|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:10240',
         ]);
 
-        $news = new News();
-        $news->title = $request->title;
-        $news->content = $request->content;
+        // Inisialisasi imagePath sebagai null
+        $imagePath = null;
 
-        // Handle image upload
+        // Handle image upload jika ada
         if ($request->hasFile('image')) {
-            $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('uploads/images'), $imageName);
-            $news->image = 'uploads/images/' . $imageName;
+            // Menyimpan gambar ke lokasi permanen
+            // Ini akan menyimpan gambar di public/uploads/images dengan disk 'public'
+            $imagePath = $request->file('image')->store('uploads/images', 'public');
         }
 
-        $news->save();
+        // Menambahkan path gambar ke data yang divalidasi
+        $validated['image'] = $imagePath;
+
+        // Membuat dan menyimpan data ke dalam tabel News
+        News::create($validated);
 
         return redirect()->route('admin.news.index')->with('success', 'News created successfully.');
     }
+
+
 
     // Show the form for editing the specified news article
     public function edit(News $news)
@@ -58,31 +87,35 @@ class NewsController extends Controller
     // Update the specified news article
     public function update(Request $request, News $news)
     {
-        $request->validate([
+        // Validasi inputan
+        $validated = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
+        // Update informasi teks
         $news->title = $request->title;
         $news->content = $request->content;
 
-        // Handle image upload
+        // Handle image upload jika ada
         if ($request->hasFile('image')) {
-            // Delete the old image if it exists
+            // Hapus gambar lama jika ada
             if ($news->image) {
-                Storage::delete($news->image);
+                Storage::delete('public/' . $news->image);
             }
 
-            $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('uploads/images'), $imageName);
-            $news->image = 'uploads/images/' . $imageName;
+            // Menyimpan gambar baru
+            $imagePath = $request->file('image')->store('uploads/images', 'public');
+            $news->image = $imagePath;
         }
 
+        // Simpan perubahan ke database
         $news->save();
 
         return redirect()->route('admin.news.index')->with('success', 'News updated successfully.');
     }
+
 
     // Remove the specified news article
     public function destroy($id)

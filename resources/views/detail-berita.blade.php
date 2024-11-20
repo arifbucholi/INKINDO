@@ -4,29 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Berita</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>{{ $berita->title }}</title>
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link rel="shortcut icon" type="image/png" href="../admin/images/logos/inkindo-kotak.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VJSGM32TZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-3VJSGM32TZ');
+    </script>
 </head>
 
 <body>
     <section class="hero-bg-berita-detail">
+        {{-- <section> --}}
         <header>
             <div class="container">
                 <div class="logo-nav">
-                    <img src="../img/logo/inkindo2.png" alt="INKINDO Jawa Timur Logo" class="logo">
+                    <a href="/">
+                        <img src="../img/logo/inkindo2.png" alt="INKINDO Jawa Timur Logo" class="logo">
+                    </a>
 
                 </div>
                 <nav id="nav-menu">
                     <ul>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Alur</a></li>
-                        <li><a href="#">Layanan</a></li>
-                        <li><a href="#">Berita</a></li>
-                        <li><a href="#">Info Lelang</a></li>
-                        <li><a href="#">Anggota</a></li>
+                        <li><a href="/profil">Profil</a></li>
+                        <li><a href="/alur">Alur</a></li>
+                        <li><a href="/produk">Layanan</a></li>
+                        <li><a href="/berita">Berita</a></li>
+                        <li><a href="https://lpse.lkpp.go.id/eproc4/lelang" target="_blank"
+                                rel="noopener noreferrer">Info Lelang</a></li>
+                        <li><a href="/anggota">Anggota</a></li>
                     </ul>
                 </nav>
                 <button class="hamburger" id="hamburger-menu">
@@ -44,7 +60,7 @@
         <!-- Main Hero Content -->
         <div class="hero-content container">
             <div class="text-content-2">
-                <h1>Berita</h1>
+                {{-- <h1>Berita</h1> --}}
             </div>
         </div>
     </section>
@@ -53,53 +69,48 @@
         <div class="news-detail-container container">
             <!-- Main Content -->
             <div class="news-main-content">
-                <h1>INKINDO Jawa Timur Dukung UINSA Gelar ARCHIFEST 2024: “Seminar Arsitektur”</h1>
+                <h1>{{ $berita->title }}</h1>
                 <div class="news-meta">
                     <span class="date">
                         <img src="../img/icon/calendar.png" alt="" width="16px">
-                        Kamis, 12 September 2024
+                        @php
+                            use Carbon\Carbon;
+                            Carbon::setLocale('id');
+                        @endphp
+                        {{ Carbon::parse($berita->created_at)->translatedFormat('l, d F Y') }}
                     </span>
-                    <span class="location">
+                    {{-- <span class="location">
                         <img src="../img/icon/map.png" alt="" width="16px"
                             style="filter: invert(100%) sepia(100%) saturate(1000%) hue-rotate(180deg);">
                         Kampus UINSA Gunung Anyar, Surabaya
-                    </span>
+                    </span> --}}
                 </div>
-                <img src="../img/detail/detail1.png" alt="Seminar Arsitektur" class="news-image">
+                <img src="{{ asset('storage/' . $berita->image) }}" alt="Seminar Arsitektur" class="news-image">
                 <p class="news-description">
-                    Surabaya, ARCHIFEST 2024 telah sukses digelar di Kampus UINSA Gunung Anyar Surabaya pada 12
-                    September 2024. Acara yang bertajuk “Seminar Arsitektur” ini dihadiri oleh narasumber terkemuka di
-                    bidang arsitektur dan konstruksi, termasuk Ir. Irwan Susilo, ST. MT. IPM Ketua DPP INKINDO Jawa
-                    Timur dan Ar. Fafan Tri Afandy, IAI Sekretaris Umum IAI Jawa Timur. INKINDO Jawa Timur turut
-                    berkontribusi dalam kesuksesan ARCHIFEST 2024 dengan memberikan wawasan dan pengalaman dalam sesi
-                    diskusi tentang Peluang & Tantangan Membangun Bisnis Bidang Jasa Arsitektur & Konstruksi. Narasumber
-                    dari INKINDO berbagi tips dan strategi kepada para peserta acara agar dapat meraih kesuksesan dalam
-                    membangun karir di industri arsitektur dan konstruksi. Acara ini dibuka secara resmi oleh Dr. A
-                    Saeful Hamdani M.Pd, Dekan Fakultas Sains dan Teknologi Universitas Islam Negeri Sunan Ampel
-                    Surabaya. Para peserta ARCHIFEST 2024 tampak antusias mengikuti berbagai sesi diskusi dan workshop
-                    yang diselenggarakan selama acara, menunjukkan minat yang besar dalam mengembangkan kemampuan dan
-                    pengetahuan mereka di bidang arsitektur dan konstruksi. Harapannya, melalui ARCHIFEST 2024 ini, para
-                    profesional dan mahasiswa di bidang arsitektur dan konstruksi dapat terus berkembang dan
-                    berkontribusi dalam mewujudkan kemajuan Indonesia di sektor ini.
+                    {{ $berita->content }}
                 </p>
             </div>
 
             <!-- Sidebar -->
             <aside class="news-sidebar">
-                <h3>Berita Terbaru</h3>
-                <a href="">
-                    <div class="news-sidebar-item">
-                        <img src="../img/galeri/galeri2.png" alt="Thumbnail" class="sidebar-thumbnail">
-                        <div class="sidebar-content">
-                            <h4>Penataran Kode Etik Tatalaku Keprofesian INKINDO Angkatan XXXVI</h4>
-                            <span class="date">
-                                <img src="../img/icon/calendar.png" alt="" width="16px">
-                                11-09-2024
-                            </span>
+                <h3>Berita Lainnya</h3>
+                @foreach ($beritaLainnya as $item)
+                    <a href="{{ route('berita.detail', $item->id) }}">
+                        <div class="news-sidebar-item">
+                            <img src="{{ asset('img/galeri/' . $item->thumbnail) }}" alt="Thumbnail"
+                                class="sidebar-thumbnail"> <!-- Ganti dengan path thumbnail yang sesuai -->
+                            <div class="sidebar-content">
+                                <h4>{{ $item->title }}</h4>
+                                <span class="date">
+                                    <img src="../img/icon/calendar.png" alt="" width="16px">
+                                    {{ Carbon::parse($item->created_at)->translatedFormat('d F Y') }}
+                                    <!-- Format tanggal -->
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                </a>
-                <div class="news-sidebar-item">
+                    </a>
+                @endforeach
+                {{-- <div class="news-sidebar-item">
                     <img src="../img/galeri/galeri3.png" alt="Thumbnail" class="sidebar-thumbnail">
                     <div class="sidebar-content">
                         <h4>INKINDO Jatim Gelar Pelatihan Dasar Penyusunan Laporan dan Neraca Keuangan</h4>
@@ -108,7 +119,7 @@
                             23-08-2024
                         </span>
                     </div>
-                </div>
+                </div> --}}
                 <!-- Add more items as needed -->
             </aside>
         </div>

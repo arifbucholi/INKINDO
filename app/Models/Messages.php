@@ -14,6 +14,7 @@ class Messages extends Model
     protected $fillable = [
         'guest_name',
         'message',
+        'photo',
     ];
 
     // Relasi ke model User

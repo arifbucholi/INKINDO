@@ -24,6 +24,10 @@ class DatabaseSeeder extends Seeder
             MessagesTableSeeder::class,
             BarcodeSeeder::class,
             SeoSeeder::class,
+            UserSeeder::class,
+            FaqSeeder::class,
+            KonstruksiSeeder::class,
+            NonKonstruksiSeeder::class,
             // Add any other seeders you want to run
         ]);
     }

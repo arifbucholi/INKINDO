@@ -123,4 +123,15 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    // 'providers' => [
+    //     // Provider lain
+    //     app\Providers\FortifyServiceProvider::class,
+    // ],
+
+    // 'aliases' => [
+    //     // Alias lainnya
+    //     'Fortify' => Laravel\Fortify\Fortify::class,
+    // ],
+
+
 ];
