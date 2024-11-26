@@ -105,15 +105,43 @@ nav ul li {
     margin-left: 20px;
 }
 
+/* Gaya dasar link */
 nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    padding: 10px 5px;
+    position: relative; /* Agar garis bawah berada di posisi relatif terhadap link */
 }
 
-nav ul li a:hover {
-    color: #ffd700;
+/* Garis bawah yang muncul saat hover */
+nav ul li a::after {
+    content: ""; /* Membuat elemen pseudo untuk garis bawah */
+    position: absolute;
+    bottom: 0; /* Menempatkan garis di bawah teks */
+    left: 0;
+    width: 0; /* Ukuran awal garis (tidak terlihat) */
+    height: 3px; /* Tinggi garis */
+    background-color: #ffd700; /* Warna garis */
+    transition: width 0.3s ease; /* Efek transisi lebar garis */
 }
+
+/* Efek saat hover */
+nav ul li a:hover::after {
+    width: 100%; /* Garis akan mengisi lebar link saat hover */
+}
+
+/* Efek aktif (link yang sedang diklik) */
+nav ul li a.active::after {
+    width: 100%; /* Garis akan mengisi lebar link aktif */
+    background-color: #ffd700; /* Warna garis aktif (bisa diubah sesuai preferensi) */
+}
+
+/* Opsional: Memberikan warna lain pada teks saat aktif */
+nav ul li a.active {
+    color: #ffd700; /* Mengubah warna teks saat link aktif */
+}
+
 
 .hamburger {
     display: none;
@@ -626,7 +654,11 @@ section.slider {
 
 /* Individual Card Styling */
 .card-item {
-    background: linear-gradient(to bottom, #1e88e5, #81d4fa); /* Gradien biru ke cyan */
+    background: linear-gradient(
+        to bottom,
+        #1e88e5,
+        #81d4fa
+    ); /* Gradien biru ke cyan */
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek 3D */
     width: 150px; /* Lebar card */
@@ -637,7 +669,7 @@ section.slider {
     align-items: center;
     text-align: center;
     color: #fff; /* Warna teks */
-    font-family: 'Arial', sans-serif;
+    font-family: "Arial", sans-serif;
     font-weight: bold;
     z-index: 2;
     transition: transform 0.3s ease; /* Efek hover */
@@ -656,11 +688,9 @@ section.slider {
     }
 
     .card-item h3 {
-        font-size: .6em;
+        font-size: 0.6em;
     }
-
 }
-
 
 /* .testimonial-section {
     padding: 60px 0;
@@ -1706,7 +1736,7 @@ footer {
     /* Mengatur teks di tengah */
     padding: 20px;
     /* Jarak di sekitar teks */
-    background: linear-gradient(to bottom right, #5CB9C8, #1A6AB5);
+    background: linear-gradient(to bottom right, #5cb9c8, #1a6ab5);
     color: white;
     /* Warna teks */
     margin: 0;
@@ -1811,7 +1841,7 @@ footer {
 
 .custom-card {
     background-color: white;
-    border: 1px solid #E0E0E0;
+    border: 1px solid #e0e0e0;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -1855,7 +1885,7 @@ footer {
 }
 
 .custom-card-button {
-    background-color: #E0E0E0;
+    background-color: #e0e0e0;
     color: #333;
     border: none;
     border-radius: 24px;
@@ -1930,7 +1960,7 @@ footer {
 }
 
 .lc-stars {
-    color: #FFD700;
+    color: #ffd700;
     font-size: 20px;
 }
 
@@ -1941,7 +1971,7 @@ footer {
 }
 
 .lc-btn-more {
-    background-color: #E0E0E0;
+    background-color: #e0e0e0;
     color: #000000;
     padding: 12px 24px;
     border: none;
@@ -1949,7 +1979,7 @@ footer {
     cursor: pointer;
     margin-top: 15px;
     font-size: 16px;
-    font-weight: bold
+    font-weight: bold;
 }
 
 .lc-btn-more:hover {
@@ -2002,6 +2032,28 @@ footer {
     font-size: 14px;
     color: #333;
     margin: 0;
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    z-index: 100;
+}
+
+.whatsapp-float img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.whatsapp-float img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
 }
 
 @media (max-width: 768px) {
@@ -2516,7 +2568,6 @@ footer {
         height: 0%;
         background-size: cover;
     }
-
 }
 
 @media (max-width: 480px) {
@@ -2681,7 +2732,7 @@ footer {
         max-width: 78%;
     }
 
-    #map{
+    #map {
         width: 85%;
         margin: auto;
     }
@@ -2693,7 +2744,7 @@ footer {
     }
 
     .card-item h3 {
-        font-size: .6em;
+        font-size: 0.6em;
     }
 
     .faq-section {

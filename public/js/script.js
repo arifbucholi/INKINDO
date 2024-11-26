@@ -50,3 +50,14 @@ document.querySelectorAll('.faq-question').forEach(item => {
         faqItem.classList.toggle('active');
     });
 });
+
+window.addEventListener('DOMContentLoaded', () => {
+    const currentUrl = window.location.pathname; // Mendapatkan URL halaman saat ini
+
+    // Menandai link aktif berdasarkan URL
+    document.querySelectorAll('#nav-menu ul li a').forEach(link => {
+        if (link.getAttribute('href') === currentUrl || (link.getAttribute('href') === '/' && currentUrl === '/')) {
+            link.classList.add('active');
+        }
+    });
+});

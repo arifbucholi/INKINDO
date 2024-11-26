@@ -18,7 +18,7 @@ class PageController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'page_type' => 'required|in:home,about,services,news,contact',
+            'page_type' => 'required|in:home,profil,layanan,berita',
             'content' => 'nullable',
             'seo_title' => 'required|string|max:255',
             'meta_description' => 'nullable|string',
@@ -43,7 +43,7 @@ class PageController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'page_type' => 'required|in:home,about,services,news,contact',
+            'page_type' => 'required|in:home,profil,layanan,berita',
             'content' => 'nullable',
             'seo_title' => 'required|string|max:255',
             'meta_description' => 'nullable|string',

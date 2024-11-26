@@ -47,9 +47,9 @@ class MessagesController extends Controller
     {
         // Validasi inputan
 
-        if ($request->hasFile('photo')) {
-            dd($request->file('photo'));
-        }
+        // if ($request->hasFile('photo')) {
+        //     dd($request->file('photo'));
+        // }
         $validated = $request->validate([
             'guest_name' => 'required|string|max:255',
             'message' => 'required|string',
@@ -101,6 +101,10 @@ class MessagesController extends Controller
     // Memperbarui data message
     public function update(Request $request, $id)
     {
+
+        // if ($request->hasFile('photo')) {
+        //     dd($request->file('photo'));
+        // }
         $message = Messages::findOrFail($id);
         $message->guest_name = $request->guest_name;
         $message->message = $request->message;

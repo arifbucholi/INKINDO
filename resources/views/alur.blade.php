@@ -31,7 +31,6 @@
                     <a href="/">
                         <img src="../img/logo/inkindo2.png" alt="INKINDO Jawa Timur Logo" class="logo">
                     </a>
-
                 </div>
                 <nav id="nav-menu">
                     <ul>
@@ -312,8 +311,7 @@
         </div>
 
         <div class="footer-copyright">
-            <p>@Lorem ipsum dolor sit amet consectetur.</p>
-            <p>Lorem ipsum dolor sit amet consectetur.</p>
+            <p><?php echo "© " . date("Y") . " INKINDO Jawa Timur."; ?></p>
         </div>
     </footer>
 

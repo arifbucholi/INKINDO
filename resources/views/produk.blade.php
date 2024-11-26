@@ -29,8 +29,9 @@
         <header>
             <div class="container">
                 <div class="logo-nav">
-                    <img src="../img/logo/inkindo2.png" alt="INKINDO Jawa Timur Logo" class="logo">
-
+                    <a href="/">
+                        <img src="../img/logo/inkindo2.png" alt="INKINDO Jawa Timur Logo" class="logo">
+                    </a>
                 </div>
                 <nav id="nav-menu">
                     <ul>
@@ -110,8 +111,8 @@
                     </a>
                 </button>
                 <button class="custom-card-button">
-                    <img src="../img/icon/google-play.png" alt="Google Play Icon">
-                    <a href="">
+                    <img src="../img/icon/google-play.png" alt="Google Play Icon" >
+                    <a href="https://play.google.com/store/apps/details?id=com.inkindo.fcafein" target="_blank" rel="noopener">
                         Google Play
                     </a>
                 </button>
@@ -132,7 +133,7 @@
                     </a>
                 </button>
                 <button class="custom-card-button">
-                    <a href="">
+                    <a href="#">
                         Pelatihan
                     </a>
                 </button>
@@ -153,9 +154,9 @@
                     </a>
                 </button>
                 <button class="custom-card-button">
-                    <img src="../img/icon/google-play.png" alt="Google Play Icon">
-                    <a href="">
-                        Google Play
+                    {{-- <img src="../img/icon/google-play.png" alt="Google Play Icon"> --}}
+                    <a href="https://sismap.inkindojawatimur.org/login" target="_blank" rel="noopener">
+                        SIMMAP
                     </a>
                 </button>
             </div>
@@ -193,8 +194,7 @@
         </div>
 
         <div class="footer-copyright">
-            <p>@Lorem ipsum dolor sit amet consectetur.</p>
-            <p>Lorem ipsum dolor sit amet consectetur.</p>
+            <p><?php echo "© " . date("Y") . " INKINDO Jawa Timur."; ?></p>
         </div>
     </footer>
 

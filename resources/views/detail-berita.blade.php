@@ -156,8 +156,7 @@
         </div>
 
         <div class="footer-copyright">
-            <p>@Lorem ipsum dolor sit amet consectetur.</p>
-            <p>Lorem ipsum dolor sit amet consectetur.</p>
+            <p><?php echo "© " . date("Y") . " INKINDO Jawa Timur."; ?></p>
         </div>
     </footer>
 

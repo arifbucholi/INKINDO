@@ -14,9 +14,9 @@ use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\LayananUserController;
 use App\Http\Controllers\DashboardUserController;
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
 // Route::get('/detail-berita', function () {
 //     return view('detail-berita');
@@ -74,9 +74,9 @@ Route::get('/non-konstruksi', function () {
     return view('non-konstruksi');
 });
 
-Route::get('/indexasli', function () {
-    return view('admin.indexasli');
-});
+// Route::get('/indexasli', function () {
+//     return view('admin.indexasli');
+// });
 
 // Route::get('/dashboard', function () {
 //     return view('admin.index');
@@ -109,7 +109,7 @@ Route::get('/admin2', function () {
 
 // -----------------------------------------------GUEST------------------------------------------------------------ //
 Route::get('/', [DashboardUserController::class, 'index'])->name('index');
-Route::get('/berita', [BeritaController::class, 'index'])->name('index');
+Route::get('/berita', [BeritaController::class, 'index'])->name('index.list');
 Route::get('/search', [BeritaController::class, 'search'])->name('news.search');
 Route::get('/detail-berita/{id}', [BeritaController::class, 'show'])->name('berita.detail');
 

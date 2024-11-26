@@ -23,7 +23,6 @@
 
         gtag('config', 'G-3VJSGM32TZ');
     </script>
-
 </head>
 
 <body>
@@ -34,7 +33,6 @@
                     <a href="/">
                         <img src="../img/logo/inkindo2.png" alt="INKINDO Jawa Timur Logo" class="logo">
                     </a>
-
                 </div>
                 <nav id="nav-menu">
                     <ul>
@@ -67,7 +65,10 @@
                     solusi tepat untuk kesuksesan proyek Anda!</p>
                 <div class="buttons">
                     <a href="/profil" class="btn yellow">Selengkapnya</a>
-                    <a href="#" class="btn red">Daftar Sekarang!</a>
+                    <a href="https://wa.me/6282141867036?text=Halo%20saya%20ingin%20daftar%20menjadi%20anggota%20INKINDO"
+                        target="_blank" rel="noopener" class="btn red">
+                        Daftar Sekarang!
+                    </a>
                 </div>
             </div>
             <div class="illustration">
@@ -160,7 +161,8 @@
                 <p>Aplikasi Android yang dikembangkan oleh Inkindo Jawa Timur ini berfungsi sebagai sarana pelayanan,
                     peningkatan kapasitas, dan ruang interaksi bagi anggota serta stakeholder terkait pembangunan
                     berkelanjutan dan pengembangan sumber daya manusia dan organisasi.</p>
-                <a href="#" class="cafein-google-play-button">
+                <a href="https://play.google.com/store/apps/details?id=com.inkindo.fcafein"
+                    class="cafein-google-play-button" target="_blank" rel="noopener">
                     <img src="img/icon/google-play.png" alt="Google Play">
                     <span>Google Play</span>
                 </a>
@@ -215,7 +217,8 @@
                     @foreach ($messages as $message)
                         <div class="swiper-slide">
                             <div class="testimonial-card">
-                                <img src="{{ asset('storage/' . $message->photo) }}" alt="Foto" class="testimonial-img" />
+                                <img src="{{ asset('storage/' . $message->photo) }}" alt="Foto"
+                                    class="testimonial-img" />
                                 <h3 class="testimonial-name">{{ $message->guest_name }}</h3>
                                 {{-- <p class="testimonial-position">{{ $message->position }}</p> --}}
                                 <p class="testimonial-quote">
@@ -408,8 +411,11 @@
                     <li>{{ $city }}: {{ $count }} perusahaan</li>
                 @endforeach
             </ul> --}}
-            <p>@Lorem ipsum dolor sit amet consectetur.</p>
-            <p>Lorem ipsum dolor sit amet consectetur.</p>
+            <p><?php echo '© ' . date('Y') . ' INKINDO Jawa Timur.'; ?></p>
+            <a href="https://wa.me/6282141867036?text=Halo%20saya%20ingin%20bertanya%20tentang%20INKINDO"
+                target="_blank" rel="noopener" class="whatsapp-float">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp" />
+            </a>
         </div>
     </footer>
 
@@ -421,7 +427,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     {{-- <script>
@@ -482,6 +487,10 @@
             });
         });
     </script> --}}
+
+    <script>
+
+    </script>
 
     <script>
         const swiper = new Swiper('.swiper', {
