@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\SeoController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
@@ -14,25 +15,9 @@ use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\LayananUserController;
 use App\Http\Controllers\DashboardUserController;
 
-// Route::get('/', function () {
-//     return view('index');
+// Route::get('/anggota', function () {
+//     return view('anggota');
 // });
-
-// Route::get('/detail-berita', function () {
-//     return view('detail-berita');
-// });
-
-Route::get('/anggota', function () {
-    return view('anggota');
-});
-
-Route::get('/alur', function () {
-    return view('alur');
-});
-
-Route::get('/profil', function () {
-    return view('profil');
-});
 
 Route::get('/sejarah', function () {
     return view('sejarah');
@@ -46,12 +31,8 @@ Route::get('/kode-etik', function () {
     return view('kode-etik');
 });
 
-Route::get('/struktur-organisasi', function () {
-    return view('struktur-organisasi');
-});
-
-Route::get('/produk', function () {
-    return view('produk');
+Route::get('/struktur-asosiasi', function () {
+    return view('struktur-asosiasi');
 });
 
 Route::get('/learning-center', function () {
@@ -66,22 +47,13 @@ Route::get('/simmap', function () {
     return view('simmap');
 });
 
-Route::get('/konstruksi', function () {
-    return view('konstruksi');
-});
-
-Route::get('/non-konstruksi', function () {
-    return view('non-konstruksi');
-});
-
-// Route::get('/indexasli', function () {
-//     return view('admin.indexasli');
+// Route::get('/konstruksi', function () {
+//     return view('konstruksi');
 // });
 
-// Route::get('/dashboard', function () {
-//     return view('admin.index');
+// Route::get('/non-konstruksi', function () {
+//     return view('non-konstruksi');
 // });
-
 
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -92,23 +64,15 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 //     return view('admin.seo');
 // });
 
-
-
-
-
-
-
-
-Route::get('/admin2', function () {
-    return view('admin.index2');
-});
-
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
 // -----------------------------------------------GUEST------------------------------------------------------------ //
 Route::get('/', [DashboardUserController::class, 'index'])->name('index');
+Route::get('/profil', [SeoController::class, 'indexProfil'])->name('indexProfil');
+Route::get('/alur', [SeoController::class, 'indexAlur'])->name('indexAlur');
+Route::get('/produk', [SeoController::class, 'indexProduk'])->name('indexProduk');
 Route::get('/berita', [BeritaController::class, 'index'])->name('index.list');
 Route::get('/search', [BeritaController::class, 'search'])->name('news.search');
 Route::get('/detail-berita/{id}', [BeritaController::class, 'show'])->name('berita.detail');

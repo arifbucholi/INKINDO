@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
-    <title>Admin</title>
+    <title>Testimoni</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         {{-- integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMm7rQx5Fd7b4ikx9gB8V4m3M3GlnA7Hhn0Vbx"  --}}
         crossorigin="anonymous">
@@ -61,8 +61,8 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link danger-hover-bg"
-                                href="{{ route('admin.layanan') }}" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link danger-hover-bg" href="{{ route('admin.layanan') }}"
+                                aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-danger rounded-3">
                                     <i class="ti ti-article fs-7 text-danger"></i>
                                 </span>
@@ -94,6 +94,15 @@
                                     <i class="ti ti-seo fs-7 text-indigo"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">SEO</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link warning-hover-bg" href="{{ route('faq.index') }}"
+                                aria-expanded="false">
+                                <span class="aside-icon p-2 bg-light-warning rounded-3">
+                                    <i class="ti ti-question-mark fs-7 text-warning"></i>
+                                </span>
+                                <span class="hide-menu ms-2 ps-1">FAQ</span>
                             </a>
                         </li>
                         {{-- <li class="sidebar-item">
@@ -257,12 +266,12 @@
                                 <i class="ti ti-menu-2"></i>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link nav-icon-hover" href="javascript:void(0)">
                                 <i class="ti ti-bell-ringing"></i>
                                 <div class="notification bg-primary rounded-circle"></div>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                     <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
@@ -270,8 +279,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="../img/testimoni/orang.png" alt="" width="35"
-                                        height="35" class="rounded-circle">
+                                    <i class="ti ti-user-circle fs-7"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
                                     aria-labelledby="drop2">
@@ -347,7 +355,7 @@
                                                 <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="photo" class="form-label">Foto (opsional)</label>
+                                                <label for="photo" class="form-label">Foto (max 5MB)</label>
                                                 <input type="file" class="form-control" id="photo" name="photo" accept="image/*">
                                             </div>
                                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -462,7 +470,7 @@
                                             <textarea class="form-control" id="message" name="message" rows="3" required>{{ $message->message }}</textarea>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="photo" class="form-label">Foto (opsional)</label>
+                                            <label for="photo" class="form-label">Foto (max 5MB)</label>
                                             @if($message->photo)
                                                 <img src="{{ asset('storage/' . $message->photo) }}" alt="Testimoni Photo" class="img-thumbnail mb-2" style="max-width: 200px;">
                                             @endif
@@ -561,6 +569,28 @@
             });
         }
     </script> --}}
+    <script>
+        // Maksimal file size: 5MB
+        const MAX_SIZE = 5 * 1024 * 1024; // 5MB dalam byte
+
+        document.getElementById('photo').addEventListener('change', function(event) {
+            var file = this.files[0];
+            if (file) {
+                if (file.size > MAX_SIZE) {
+                    alert('Ukuran file gambar tidak boleh lebih dari 5MB!');
+                    this.value = ''; // Menghapus input file jika ukurannya melebihi 5MB
+                }
+            }
+        });
+
+        document.getElementById('addNewsForm').addEventListener('submit', function(event) {
+            var file = document.getElementById('photo').files[0];
+            if (file && file.size > MAX_SIZE) {
+                event.preventDefault(); // Mencegah form submit jika file lebih besar dari 5MB
+                alert('Ukuran file gambar tidak boleh lebih dari 5MB!');
+            }
+        });
+    </script>
 </body>
 
 </html>

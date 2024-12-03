@@ -4,13 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Berita</title>
+    <title>{{ $seo->seo_title ?? 'Default Title' }}</title>
+    <meta name="description" content="{{ $seo->meta_description ?? 'Default Description' }}">
+    <meta name="keywords" content="{{ $seo->keywords ?? '' }}">
+
     <link rel="stylesheet" href="css/styles.css">
     <link rel="shortcut icon" type="image/png" href="../admin/images/logos/inkindo-kotak.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VJSGM32TZ"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2PLGYJL7V"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -19,7 +22,7 @@
         }
         gtag('js', new Date());
 
-        gtag('config', 'G-3VJSGM32TZ');
+        gtag('config', 'G-W2PLGYJL7V');
     </script>
 </head>
 
@@ -56,10 +59,11 @@
 
 
         <!-- Main Hero Content -->
-        <div class="hero-content container">
+        <div class="hero-content-2">
             <div class="text-content-2">
-                <h1>Berita</h1>
-                <p>Selamat datang di halaman berita INKINDO Jawa Timur! Kami menyajikan berita terbaru dan teraktual
+                <h1 class="slide-left">Berita</h1>
+                <p class="slide-left">Selamat datang di halaman berita INKINDO Jawa Timur! Kami menyajikan berita
+                    terbaru dan teraktual
                     seputar dunia konstruksi, teknik, dan jasa konsultasi di wilayah Jawa Timur. Dapatkan wawasan
                     mendalam, tips, serta informasi penting yang mendukung pertumbuhan bisnis Anda di sektor jasa
                     konstruksi dan konsultansi teknik.</p>
@@ -86,21 +90,20 @@
                     Carbon::setLocale('id');
                 @endphp
                 @foreach ($news as $berita)
-                    <div class="news-card">
+                    <div class="news-card slide-left">
                         <a href="{{ route('berita.detail', $berita->id) }}">
                             <img src="{{ asset('storage/' . $berita->image) }}" alt="News Image">
                             <div class="news-content">
                                 <h3>{{ $berita->title }}</h3>
                                 <p class="news-date">
-
-
                                     <i class="fa fa-calendar"></i>
 
                                     {{ Carbon::parse($berita->created_at)->translatedFormat('l, d F Y') }}
                                 </p>
                                 <p class="news-description">
-                                    {{ Str::limit($berita->content, 150, '...') }}
+                                    {{ Str::limit(strip_tags($berita->content), 150, '...') }}
                                 </p>
+
                             </div>
                         </a>
                     </div>
@@ -181,15 +184,25 @@
                 khususnya di Jawa Timur yang didirikan pada tanggal 20 Juni 1979 di Jakarta.
             </p>
             <div class="social-icons">
-                <a href="#"><img src="../img/icon/facebook.png" alt=""></a>
-                <a href="#"><img src="../img/icon/instagram.png" alt=""></a>
-                <a href="#"><img src="../img/icon/youtube.png" alt=""></a>
+                <a href="https://m.facebook.com/dppinkindo.jawatimur.1/" target="_blank" rel="noopener noreferrer"><img
+                        src="../img/icon/facebook.png" alt=""></a>
+                <a href="https://www.instagram.com/inkindo.jatim?igsh=MTZrN3FidGJhemV5dA==" target="_blank"
+                    rel="noopener noreferrer"><img src="../img/icon/instagram.png" alt=""></a>
+                <a href="https://youtube.com/@inkindojawatimur8519" target="_blank" rel="noopener noreferrer"><img
+                        src="../img/icon/youtube.png" alt=""></a>
             </div>
         </div>
 
         <div class="footer-links">
             <h3>Link</h3>
-            <a href="#">Informasi Publik</a>
+            <p><a href="/">Beranda</a></p>
+            <p><a href="/profil">Profil</a></p>
+            <p><a href="/alur">Alur</a></p>
+            <p><a href="/produk">Layanan</a></p>
+            <p><a href="/berita">Berita</a></p>
+            <p><a href="https://lpse.lkpp.go.id/eproc4/lelang" target="_blank" rel="noopener noreferrer">Info
+                    Lelang</a></p>
+            <p><a href="/anggota">Anggota</a></p>
         </div>
 
         <div class="footer-contact">
@@ -198,12 +211,21 @@
                 Surabaya, Jawa
                 Timur 60132</p>
             <p><img src="../img/icon/phone.png" alt="">(031) 8702310</p>
-            <p><img src="../img/icon/envelope.png" alt="">inkindojatim@blabla.com</p>
+            <p><img src="../img/icon/envelope.png" alt="">inkindojawatimur@gmail.com</p>
             <p><img src="../img/icon/globe.png" alt="">inkindojawatimur.org</p>
         </div>
 
         <div class="footer-copyright">
-            <p><?php echo "© " . date("Y") . " INKINDO Jawa Timur."; ?></p>
+            {{-- <ul>
+                @foreach ($cityData as $city => $count)
+                    <li>{{ $city }}: {{ $count }} perusahaan</li>
+                @endforeach
+            </ul> --}}
+            <p><?php echo '© ' . date('Y') . ' INKINDO Jawa Timur.'; ?></p>
+            <a href="https://wa.me/6282141867036?text=Halo%20saya%20ingin%20bertanya%20tentang%20INKINDO"
+                target="_blank" rel="noopener" class="whatsapp-float">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp" />
+            </a>
         </div>
     </footer>
 

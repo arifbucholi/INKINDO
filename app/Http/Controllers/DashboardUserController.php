@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Faq;
+use App\Models\Page;
 use App\Models\Member;
 use App\Models\Barcodes;
 use App\Models\Messages;
@@ -46,7 +47,9 @@ class DashboardUserController extends Controller
             return count($group); // Hitung jumlah perusahaan di kota ini
         });
 
+        $seo = Page::where('page_type', 'home')->first();
+
         // Mengirimkan data ke view
-        return view('index', compact('messages', 'latestBarcode', 'faqs', 'kualifikasiCount', 'cityData'));
+        return view('index', compact('messages', 'latestBarcode', 'faqs', 'kualifikasiCount', 'cityData', 'seo'));
     }
 }

@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INKINDO Jawa Timur</title>
+    <title>{{ $seo->seo_title ?? 'Default Title' }}</title>
+    <meta name="description" content="{{ $seo->meta_description ?? 'Default Description' }}">
+    <meta name="keywords" content="{{ $seo->keywords ?? '' }}">
+
     <link rel="stylesheet" href="css/styles.css">
     <link rel="shortcut icon" type="image/png" href="../admin/images/logos/inkindo-kotak.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -12,7 +15,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VJSGM32TZ"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2PLGYJL7V"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -21,7 +24,7 @@
         }
         gtag('js', new Date());
 
-        gtag('config', 'G-3VJSGM32TZ');
+        gtag('config', 'G-W2PLGYJL7V');
     </script>
 </head>
 
@@ -60,10 +63,11 @@
         <!-- Main Hero Content -->
         <div class="hero-content container">
             <div class="text-content">
-                <h1>Kami Menaungi Ribuan Konsultan untuk Mewujudkan Proyek Impian Anda</h1>
-                <p>Gabung dengan INKINDO untuk akses ke jaringan konsultan profesional yang terpercaya. Daftar mudah,
+                <h1 class="slide-left">Kami Menaungi Ribuan Konsultan untuk Mewujudkan Proyek Impian Anda</h1>
+                <p class="slide-left">Gabung dengan INKINDO untuk akses ke jaringan konsultan profesional yang
+                    terpercaya. Daftar mudah,
                     solusi tepat untuk kesuksesan proyek Anda!</p>
-                <div class="buttons">
+                <div class="buttons slide-left">
                     <a href="/profil" class="btn yellow">Selengkapnya</a>
                     <a href="https://wa.me/6282141867036?text=Halo%20saya%20ingin%20daftar%20menjadi%20anggota%20INKINDO"
                         target="_blank" rel="noopener" class="btn red">
@@ -71,7 +75,7 @@
                     </a>
                 </div>
             </div>
-            <div class="illustration">
+            <div class="illustration slide-right">
                 <img src="img/illustration/laptop.png" width="500" alt="Illustration">
             </div>
         </div>
@@ -99,25 +103,25 @@
 
     <section class="benefits-section">
         <div class="container">
-            <h1>Benefit Menjadi Bagian <br>INKINDO</h1>
+            <h1 class="slide-left">Benefit Menjadi Bagian <br>INKINDO</h1>
             <br>
             <div class="benefits-grid">
                 <!-- Benefit Item 1 (Left) -->
-                <div class="benefit-item">
+                <div class="benefit-item pop-up">
                     <div class="circle">
                         <img src="../img/icon/jaringan.png" alt="Network Icon" class="benefit-icon">
                     </div>
                     <h3>Jaringan Konsultan Terpercaya dan Berpengalaman</h3>
                 </div>
                 <!-- Benefit Item 2 (Center, Lowered) -->
-                <div class="benefit-item center-item">
+                <div class="benefit-item pop-up center-item">
                     <div class="circle">
                         <img src="../img/icon/akses.png" alt="Training Icon" class="benefit-icon">
                     </div>
                     <h3>Akses ke Pelatihan dan Sertifikasi Terkini</h3>
                 </div>
                 <!-- Benefit Item 3 (Right) -->
-                <div class="benefit-item">
+                <div class="benefit-item pop-up">
                     <div class="circle">
                         <img src="../img/icon/mediasi.png" alt="Law Icon" class="benefit-icon">
                     </div>
@@ -137,7 +141,7 @@
 
     <section>
         <div class="pelatihan-content container">
-            <div class="text-content text-black text-align">
+            <div class="text-content text-black text-align slide-left">
                 <h1>LEARNING CENTER</h1>
                 <p>INKINDO hadir dengan pelatihan terbaru! Tingkatkan kompetensi Anda bersama pelatihan INKINDO. Jangan
                     lewatkan kesempatan mengikuti pelatihan menarik dari INKINDO.</p>
@@ -145,7 +149,7 @@
                     <a href="/learning-center" class="btn yellow">Selengkapnya</a>
                 </div>
             </div>
-            <div class="illustration">
+            <div class="illustration slide-right">
                 <img src="img/illustration/diskusi.png" width="400" alt="Illustration">
             </div>
         </div>
@@ -153,16 +157,17 @@
 
     <section class="get-started">
         <div class="get-content container">
-            <div class="illustration-get">
+            <div class="illustration-get slide-left">
                 <img src="img/illustration/phone.png" width="400" height="450" alt="Illustration">
             </div>
             <div class="text-content text-white">
-                <h1>Get ready to Start</h1>
-                <p>Aplikasi Android yang dikembangkan oleh Inkindo Jawa Timur ini berfungsi sebagai sarana pelayanan,
+                <h1 class="slide-right">Get ready to Start</h1>
+                <p class="slide-right">Aplikasi Android yang dikembangkan oleh Inkindo Jawa Timur ini berfungsi sebagai
+                    sarana pelayanan,
                     peningkatan kapasitas, dan ruang interaksi bagi anggota serta stakeholder terkait pembangunan
                     berkelanjutan dan pengembangan sumber daya manusia dan organisasi.</p>
                 <a href="https://play.google.com/store/apps/details?id=com.inkindo.fcafein"
-                    class="cafein-google-play-button" target="_blank" rel="noopener">
+                    class="cafein-google-play-button slide-right" target="_blank" rel="noopener">
                     <img src="img/icon/google-play.png" alt="Google Play">
                     <span>Google Play</span>
                 </a>
@@ -203,10 +208,10 @@
         <div class="container">
             <!-- Header Section -->
             <div class="testimonial-header">
-                <div class="quote-icon">
+                <div class="quote-icon slide-left">
                     <img src="../img/testimoni/quotes.png" alt="Quote Icon" />
                 </div>
-                <h1>What our Client say!</h1>
+                <h1 class="slide-right">What our Client say!</h1>
                 {{-- <hr /> --}}
             </div>
 
@@ -335,10 +340,10 @@
     <section class="faq-section">
         <div class="container">
 
-            <h2 class="faq-title">Frequently Ask Question?</h2>
+            <h2 class="faq-title slide-left">Frequently Ask Question?</h2>
 
             @foreach ($faqs as $faq)
-                <div class="faq-item">
+                <div class="faq-item slide-left">
                     <div class="faq-question">
                         <span>{{ $faq->question }}</span>
                         <span class="plus-icon">+</span>
@@ -384,15 +389,25 @@
                 khususnya di Jawa Timur yang didirikan pada tanggal 20 Juni 1979 di Jakarta.
             </p>
             <div class="social-icons">
-                <a href="#"><img src="../img/icon/facebook.png" alt=""></a>
-                <a href="#"><img src="../img/icon/instagram.png" alt=""></a>
-                <a href="#"><img src="../img/icon/youtube.png" alt=""></a>
+                <a href="https://m.facebook.com/dppinkindo.jawatimur.1/" target="_blank"
+                    rel="noopener noreferrer"><img src="../img/icon/facebook.png" alt=""></a>
+                <a href="https://www.instagram.com/inkindo.jatim?igsh=MTZrN3FidGJhemV5dA==" target="_blank"
+                    rel="noopener noreferrer"><img src="../img/icon/instagram.png" alt=""></a>
+                <a href="https://youtube.com/@inkindojawatimur8519" target="_blank" rel="noopener noreferrer"><img
+                        src="../img/icon/youtube.png" alt=""></a>
             </div>
         </div>
 
         <div class="footer-links">
             <h3>Link</h3>
-            <a href="#">Informasi Publik</a>
+            <p><a href="/">Beranda</a></p>
+            <p><a href="/profil">Profil</a></p>
+            <p><a href="/alur">Alur</a></p>
+            <p><a href="/produk">Layanan</a></p>
+            <p><a href="/berita">Berita</a></p>
+            <p><a href="https://lpse.lkpp.go.id/eproc4/lelang" target="_blank" rel="noopener noreferrer">Info
+                    Lelang</a></p>
+            <p><a href="/anggota">Anggota</a></p>
         </div>
 
         <div class="footer-contact">
@@ -401,7 +416,7 @@
                 Surabaya, Jawa
                 Timur 60132</p>
             <p><img src="../img/icon/phone.png" alt="">(031) 8702310</p>
-            <p><img src="../img/icon/envelope.png" alt="">inkindojatim@blabla.com</p>
+            <p><img src="../img/icon/envelope.png" alt="">inkindojawatimur@gmail.com</p>
             <p><img src="../img/icon/globe.png" alt="">inkindojawatimur.org</p>
         </div>
 
@@ -488,9 +503,7 @@
         });
     </script> --}}
 
-    <script>
-
-    </script>
+    <script></script>
 
     <script>
         const swiper = new Swiper('.swiper', {

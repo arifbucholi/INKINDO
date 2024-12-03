@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VJSGM32TZ"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2PLGYJL7V"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -19,7 +19,7 @@
         }
         gtag('js', new Date());
 
-        gtag('config', 'G-3VJSGM32TZ');
+        gtag('config', 'G-W2PLGYJL7V');
     </script>
 </head>
 
@@ -59,8 +59,9 @@
         <!-- Main Hero Content -->
         <div class="hero-content-2">
             <div class="text-content-2">
-                <h1>Non - Konstruksi</h1>
-                <p>Inkindo menawarkan dua jenis layanan utama: Konstruksi dan Non-Konstruksi. Masing-masing layanan
+                <h1 class="slide-left">Non - Konstruksi</h1>
+                <p class="slide-left">Inkindo menawarkan dua jenis layanan utama: Konstruksi dan Non-Konstruksi.
+                    Masing-masing layanan
                     dikelompokkan secara khusus untuk memenuhi kebutuhan Anda, dengan penjelasan detail di bawah ini.
                 </p>
             </div>
@@ -69,7 +70,7 @@
 
     <div class="card-container">
         <a class="no-underline" href="/produk">
-            <div class="card">
+            <div class="card pop-up-card">
                 <div class="icon">
                     <img src="../img/icon/produk.png" alt="Produk Icon">
                 </div>
@@ -77,7 +78,7 @@
             </div>
         </a>
         <a class="no-underline" href="/konstruksi">
-            <div class="card">
+            <div class="card pop-up-card">
                 <div class="icon">
                     <img src="../img/icon/konstruksi.png" alt="Konstruksi Icon">
                 </div>
@@ -85,7 +86,7 @@
             </div>
         </a>
         <a class="no-underline" href="/non-konstruksi">
-            <div class="card">
+            <div class="card pop-up-card">
                 <div class="icon">
                     <img src="../img/icon/non-konstruksi.png" alt="Non-Konstruksi Icon">
                 </div>
@@ -97,7 +98,7 @@
     <section class="layanan-section">
         <div class="container">
             @foreach ($layanan as $lay)
-                <div class="faq-item">
+                <div class="faq-item slide-left">
                     <div class="faq-question">
                         <span>{{ $lay->nama_layanan }} ({{ $lay->kode_layanan }})</span>
                         <span class="plus-icon">+</span>
@@ -123,15 +124,25 @@
                 khususnya di Jawa Timur yang didirikan pada tanggal 20 Juni 1979 di Jakarta.
             </p>
             <div class="social-icons">
-                <a href="#"><img src="../img/icon/facebook.png" alt=""></a>
-                <a href="#"><img src="../img/icon/instagram.png" alt=""></a>
-                <a href="#"><img src="../img/icon/youtube.png" alt=""></a>
+                <a href="https://m.facebook.com/dppinkindo.jawatimur.1/" target="_blank" rel="noopener noreferrer"><img
+                        src="../img/icon/facebook.png" alt=""></a>
+                <a href="https://www.instagram.com/inkindo.jatim?igsh=MTZrN3FidGJhemV5dA==" target="_blank"
+                    rel="noopener noreferrer"><img src="../img/icon/instagram.png" alt=""></a>
+                <a href="https://youtube.com/@inkindojawatimur8519" target="_blank" rel="noopener noreferrer"><img
+                        src="../img/icon/youtube.png" alt=""></a>
             </div>
         </div>
 
         <div class="footer-links">
             <h3>Link</h3>
-            <a href="#">Informasi Publik</a>
+            <p><a href="/">Beranda</a></p>
+            <p><a href="/profil">Profil</a></p>
+            <p><a href="/alur">Alur</a></p>
+            <p><a href="/produk">Layanan</a></p>
+            <p><a href="/berita">Berita</a></p>
+            <p><a href="https://lpse.lkpp.go.id/eproc4/lelang" target="_blank" rel="noopener noreferrer">Info
+                    Lelang</a></p>
+            <p><a href="/anggota">Anggota</a></p>
         </div>
 
         <div class="footer-contact">
@@ -140,12 +151,21 @@
                 Surabaya, Jawa
                 Timur 60132</p>
             <p><img src="../img/icon/phone.png" alt="">(031) 8702310</p>
-            <p><img src="../img/icon/envelope.png" alt="">inkindojatim@blabla.com</p>
+            <p><img src="../img/icon/envelope.png" alt="">inkindojawatimur@gmail.com</p>
             <p><img src="../img/icon/globe.png" alt="">inkindojawatimur.org</p>
         </div>
 
         <div class="footer-copyright">
-            <p><?php echo "© " . date("Y") . " INKINDO Jawa Timur."; ?></p>
+            {{-- <ul>
+                @foreach ($cityData as $city => $count)
+                    <li>{{ $city }}: {{ $count }} perusahaan</li>
+                @endforeach
+            </ul> --}}
+            <p><?php echo '© ' . date('Y') . ' INKINDO Jawa Timur.'; ?></p>
+            <a href="https://wa.me/6282141867036?text=Halo%20saya%20ingin%20bertanya%20tentang%20INKINDO"
+                target="_blank" rel="noopener" class="whatsapp-float">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp" />
+            </a>
         </div>
     </footer>
 

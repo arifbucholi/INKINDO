@@ -8,17 +8,17 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function index()
-{
-    $pages = Page::all();
-    $usedPageTypes = $pages->pluck('page_type')->toArray(); // Ambil page_type yang sudah digunakan
-    return view('admin.seo', compact('pages', 'usedPageTypes'));
-}
+    {
+        $pages = Page::all();
+        $usedPageTypes = $pages->pluck('page_type')->toArray(); // Ambil page_type yang sudah digunakan
+        return view('admin.seo', compact('pages', 'usedPageTypes'));
+    }
 
     // Menyimpan pengaturan SEO baru
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'page_type' => 'required|in:home,profil,layanan,berita',
+            'page_type' => 'required|in:home,profil,,alur,layanan,berita',
             'content' => 'nullable',
             'seo_title' => 'required|string|max:255',
             'meta_description' => 'nullable|string',
@@ -43,7 +43,7 @@ class PageController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'page_type' => 'required|in:home,profil,layanan,berita',
+            'page_type' => 'required|in:home,profil,alur,layanan,berita',
             'content' => 'nullable',
             'seo_title' => 'required|string|max:255',
             'meta_description' => 'nullable|string',

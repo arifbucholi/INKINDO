@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
-    <title>Admin</title>
+    <title>SEO</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         {{-- integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMm7rQx5Fd7b4ikx9gB8V4m3M3GlnA7Hhn0Vbx"  --}} crossorigin="anonymous">
 
@@ -61,8 +61,8 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link danger-hover-bg"
-                                href="{{ route('admin.layanan') }}" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link danger-hover-bg" href="{{ route('admin.layanan') }}"
+                                aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-danger rounded-3">
                                     <i class="ti ti-article fs-7 text-danger"></i>
                                 </span>
@@ -94,6 +94,15 @@
                                     <i class="ti ti-seo fs-7 text-indigo"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">SEO</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link warning-hover-bg" href="{{ route('faq.index') }}"
+                                aria-expanded="false">
+                                <span class="aside-icon p-2 bg-light-warning rounded-3">
+                                    <i class="ti ti-question-mark fs-7 text-warning"></i>
+                                </span>
+                                <span class="hide-menu ms-2 ps-1">FAQ</span>
                             </a>
                         </li>
                         {{-- <li class="sidebar-item">
@@ -257,12 +266,12 @@
                                 <i class="ti ti-menu-2"></i>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link nav-icon-hover" href="javascript:void(0)">
                                 <i class="ti ti-bell-ringing"></i>
                                 <div class="notification bg-primary rounded-circle"></div>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                     <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
@@ -270,13 +279,12 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="../img/testimoni/orang.png" alt="" width="35"
-                                        height="35" class="rounded-circle">
+                                    <i class="ti ti-user-circle fs-7"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
                                     aria-labelledby="drop2">
                                     <div class="message-body">
-                                        <a href="javascript:void(0)"
+                                        {{-- <a href="javascript:void(0)"
                                             class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-user fs-6"></i>
                                             <p class="mb-0 fs-3">My Profile</p>
@@ -290,9 +298,15 @@
                                             class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-list-check fs-6"></i>
                                             <p class="mb-0 fs-3">My Task</p>
-                                        </a>
-                                        <a href="./authentication-login.html"
-                                            class="btn btn-outline-primary mx-3 mt-2 d-block shadow-none">Logout</a>
+                                        </a> --}}
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-inline">
+                                            @csrf
+                                            <button type="submit"
+                                                class="btn btn-outline-primary mx-3 mt-2 d-block shadow-none">
+                                                Logout
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                             </li>
@@ -329,7 +343,7 @@
                                                 <label for="page_type" class="form-label">Page Type</label>
                                                 <select class="form-control" id="page_type" name="page_type"
                                                     required>
-                                                    @foreach (['home', 'about', 'services', 'news', 'contact'] as $type)
+                                                    @foreach (['home', 'profil', 'alur', 'layanan', 'berita'] as $type)
                                                         <option value="{{ $type }}"
                                                             {{ in_array($type, $usedPageTypes) ? 'disabled' : '' }}>
                                                             {{ ucfirst($type) }}
@@ -416,21 +430,21 @@
                                 {{ $page->page_type === 'home' ? 'selected' : (in_array('home', $usedPageTypes) ? 'disabled' : '') }}>
                                 Home
                             </option>
-                            <option value="about"
-                                {{ $page->page_type === 'about' ? 'selected' : (in_array('about', $usedPageTypes) ? 'disabled' : '') }}>
-                                About
+                            <option value="profil"
+                                {{ $page->page_type === 'profil' ? 'selected' : (in_array('profil', $usedPageTypes) ? 'disabled' : '') }}>
+                                Profil
                             </option>
-                            <option value="services"
-                                {{ $page->page_type === 'services' ? 'selected' : (in_array('services', $usedPageTypes) ? 'disabled' : '') }}>
-                                Services
+                            <option value="alur"
+                                {{ $page->page_type === 'alur' ? 'selected' : (in_array('alur', $usedPageTypes) ? 'disabled' : '') }}>
+                                Alur
                             </option>
-                            <option value="news"
-                                {{ $page->page_type === 'news' ? 'selected' : (in_array('news', $usedPageTypes) ? 'disabled' : '') }}>
-                                News
+                            <option value="layanan"
+                                {{ $page->page_type === 'layanan' ? 'selected' : (in_array('layanan', $usedPageTypes) ? 'disabled' : '') }}>
+                                Layanan
                             </option>
-                            <option value="contact"
-                                {{ $page->page_type === 'contact' ? 'selected' : (in_array('contact', $usedPageTypes) ? 'disabled' : '') }}>
-                                Contact
+                            <option value="berita"
+                                {{ $page->page_type === 'berita' ? 'selected' : (in_array('berita', $usedPageTypes) ? 'disabled' : '') }}>
+                                Berita
                             </option>
                         </select>
                     </div>

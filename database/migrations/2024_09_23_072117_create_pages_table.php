@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
-            $table->enum('page_type', ['home', 'about', 'services', 'news', 'contact']);
+            $table->enum('page_type', ['home', 'profil', 'alur', 'layanan', 'berita']);
             $table->text('content')->nullable();
             $table->string('seo_title')->nullable();
             $table->text('meta_description')->nullable();

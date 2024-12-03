@@ -58,8 +58,8 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link danger-hover-bg"
-                                href="{{ route('admin.layanan') }}" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link danger-hover-bg" href="{{ route('admin.layanan') }}"
+                                aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-danger rounded-3">
                                     <i class="ti ti-article fs-7 text-danger"></i>
                                 </span>
@@ -91,6 +91,15 @@
                                     <i class="ti ti-seo fs-7 text-indigo"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">SEO</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link warning-hover-bg" href="{{ route('faq.index') }}"
+                                aria-expanded="false">
+                                <span class="aside-icon p-2 bg-light-warning rounded-3">
+                                    <i class="ti ti-question-mark fs-7 text-warning"></i>
+                                </span>
+                                <span class="hide-menu ms-2 ps-1">FAQ</span>
                             </a>
                         </li>
                         {{-- <li class="sidebar-item">
@@ -254,12 +263,12 @@
                                 <i class="ti ti-menu-2"></i>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link nav-icon-hover" href="javascript:void(0)">
                                 <i class="ti ti-bell-ringing"></i>
                                 <div class="notification bg-primary rounded-circle"></div>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                     <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
@@ -267,8 +276,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="../img/testimoni/orang.png" alt="" width="35"
-                                        height="35" class="rounded-circle">
+                                    <i class="ti ti-user-circle fs-7"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
                                     aria-labelledby="drop2">
@@ -314,7 +322,7 @@
                             <div class="card mb-4">
                                 <div class="card-body">
                                     <h5>Total Anggota</h5>
-                                    {{-- <p>{{ $totalMembers }}</p> --}}
+                                    <p>{{ $totalMembers }}</p>
                                 </div>
                             </div>
 
@@ -322,26 +330,25 @@
                             <div class="card mb-4">
                                 <div class="card-body">
                                     <h5>Total Layanan</h5>
-                                    {{-- <p>{{ $totalServices }}</p> --}}
+                                    <p>{{ $totalLayanan }}</p>
                                 </div>
                             </div>
 
-                            <!-- Jumlah Berita yang Dipublikasikan -->
                             <div class="card mb-4">
                                 <div class="card-body">
-                                    <h5>Total Berita</h5>
-                                    {{-- <p>{{ $totalNews }}</p> --}}
+                                    <h5>Total FAQ</h5>
+                                    <p>{{ $totalFaq }}</p>
                                 </div>
                             </div>
 
                             <!-- Total Feedback atau Rating Layanan -->
-                            <div class="card mb-4">
+                            {{-- <div class="card mb-4">
                                 <div class="card-body">
                                     <h5>Total Feedback Layanan</h5>
-                                    {{-- <p>{{ $totalFeedback }}</p> --}}
-                                    {{-- <p>Rata-rata Rating: {{ $averageRating }}</p> --}}
+                                    <p>{{ $totalFeedback }}</p>
+                                    <p>Rata-rata Rating: {{ $averageRating }}</p>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <!-- Kolom Kedua -->
@@ -349,37 +356,45 @@
                             <!-- Pesan Pengunjung atau Testimonial -->
                             <div class="card mb-4">
                                 <div class="card-body">
-                                    <h5>Total Pesan Pengunjung</h5>
-                                    {{-- <p>{{ $totalMessages }}</p> --}}
+                                    <h5>Total Testimoni</h5>
+                                    <p>{{ $totalMessages }}</p>
+                                </div>
+                            </div>
+
+                            <!-- Jumlah Berita yang Dipublikasikan -->
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5>Total Berita</h5>
+                                    <p>{{ $totalNews }}</p>
                                 </div>
                             </div>
 
                             <!-- Statistik Kunjungan Berita -->
-                            <div class="card mb-4">
+                            {{-- <div class="card mb-4">
                                 <div class="card-body">
                                     <h5>Berita Terpopuler</h5>
-                                    {{-- <p>{{ $popularNews }}</p> --}}
+                                    <p>{{ $popularNews }}</p>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <!-- Jumlah Admin Aktif -->
-                            <div class="card mb-4">
+                            {{-- <div class="card mb-4">
                                 <div class="card-body">
                                     <h5>Admin Aktif</h5>
-                                    {{-- <p>{{ $activeAdmins }}</p> --}}
+                                    <p>{{ $activeAdmins }}</p>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <!-- Ringkasan Aktivitas Terbaru -->
-                            <div class="card mb-4">
+                            {{-- <div class="card mb-4">
                                 <div class="card-body">
                                     <h5>Aktivitas Terbaru</h5>
                                     <ul>
-                                        {{-- <li>{{ $recentActivity1 }}</li>
-                                            <li>{{ $recentActivity2 }}</li> --}}
+                                        <li>{{ $recentActivity1 }}</li>
+                                            <li>{{ $recentActivity2 }}</li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

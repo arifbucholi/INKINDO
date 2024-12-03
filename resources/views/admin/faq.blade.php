@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
-    <title>Spike Free</title>
+    <title>FAQ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMm7rQx5Fd7b4ikx9gB8V4m3M3GlnA7Hhn0Vbx" crossorigin="anonymous">
 
-    <link rel="shortcut icon" type="image/png" href="../admin/images/logos/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="../admin/images/logos/inkindo-kotak.png" />
     <link rel="stylesheet" href="../admin/css/styles.min.css" />
 </head>
 
@@ -60,7 +60,8 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link danger-hover-bg" href="/abc" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link danger-hover-bg" href="{{ route('admin.layanan') }}"
+                                aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-danger rounded-3">
                                     <i class="ti ti-article fs-7 text-danger"></i>
                                 </span>
@@ -68,8 +69,8 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link success-hover-bg" href="./ui-card.html"
-                                aria-expanded="false">
+                            <a class="sidebar-link sidebar-link success-hover-bg"
+                                href="{{ route('admin.anggota.index') }}" aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-success rounded-3">
                                     <i class="ti ti-users fs-7 text-success"></i>
                                 </span>
@@ -86,7 +87,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link indigo-hover-bg" href="/admin/seo"
+                            <a class="sidebar-link sidebar-link indigo-hover-bg" href="{{ route('admin.seo.index') }}"
                                 aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-indigo rounded-3">
                                     <i class="ti ti-seo fs-7 text-indigo"></i>
@@ -95,7 +96,17 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link warning-hover-bg" href="/abc" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link warning-hover-bg" href="{{ route('faq.index') }}"
+                                aria-expanded="false">
+                                <span class="aside-icon p-2 bg-light-warning rounded-3">
+                                    <i class="ti ti-question-mark fs-7 text-warning"></i>
+                                </span>
+                                <span class="hide-menu ms-2 ps-1">FAQ</span>
+                            </a>
+                        </li>
+                        {{-- <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link warning-hover-bg"
+                                href="{{ route('admin.messages.index') }}" aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-warning rounded-3">
                                     <i class="ti ti-phone fs-7 text-warning"></i>
                                 </span>
@@ -103,14 +114,15 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link danger-hover-bg" href="/abc" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link danger-hover-bg"
+                                href="{{ route('admin.messages.index') }}" aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-danger rounded-3">
                                     <i class="ti ti-info-circle fs-7 text-danger"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">About Us</span>
                             </a>
-                        </li>
-                        <li class="nav-small-cap">
+                        </li> --}}
+                        {{-- <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-5"></i>
                             <span class="hide-menu">UI Componenst</span>
                         </li>
@@ -202,9 +214,9 @@
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Sample Page</span>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
-                    <div class="pb-3 options text-nowrap">
+                    {{-- <div class="pb-3 options text-nowrap">
                         <div class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-5"></i>
                             <span class="hide-menu">More options</span>
@@ -232,27 +244,9 @@
                                 <span class="hide-menu ms-2">Widgets</span>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
 
-                    <div class="mt-5 blocks-card sidebar-ad">
-                        <div class="card bg-light-primary">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="../admin/images/backgrounds/education-blocks.png" width="136"
-                                        height="136" class="mt-n9" alt="" />
 
-                                    <h5>Are you<br /> satisfied ?</h5>
-
-                                    <div class="mt-4">
-                                        <a href="" target="_blank"
-                                            class="btn btn-primary buynow-link w-100 px-2">
-                                            Buy Now
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
@@ -271,21 +265,20 @@
                                 <i class="ti ti-menu-2"></i>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link nav-icon-hover" href="javascript:void(0)">
                                 <i class="ti ti-bell-ringing"></i>
                                 <div class="notification bg-primary rounded-circle"></div>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                     <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-                            <span>Halo Pakde...</span>
+                            <span>Halo, {{ Auth::user()->username }}...</span>
                             <li class="nav-item dropdown">
                                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{-- <img src="../admin/images/profile/user1.jpg" alt="" width="35"
-                                        height="35" class="rounded-circle"> --}}
+                                    <i class="ti ti-user-circle fs-7"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
                                     aria-labelledby="drop2">
@@ -336,19 +329,22 @@
                         </div>
 
                         <!-- Modal Tambah FAQ -->
-                        <div class="modal fade" id="addFaqModal" tabindex="-1" aria-labelledby="addFaqModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="addFaqModal" tabindex="-1" aria-labelledby="addFaqModalLabel"
+                            aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="addFaqModalLabel">Tambah FAQ</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="POST" action="{{ route('faq.store') }}">
+                                        <form action="{{ route('faq.store') }}" method="POST">
                                             @csrf
                                             <div class="mb-3">
                                                 <label for="question" class="form-label">Pertanyaan</label>
-                                                <input type="text" class="form-control" id="question" name="question" required>
+                                                <input type="text" class="form-control" id="question"
+                                                    name="question" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="answer" class="form-label">Jawaban</label>
@@ -376,12 +372,14 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div>
-                                                        <h6 class="mb-1 fw-bolder">{{ Str::limit($faq->question, 50, '...') }}</h6>
+                                                        <h6 class="mb-1 fw-bolder">
+                                                            {{ Str::limit($faq->question, 50, '...') }}</h6>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <p class="fs-3 fw-normal mb-0">{{ Str::limit($faq->answer, 20, '...') }}</p>
+                                                <p class="fs-3 fw-normal mb-0">
+                                                    {{ Str::limit($faq->answer, 20, '...') }}</p>
                                             </td>
                                             <td>
                                                 <button class="btn btn-primary action" data-bs-toggle="modal"
@@ -403,7 +401,8 @@
 
                 <!-- Modal Edit FAQ -->
                 @foreach ($faqs as $faq)
-                    <div class="modal fade" id="editFaqModal{{ $faq->id }}" tabindex="-1" aria-labelledby="editFaqModalLabel{{ $faq->id }}" aria-hidden="true">
+                    <div class="modal fade" id="editFaqModal{{ $faq->id }}" tabindex="-1"
+                        aria-labelledby="editFaqModalLabel{{ $faq->id }}" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -416,7 +415,8 @@
                                         @method('PUT')
                                         <div class="mb-3">
                                             <label for="question" class="form-label">Pertanyaan</label>
-                                            <input type="text" class="form-control" id="question" name="question" value="{{ $faq->question }}" required>
+                                            <input type="text" class="form-control" id="question"
+                                                name="question" value="{{ $faq->question }}" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="answer" class="form-label">Jawaban</label>
@@ -430,7 +430,8 @@
                     </div>
 
                     <!-- Modal Hapus FAQ -->
-                    <div class="modal fade" id="deleteFaqModal{{ $faq->id }}" tabindex="-1" aria-labelledby="deleteFaqModalLabel{{ $faq->id }}" aria-hidden="true">
+                    <div class="modal fade" id="deleteFaqModal{{ $faq->id }}" tabindex="-1"
+                        aria-labelledby="deleteFaqModalLabel{{ $faq->id }}" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -439,11 +440,14 @@
                                 </div>
                                 <div class="modal-body">
                                     <p>Apakah Anda yakin ingin menghapus FAQ dengan pertanyaan
-                                        <strong>{{ $faq->question }}</strong>?</p>
+                                        <strong>{{ $faq->question }}</strong>?
+                                    </p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                    <form id="deleteForm" method="POST" action="{{ route('faq.destroy', $faq->id) }}" style="display: inline;">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Batal</button>
+                                    <form id="deleteForm" method="POST"
+                                        action="{{ route('faq.destroy', $faq->id) }}" style="display: inline;">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Hapus</button>

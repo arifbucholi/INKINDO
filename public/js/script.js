@@ -61,3 +61,82 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".pop-up-card");
+
+    function checkScroll() {
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        const offset = 50;  // Offset yang sama untuk desktop dan mobile
+
+        cards.forEach((card, index) => {
+            const cardTop = card.getBoundingClientRect().top;
+
+            // Jika card masuk viewport
+            if (cardTop < windowHeight - offset) {
+                const delay = `${index * 0.3}s`;  // Delay yang sama untuk desktop dan mobile
+                card.style.setProperty('--delay', delay); // Atur delay dinamis
+                card.classList.add("pop-up-active");
+            } else {
+                card.classList.remove("pop-up-active"); // Hapus jika card tidak terlihat
+            }
+        });
+    }
+
+    window.addEventListener("scroll", function () {
+        requestAnimationFrame(checkScroll);  // Efek scroll halus
+    });
+
+    checkScroll();  // Cek saat halaman dimuat
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const slideLeftCards = document.querySelectorAll(".slide-left");
+    const slideRightCards = document.querySelectorAll(".slide-right");
+    const popUpCards = document.querySelectorAll(".pop-up");
+
+    function checkScroll() {
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        const offset = 100; // Offset untuk deteksi scroll
+
+        // Menangani card dengan animasi slide in left
+        slideLeftCards.forEach((card) => {
+            const cardTop = card.getBoundingClientRect().top;
+            if (cardTop < windowHeight - offset && !card.classList.contains("slide-left-active")) {
+                card.classList.add("slide-left-active");  // Menambahkan animasi jika card belum beranimasi
+            }
+        });
+
+        // Menangani card dengan animasi slide in right
+        slideRightCards.forEach((card) => {
+            const cardTop = card.getBoundingClientRect().top;
+            if (cardTop < windowHeight - offset && !card.classList.contains("slide-right-active")) {
+                card.classList.add("slide-right-active");  // Menambahkan animasi jika card belum beranimasi
+            }
+        });
+
+        // Menangani card dengan animasi pop-up
+        popUpCards.forEach((card) => {
+            const cardTop = card.getBoundingClientRect().top;
+            // Tambahkan delay 0.5 detik untuk pop-up
+            if (cardTop < windowHeight - offset && !card.classList.contains("pop-up-active")) {
+                setTimeout(() => {
+                    card.classList.add("pop-up-active");  // Menambahkan animasi pop-up setelah delay
+                }, 100);  // Delay 0.5 detik
+            }
+        });
+    }
+
+    window.addEventListener("scroll", function () {
+        requestAnimationFrame(checkScroll);  // Untuk scroll yang lebih halus
+    });
+
+    checkScroll();  // Cek saat halaman dimuat
+});
+
+
+
+
+
+

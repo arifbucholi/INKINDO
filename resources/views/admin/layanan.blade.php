@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
-    <title>Spike Free</title>
+    <title>Layanan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMm7rQx5Fd7b4ikx9gB8V4m3M3GlnA7Hhn0Vbx" crossorigin="anonymous">
 
-    <link rel="shortcut icon" type="image/png" href="../admin/images/logos/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="../admin/images/logos/inkindo-kotak.png" />
     <link rel="stylesheet" href="../admin/css/styles.min.css" />
 </head>
 
@@ -60,8 +60,8 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link danger-hover-bg"
-                                href="{{ route('admin.layanan') }}" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link danger-hover-bg" href="{{ route('admin.layanan') }}"
+                                aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-danger rounded-3">
                                     <i class="ti ti-article fs-7 text-danger"></i>
                                 </span>
@@ -93,6 +93,15 @@
                                     <i class="ti ti-seo fs-7 text-indigo"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">SEO</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link warning-hover-bg" href="{{ route('faq.index') }}"
+                                aria-expanded="false">
+                                <span class="aside-icon p-2 bg-light-warning rounded-3">
+                                    <i class="ti ti-question-mark fs-7 text-warning"></i>
+                                </span>
+                                <span class="hide-menu ms-2 ps-1">FAQ</span>
                             </a>
                         </li>
                         {{-- <li class="sidebar-item">
@@ -256,12 +265,12 @@
                                 <i class="ti ti-menu-2"></i>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link nav-icon-hover" href="javascript:void(0)">
                                 <i class="ti ti-bell-ringing"></i>
                                 <div class="notification bg-primary rounded-circle"></div>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                     <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
@@ -269,8 +278,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="../img/testimoni/orang.png" alt="" width="35"
-                                        height="35" class="rounded-circle">
+                                    <i class="ti ti-user-circle fs-7"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
                                     aria-labelledby="drop2">
@@ -319,106 +327,68 @@
                         </div>
 
                         <!-- Tabel Layanan -->
-                        <table class="table table-borderless">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Nama Layanan</th>
-                                    <th>Kode Layanan</th>
-                                    <th>Kategori</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($layanan as $index => $layanan)
+                        <div class="table-responsive" data-simplebar>
+
+                            <table class="table table-borderless align-middle text-nowrap">
+                                <thead>
                                     <tr>
-                                        <td>{{ $index + 1 }}</td>
-                                        <td>{{ $layanan->nama_layanan }}</td>
-                                        <td>{{ $layanan->kode_layanan }}</td>
-                                        <td>{{ $layanan->layanan }}</td>
-                                        <td>
-                                            <!-- Tombol Edit Layanan -->
-                                            <button class="btn btn-primary action" data-bs-toggle="modal"
-                                                data-bs-target="#editLayananModal-{{ $layanan->id }}">
-                                                <i class="ti ti-edit"></i>
-                                            </button>
-                                            <!-- Tombol Hapus Layanan -->
-                                            <form action="{{ route('layanan.destroy', $layanan->id) }}" method="POST"
-                                                style="display:inline;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger"
-                                                    onclick="return confirm('Yakin ingin menghapus layanan ini?')">
-                                                    <i class="ti ti-trash"></i>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nama Layanan</th>
+                                        <th scope="col">Kode Layanan</th>
+                                        <th scope="col">Kategori</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($layanan as $index => $item)
+                                        <tr>
+                                            <td>{{ $index + 1 }}</td>
+                                            <td>{{ $item->nama_layanan }}</td>
+                                            <td>{{ $item->kode_layanan }}</td>
+                                            <td>{{ $item->layanan }}</td>
+                                            <td>
+                                                <!-- Tombol Edit Layanan -->
+                                                <button class="btn btn-primary action" data-bs-toggle="modal"
+                                                    data-bs-target="#editLayananModal-{{ $item->id }}">
+                                                    <i class="ti ti-edit"></i>
                                                 </button>
-                                            </form>
+                                                <!-- Tombol Hapus Layanan -->
+                                                <form action="{{ route('layanan.destroy', $item->id) }}"
+                                                    method="POST" style="display:inline;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger"
+                                                        onclick="return confirm('Yakin ingin menghapus layanan ini?')">
+                                                        <i class="ti ti-trash"></i>
+                                                    </button>
+                                                </form>
 
-                                            <form action="{{ route('layanan.detail', ['layanan_id' => $layanan->id]) }}" method="get" style="display:inline;">
-                                                <button type="submit" class="btn btn-info">
-                                                    <i class="ti ti-list-details"></i>
-                                                </button>
-                                            </form>
-
-
-
-                                            <!-- Modal Edit Layanan -->
-                                            <div class="modal fade" id="editLayananModal-{{ $layanan->id }}"
-                                                tabindex="-1"
-                                                aria-labelledby="editLayananModalLabel-{{ $layanan->id }}"
-                                                aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <form action="{{ route('layanan.update', $layanan->id) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('PUT')
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title">Edit Layanan</h5>
-                                                                <button type="button" class="btn-close"
-                                                                    data-bs-dismiss="modal"
-                                                                    aria-label="Close"></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="mb-3">
-                                                                    <label for="nama_layanan" class="form-label">Nama
-                                                                        Layanan</label>
-                                                                    <input type="text" class="form-control"
-                                                                        name="nama_layanan"
-                                                                        value="{{ $layanan->nama_layanan }}" required>
-                                                                </div>
-                                                                <div class="mb-3">
-                                                                    <label for="kode_layanan" class="form-label">Kode
-                                                                        Layanan</label>
-                                                                    <input type="text" class="form-control"
-                                                                        name="kode_layanan"
-                                                                        value="{{ $layanan->kode_layanan }}" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Tutup</button>
-                                                                <button type="submit" class="btn btn-primary">Simpan
-                                                                    Perubahan</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                                <form
+                                                    action="{{ route('layanan.detail', ['layanan_id' => $item->id]) }}"
+                                                    method="get" style="display:inline;">
+                                                    <button type="submit" class="btn btn-info">
+                                                        <i class="ti ti-list-details"></i>
+                                                    </button>
+                                                </form>
 
 
 
-                                            <!-- Modal Tambah Detail Layanan -->
-                                            {{-- <button class="btn btn-info" data-bs-toggle="modal"
-                                                data-bs-target="#addDetailLayananModal-{{ $layanan->id }}">Tambah
+
+
+
+
+                                                <!-- Modal Tambah Detail Layanan -->
+                                                {{-- <button class="btn btn-info" data-bs-toggle="modal"
+                                                data-bs-target="#addDetailLayananModal-{{ $item->id }}">Tambah
                                                 Detail
                                             </button>
-                                            <div class="modal fade" id="addDetailLayananModal-{{ $layanan->id }}"
+                                            <div class="modal fade" id="addDetailLayananModal-{{ $item->id }}"
                                                 tabindex="-1"
-                                                aria-labelledby="addDetailLayananModalLabel-{{ $layanan->id }}"
+                                                aria-labelledby="addDetailLayananModalLabel-{{ $item->id }}"
                                                 aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
-                                                        <form action="{{ route('layanan.addDetail', $layanan->id) }}"
+                                                        <form action="{{ route('layanan.addDetail', $item->id) }}"
                                                             method="POST">
                                                             @csrf
                                                             <div class="modal-header">
@@ -451,18 +421,61 @@
                                                     </div>
                                                 </div>
                                             </div> --}}
-                                        </td>
+                                            </td>
 
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+
+                        @foreach ($layanan as $index => $item)
+                            <!-- Modal Edit Layanan -->
+                            <div class="modal fade" id="editLayananModal-{{ $item->id }}" tabindex="-1"
+                                aria-labelledby="editLayananModalLabel-{{ $item->id }}" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <form action="{{ route('layanan.update', $item->id) }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Edit Layanan</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <label for="nama_layanan" class="form-label">Nama
+                                                        Layanan</label>
+                                                    <input type="text" class="form-control" name="nama_layanan"
+                                                        value="{{ $item->nama_layanan }}" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="kode_layanan" class="form-label">Kode
+                                                        Layanan</label>
+                                                    <input type="text" class="form-control" name="kode_layanan"
+                                                        value="{{ $item->kode_layanan }}" required>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Tutup</button>
+                                                <button type="submit" class="btn btn-primary">Simpan
+                                                    Perubahan</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+
+
                     </div>
                 </div>
             </div>
             <div class="modal fade" id="addLayananModal" tabindex="-1" aria-labelledby="addLayananModalLabel"
                 aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <form action="{{ route('layanan.store') }}" method="POST">
                             @csrf

@@ -51,10 +51,11 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         // Validasi inputan
-
+        // dd($request->all());
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
+            'keywords' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:10240',
         ]);
 
@@ -90,9 +91,11 @@ class NewsController extends Controller
     public function update(Request $request, $id)
     {
         // Validasi inputan
+        // dd($request->all());
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
+            'keywords' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:10240',
         ]);
         // dd($request->all());
@@ -103,6 +106,7 @@ class NewsController extends Controller
         // Update informasi teks (title dan content)
         $news->title = $request->title;
         $news->content = $request->content;
+        $news->keywords = $request->keywords;
 
         // Jika ada file image baru
         if ($request->hasFile('image')) {

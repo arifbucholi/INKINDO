@@ -60,7 +60,8 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link danger-hover-bg" href="/abc" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link danger-hover-bg" href="{{ route('admin.layanan') }}"
+                                aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-danger rounded-3">
                                     <i class="ti ti-article fs-7 text-danger"></i>
                                 </span>
@@ -68,8 +69,8 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link success-hover-bg" href="./ui-card.html"
-                                aria-expanded="false">
+                            <a class="sidebar-link sidebar-link success-hover-bg"
+                                href="{{ route('admin.anggota.index') }}" aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-success rounded-3">
                                     <i class="ti ti-users fs-7 text-success"></i>
                                 </span>
@@ -86,7 +87,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link indigo-hover-bg" href="/admin/seo"
+                            <a class="sidebar-link sidebar-link indigo-hover-bg" href="{{ route('admin.seo.index') }}"
                                 aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-indigo rounded-3">
                                     <i class="ti ti-seo fs-7 text-indigo"></i>
@@ -95,7 +96,17 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link warning-hover-bg" href="/abc" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link warning-hover-bg" href="{{ route('faq.index') }}"
+                                aria-expanded="false">
+                                <span class="aside-icon p-2 bg-light-warning rounded-3">
+                                    <i class="ti ti-question-mark fs-7 text-warning"></i>
+                                </span>
+                                <span class="hide-menu ms-2 ps-1">FAQ</span>
+                            </a>
+                        </li>
+                        {{-- <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link warning-hover-bg"
+                                href="{{ route('admin.messages.index') }}" aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-warning rounded-3">
                                     <i class="ti ti-phone fs-7 text-warning"></i>
                                 </span>
@@ -103,14 +114,15 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link danger-hover-bg" href="/abc" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link danger-hover-bg"
+                                href="{{ route('admin.messages.index') }}" aria-expanded="false">
                                 <span class="aside-icon p-2 bg-light-danger rounded-3">
                                     <i class="ti ti-info-circle fs-7 text-danger"></i>
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">About Us</span>
                             </a>
-                        </li>
-                        <li class="nav-small-cap">
+                        </li> --}}
+                        {{-- <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-5"></i>
                             <span class="hide-menu">UI Componenst</span>
                         </li>
@@ -202,9 +214,9 @@
                                 </span>
                                 <span class="hide-menu ms-2 ps-1">Sample Page</span>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
-                    <div class="pb-3 options text-nowrap">
+                    {{-- <div class="pb-3 options text-nowrap">
                         <div class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-5"></i>
                             <span class="hide-menu">More options</span>
@@ -232,27 +244,9 @@
                                 <span class="hide-menu ms-2">Widgets</span>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
 
-                    <div class="mt-5 blocks-card sidebar-ad">
-                        <div class="card bg-light-primary">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="../admin/images/backgrounds/education-blocks.png" width="136"
-                                        height="136" class="mt-n9" alt="" />
 
-                                    <h5>Are you<br /> satisfied ?</h5>
-
-                                    <div class="mt-4">
-                                        <a href="" target="_blank"
-                                            class="btn btn-primary buynow-link w-100 px-2">
-                                            Buy Now
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
@@ -271,21 +265,20 @@
                                 <i class="ti ti-menu-2"></i>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link nav-icon-hover" href="javascript:void(0)">
                                 <i class="ti ti-bell-ringing"></i>
                                 <div class="notification bg-primary rounded-circle"></div>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                     <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-                            <span>Halo Pakde...</span>
+                            <span>Halo, {{ Auth::user()->username }}...</span>
                             <li class="nav-item dropdown">
                                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{-- <img src="../admin/images/profile/user1.jpg" alt="" width="35"
-                                        height="35" class="rounded-circle"> --}}
+                                    <i class="ti ti-user-circle fs-7"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
                                     aria-labelledby="drop2">
@@ -326,108 +319,107 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h2 class="mb-4">Detail Layanan: {{ $layanan->nama_layanan }}</h2>
-                            <a href="{{ route('admin.layanan') }}" class="btn btn-secondary">
+                            <h2 class="mb-4">Kode Layanan: {{ $layanan->kode_layanan }}</h2>
+                            {{-- <a href="{{ route('admin.layanan') }}" class="btn btn-secondary">
                                 Kembali ke Layanan
-                            </a>
+                            </a> --}}
                         </div>
 
                         <!-- Tabel Detail Layanan -->
-                        <table class="table table-borderless">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Nama Detail Layanan</th>
-                                    <th>Kode Detail Layanan</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($detailLayanan as $index => $detail)
+                        <div class="table-responsive" data-simplebar>
+                            <table class="table table-borderless align-middle text-nowrap">
+                                <thead>
                                     <tr>
-                                        <td>{{ $index + 1 }}</td>
-                                        <td>{{ $detail->nama_detail_layanan }}</td>
-                                        <td>{{ $detail->kode_detail_layanan }}</td>
-                                        <td>
-                                            <!-- Tombol Edit Detail Layanan -->
-                                            <button class="btn btn-primary action" data-bs-toggle="modal"
-                                                data-bs-target="#editDetailLayananModal-{{ $detail->id }}">
-                                                <i class="ti ti-edit"></i>
-                                            </button>
-
-                                            <!-- Form Hapus -->
-                                            <form action="{{ route('detail-layanan.destroy', $detail->id) }}"
-                                                method="POST" style="display:inline;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger"
-                                                    onclick="return confirm('Yakin ingin menghapus detail layanan ini?')">
-                                                    <i class="ti ti-trash"></i>
+                                        <th>#</th>
+                                        <th>Nama Detail Layanan</th>
+                                        <th>Kode Detail Layanan</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($detailLayanan as $index => $detail)
+                                        <tr>
+                                            <td>{{ $index + 1 }}</td>
+                                            <td>{{ $detail->nama_detail_layanan }}</td>
+                                            <td>{{ $detail->kode_detail_layanan }}</td>
+                                            <td>
+                                                <!-- Tombol Edit Detail Layanan -->
+                                                <button class="btn btn-primary action" data-bs-toggle="modal"
+                                                    data-bs-target="#editDetailLayananModal-{{ $detail->id }}">
+                                                    <i class="ti ti-edit"></i>
                                                 </button>
-                                            </form>
 
-                                            <!-- Modal Edit Detail Layanan -->
-                                            <div class="modal fade" id="editDetailLayananModal-{{ $detail->id }}"
-                                                tabindex="-1"
-                                                aria-labelledby="editDetailLayananModalLabel-{{ $detail->id }}"
-                                                aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <form
-                                                            action="{{ route('detail-layanan.update', $detail->id) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('PUT')
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title">Edit Detail Layanan</h5>
-                                                                <button type="button" class="btn-close"
-                                                                    data-bs-dismiss="modal"
-                                                                    aria-label="Close"></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="mb-3">
-                                                                    <label for="nama_detail_layanan"
-                                                                        class="form-label">Nama Detail Layanan</label>
-                                                                    <input type="text" class="form-control"
-                                                                        name="nama_detail_layanan"
-                                                                        value="{{ $detail->nama_detail_layanan }}"
-                                                                        required>
-                                                                </div>
-                                                                <div class="mb-3">
-                                                                    <label for="kode_detail_layanan"
-                                                                        class="form-label">Kode Detail Layanan</label>
-                                                                    <input type="text" class="form-control"
-                                                                        name="kode_detail_layanan"
-                                                                        value="{{ $detail->kode_detail_layanan }}"
-                                                                        required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Tutup</button>
-                                                                <button type="submit" class="btn btn-primary">Simpan
-                                                                    Perubahan</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
+                                                <!-- Form Hapus -->
+                                                <form action="{{ route('detail-layanan.destroy', $detail->id) }}"
+                                                    method="POST" style="display:inline;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger"
+                                                        onclick="return confirm('Yakin ingin menghapus detail layanan ini?')">
+                                                        <i class="ti ti-trash"></i>
+                                                    </button>
+                                                </form>
+
+
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+
+                        @foreach ($detailLayanan as $index => $detail)
+                            <!-- Modal Edit Detail Layanan -->
+                            <div class="modal fade" id="editDetailLayananModal-{{ $detail->id }}" tabindex="-1"
+                                aria-labelledby="editDetailLayananModalLabel-{{ $detail->id }}" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <form action="{{ route('detail-layanan.update', $detail->id) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Edit Detail Layanan</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <label for="nama_detail_layanan" class="form-label">Nama Detail
+                                                        Layanan</label>
+                                                    <input type="text" class="form-control"
+                                                        name="nama_detail_layanan"
+                                                        value="{{ $detail->nama_detail_layanan }}" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="kode_detail_layanan" class="form-label">Kode Detail
+                                                        Layanan</label>
+                                                    <input type="text" class="form-control"
+                                                        name="kode_detail_layanan"
+                                                        value="{{ $detail->kode_detail_layanan }}" required>
                                                 </div>
                                             </div>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Tutup</button>
+                                                <button type="submit" class="btn btn-primary">Simpan
+                                                    Perubahan</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
 
                         <!-- Tombol Tambah Detail Layanan -->
-                        <button class="btn btn-info" data-bs-toggle="modal"
-                            data-bs-target="#addDetailLayananModal">
+                        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addDetailLayananModal">
                             Tambah Detail Layanan
                         </button>
 
                         <!-- Modal Tambah Detail Layanan -->
                         <div class="modal fade" id="addDetailLayananModal" tabindex="-1"
                             aria-labelledby="addDetailLayananModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
+                            <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <form action="{{ route('detail-layanan.store', ['layanan_id' => $layanan->id]) }}"
                                         method="POST">

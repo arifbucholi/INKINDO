@@ -7,7 +7,7 @@ use App\Models\News;
 use App\Models\Page;
 use App\Models\Member;
 use App\Models\Contact;
-use App\Models\Service;
+use App\Models\Layanan;
 use App\Models\Barcodes;
 use App\Models\Messages;
 use App\Http\Middleware\CheckRole;
@@ -15,18 +15,35 @@ use App\Http\Middleware\CheckRole;
 class AdminController extends Controller
 {
     public function index()
-    {
-        $messages = Messages::all();
-        $contacts = Contact::all();
-        $pages = Page::all();
-        $news = News::all();
-        $services = Service::all();
-        $members = Member::all();
-        $barcodes = Barcodes::all();
+{
+    // Ambil semua data
+    $members = Member::all();
+    $layanan = Layanan::all();
+    $news = News::all();
+    $messages = Messages::all();
+    $faqs = Faq::all();
 
-        return view('admin.index', compact('messages','contacts', 'pages', 'news', 'services', 'members', 'barcodes'
+    // Hitung total data
+    $totalMembers = $members->count();
+    $totalLayanan = $layanan->count();
+    $totalNews = $news->count();
+    $totalMessages = $messages->count();
+    $totalFaq = $faqs->count();
+
+    // Kirimkan data ke view
+    return view('admin.index', compact(
+        'messages',
+        'news',
+        'layanan',
+        'members',
+        'totalMembers',
+        'totalLayanan',
+        'totalNews',
+        'totalMessages',
+        'totalFaq',
     ));
-    }
+}
+
 
     public function indexFaq()
     {

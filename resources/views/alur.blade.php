@@ -4,13 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alur</title>
+    <title>{{ $seo->seo_title ?? 'Default Title' }}</title>
+    <meta name="description" content="{{ $seo->meta_description ?? 'Default Description' }}">
+    <meta name="keywords" content="{{ $seo->keywords ?? '' }}">
+
     <link rel="stylesheet" href="css/styles.css">
     <link rel="shortcut icon" type="image/png" href="../admin/images/logos/inkindo-kotak.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VJSGM32TZ"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2PLGYJL7V"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -19,7 +22,7 @@
         }
         gtag('js', new Date());
 
-        gtag('config', 'G-3VJSGM32TZ');
+        gtag('config', 'G-W2PLGYJL7V');
     </script>
 </head>
 
@@ -56,35 +59,35 @@
 
 
         <!-- Main Hero Content -->
-        <div class="hero-content container">
+        <div class="hero-content-2">
             <div class="text-content-2">
-                <h1>Alur</h1>
-                <p>Kami menyediakan layanan pendaftaran anggota, perpanjangan keanggotaan, dan pengajuan SBU secara
+                <h1 class="slide-left">Daftar Anggota</h1>
+                <p class="slide-left">Kami menyediakan layanan pendaftaran anggota, perpanjangan keanggotaan, dan
+                    pengajuan SBU secara
                     online. Proses mudah, cepat, dan transparan untuk mendukung kesuksesan bisnis Anda.</p>
             </div>
         </div>
     </section>
 
     <div class="card-container">
-        <div class="card" data-content="pendaftaran-anggota">
+        <div class="card pop-up-card" data-content="pendaftaran-anggota">
             <div class="icon">
                 <img src="../img/icon/pendaftaran-anggota.png" alt="Registrasi Icon">
             </div>
             <h3>Pendaftaran Anggota</h3>
         </div>
-        <div class="card" data-content="perpanjangan-anggota">
+        <div class="card pop-up-card" data-content="perpanjangan-anggota">
             <div class="icon">
                 <img src="../img/icon/perpanjangan-anggota.png" alt="Perpanjangan Icon">
             </div>
             <h3>Perpanjangan Anggota</h3>
         </div>
-        <div class="card" data-content="pendaftaran-sbu">
+        <div class="card pop-up-card" data-content="pendaftaran-sbu">
             <div class="icon">
                 <img src="../img/icon/pendaftaran-sbu.png" alt="SBU Icon">
             </div>
             <h3>Pendaftaran SBU</h3>
         </div>
-
     </div>
 
 
@@ -92,48 +95,50 @@
     <div id="content-container">
         <!-- Konten untuk Pendaftaran Anggota -->
         <div id="pendaftaran-anggota" class="content-section active">
+            <h1>Pendaftaran Anggota</h1>
+            <br>
             <section class="steps-section">
                 <div class="step">
-                    <div class="image">
+                    <div class="image slide-left">
                         <img src="../img/illustration/registrasi.png" alt="Registrasi">
                     </div>
-                    <div class="text">
+                    <div class="text slide-right">
                         <h2>1. Registrasi</h2>
                         <p>Buat akun baru dengan mengisi formulir pendaftaran.</p>
                     </div>
                 </div>
                 <div class="step-reverse">
-                    <div class="text">
+                    <div class="text slide-left">
                         <h2>2. Input Data</h2>
                         <p>Lengkapi data diri Anda secara lengkap dan benar.</p>
                     </div>
-                    <div class="image">
+                    <div class="image slide-right">
                         <img src="../img/illustration/inputData.png" alt="Input Data">
                     </div>
                 </div>
                 <div class="step">
-                    <div class="image">
+                    <div class="image slide-left">
                         <img src="../img/illustration/notifikasi.png" alt="Notifikasi">
                     </div>
-                    <div class="text">
+                    <div class="text slide-right">
                         <h2>3. Notifikasi</h2>
                         <p>Kami akan mengirimkan email konfirmasi ke alamat email Anda.</p>
                     </div>
                 </div>
                 <div class="step-reverse">
-                    <div class="text">
+                    <div class="text slide-left">
                         <h2>4. Pembayaran</h2>
                         <p>Lakukan pembayaran iuran keanggotaan melalui metode yang tersedia.</p>
                     </div>
-                    <div class="image">
+                    <div class="image slide-right">
                         <img src="../img/illustration/pembayaran.png" alt="Pembayaran">
                     </div>
                 </div>
                 <div class="step">
-                    <div class="image">
+                    <div class="image slide-left">
                         <img src="../img/illustration/cetak.png" alt="Cetak">
                     </div>
-                    <div class="text">
+                    <div class="text slide-right">
                         <h2>5. Cetak</h2>
                         <p>Setelah pembayaran terkonfirmasi, Anda bisa mencetak kartu anggota secara mandiri.</p>
                     </div>
@@ -143,59 +148,61 @@
 
         <!-- Konten untuk Perpanjangan Anggota -->
         <div id="perpanjangan-anggota" class="content-section" style="display: none;">
+            <h1>Perpanjangan Anggota</h1>
+            <br>
             <section class="steps-section">
                 <!-- Konten untuk Perpanjangan Anggota bisa berbeda sesuai kebutuhan -->
                 <div class="step">
-                    <div class="image">
+                    <div class="image slide-left">
                         <img src="../img/illustration/login.png" alt="Login">
                     </div>
-                    <div class="text">
+                    <div class="text slide-right">
                         <h2>1. Login</h2>
                         <p>Masuk ke akun Anda menggunakan email dan kata sandi.</p>
                     </div>
                 </div>
                 <div class="step-reverse">
-                    <div class="text">
+                    <div class="text slide-left">
                         <h2>2. Status Anggota</h2>
                         <p>Periksa status keanggotaan Anda untuk memastikan waktu perpanjangan.</p>
                     </div>
-                    <div class="image">
+                    <div class="image slide-right">
                         <img src="../img/illustration/statusAnggota.png" alt="Status Anggota">
                     </div>
                 </div>
                 <div class="step">
-                    <div class="image">
+                    <div class="image slide-left">
                         <img src="../img/illustration/perpanjangan.png" alt="Perpanjangan">
                     </div>
-                    <div class="text">
+                    <div class="text slide-right">
                         <h2>3. Perpanjangan</h2>
                         <p>Pilih opsi perpanjangan keanggotaan dan lengkapi formulir.</p>
                     </div>
                 </div>
                 <div class="step-reverse">
-                    <div class="text">
+                    <div class="text slide-left">
                         <h2>4. Notifikasi</h2>
                         <p>Anda akan menerima email konfirmasi mengenai permohonan perpanjangan.</p>
                     </div>
-                    <div class="image">
+                    <div class="image slide-right">
                         <img src="../img/illustration/notifikasi.png" alt="Notifikasi">
                     </div>
                 </div>
                 <div class="step">
-                    <div class="image">
+                    <div class="image slide-left">
                         <img src="../img/illustration/pembayaran.png" alt="Pembayaran">
                     </div>
-                    <div class="text">
+                    <div class="text slide-right">
                         <h2>5. Pembayaran</h2>
                         <p>Lakukan pembayaran iuran tahunan melalui metode yang tersedia.</p>
                     </div>
                 </div>
                 <div class="step-reverse">
-                    <div class="text">
+                    <div class="text slide-left">
                         <h2>6. Cetak</h2>
                         <p>Setelah pembayaran terkonfirmasi, Anda bisa mencetak kartu anggota yang baru.</p>
                     </div>
-                    <div class="image">
+                    <div class="image slide-right">
                         <img src="../img/illustration/cetak.png" alt="Cetak">
                     </div>
                 </div>
@@ -205,6 +212,8 @@
 
         <!-- Konten untuk Pendaftaran SBU -->
         <div id="pendaftaran-sbu" class="content-section" style="display: none;">
+            <h1>Pendaftaran SBU</h1>
+            <br>
             <section class="steps-section">
                 <!-- Konten untuk Pendaftaran SBU bisa berbeda sesuai kebutuhan -->
                 <div class="step">
@@ -289,15 +298,25 @@
                 khususnya di Jawa Timur yang didirikan pada tanggal 20 Juni 1979 di Jakarta.
             </p>
             <div class="social-icons">
-                <a href="#"><img src="../img/icon/facebook.png" alt=""></a>
-                <a href="#"><img src="../img/icon/instagram.png" alt=""></a>
-                <a href="#"><img src="../img/icon/youtube.png" alt=""></a>
+                <a href="https://m.facebook.com/dppinkindo.jawatimur.1/" target="_blank"
+                    rel="noopener noreferrer"><img src="../img/icon/facebook.png" alt=""></a>
+                <a href="https://www.instagram.com/inkindo.jatim?igsh=MTZrN3FidGJhemV5dA==" target="_blank"
+                    rel="noopener noreferrer"><img src="../img/icon/instagram.png" alt=""></a>
+                <a href="https://youtube.com/@inkindojawatimur8519" target="_blank" rel="noopener noreferrer"><img
+                        src="../img/icon/youtube.png" alt=""></a>
             </div>
         </div>
 
         <div class="footer-links">
             <h3>Link</h3>
-            <a href="#">Informasi Publik</a>
+            <p><a href="/">Beranda</a></p>
+            <p><a href="/profil">Profil</a></p>
+            <p><a href="/alur">Alur</a></p>
+            <p><a href="/produk">Layanan</a></p>
+            <p><a href="/berita">Berita</a></p>
+            <p><a href="https://lpse.lkpp.go.id/eproc4/lelang" target="_blank" rel="noopener noreferrer">Info
+                    Lelang</a></p>
+            <p><a href="/anggota">Anggota</a></p>
         </div>
 
         <div class="footer-contact">
@@ -306,12 +325,21 @@
                 Surabaya, Jawa
                 Timur 60132</p>
             <p><img src="../img/icon/phone.png" alt="">(031) 8702310</p>
-            <p><img src="../img/icon/envelope.png" alt="">inkindojatim@blabla.com</p>
+            <p><img src="../img/icon/envelope.png" alt="">inkindojawatimur@gmail.com</p>
             <p><img src="../img/icon/globe.png" alt="">inkindojawatimur.org</p>
         </div>
 
         <div class="footer-copyright">
-            <p><?php echo "© " . date("Y") . " INKINDO Jawa Timur."; ?></p>
+            {{-- <ul>
+                @foreach ($cityData as $city => $count)
+                    <li>{{ $city }}: {{ $count }} perusahaan</li>
+                @endforeach
+            </ul> --}}
+            <p><?php echo '© ' . date('Y') . ' INKINDO Jawa Timur.'; ?></p>
+            <a href="https://wa.me/6282141867036?text=Halo%20saya%20ingin%20bertanya%20tentang%20INKINDO"
+                target="_blank" rel="noopener" class="whatsapp-float">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp" />
+            </a>
         </div>
     </footer>
 

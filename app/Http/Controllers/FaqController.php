@@ -27,19 +27,19 @@ class FaqController extends Controller
         $request->validate([
             'question' => 'required|string|max:255',
             'answer' => 'required|string',
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         // dd($request->all());
 
         Faq::create($request->all());
 
-        return redirect()->route('faq.store')->with('success', 'FAQ berhasil ditambahkan.');
+        return redirect()->route('faq.index')->with('success', 'FAQ berhasil ditambahkan.');
     }
 
     // Menampilkan form untuk mengedit FAQ
     public function edit(Faq $faq)
     {
+        // dd($faq);
         return view('faq.edit', compact('faq'));
     }
 
@@ -47,8 +47,8 @@ class FaqController extends Controller
     public function update(Request $request, Faq $faq)
     {
         $request->validate([
-            'pertanyaan' => 'required|string|max:255',
-            'jawaban' => 'required|string',
+            'question' => 'required|string|max:255',
+            'answer' => 'required|string',
         ]);
 
         $faq->update($request->all());
