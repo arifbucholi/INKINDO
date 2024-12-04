@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             'username' => 'superadmin',
             'email' => 'superadmin@example.com',
             'password' => Hash::make('password'),
-            'role' => 'super_admin', // Mengatur role sebagai superadmin
+            'role' => 'super_admin',
         ]);
 
         // Seeder untuk Admin
@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
             'username' => 'admin',
             'email' => 'admin@example.com',
             'password' => Hash::make('password'),
-            'role' => 'admin', // Mengatur role sebagai admin
+            'role' => 'admin',
         ]);
     }
 }

@@ -24,6 +24,12 @@
                                 <a href="#" class="text-nowrap logo-img text-center d-block py-3 w-100">
                                     <img src="../admin/images/logos/inkindo2.png " width="180" alt="">
                                 </a>
+                                @if ($errors->has('login'))
+                                    <div class="alert alert-danger">
+                                        {{ $errors->first('login') }}
+                                    </div>
+                                @endif
+
                                 {{-- <p class="text-center">Your Social Campaigns</p> --}}
                                 <form method="POST" action="{{ url('login') }}">
                                     @csrf <!-- Token CSRF untuk melindungi dari serangan CSRF -->
@@ -63,13 +69,6 @@
                       <a class="text-primary fw-bold ms-2" href="{{ route('register') }}">Create an account</a> --}}
                                     </div>
                                 </form>
-                                @if ($errors->any())
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                @endif
                             </div>
                         </div>
                     </div>

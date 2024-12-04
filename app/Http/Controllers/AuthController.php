@@ -36,7 +36,9 @@ class AuthController extends Controller
         }
 
         // Jika login gagal
-        return redirect()->route('login')->withErrors(['username' => 'Login gagal']);
+        return redirect()->route('login')
+        ->withInput()
+        ->withErrors(['login' => 'Login gagal.']);
     }
 
     public function logout(Request $request)
